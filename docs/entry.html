@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagebox</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Вікно з кнопкою та текстовим полем (entry)</h1>
+    <p>Ось приклад коду для створення вікна з кнопкою та текстовим полем за допомогою Tkinter:</p>
+    <pre><code>
+import tkinter
+import tkinter.messagebox
+
+# Створення вікна програми
+window = tkinter.Tk()
+
+# Створення змінної для отримання тексту з поля вводу
+str_var = tkinter.StringVar()
+
+# Функція обробки натискання кнопки
+def button_click():
+    tkinter.messagebox.showinfo("Увага!", "Сьогодні - " + str_var.get())
+
+# Створення текстового напису
+label = tkinter.Label(text="Введіть день тижня:")
+label.pack()
+
+# Створення текстового поля для введення дня тижня
+edit = tkinter.Entry(window, textvariable=str_var)
+edit.pack()
+
+# Створення кнопки для підтвердження
+button = tkinter.Button(window, text="Гаразд", command=button_click)
+button.pack()
+
+# Запуск головного циклу програми
+window.mainloop()
+    </code></pre>
+<a href="index.html">На головну</a>
+</body>
+</html>
