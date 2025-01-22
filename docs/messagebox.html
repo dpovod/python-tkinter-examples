@@ -10,27 +10,28 @@
     <h1>Вікно з кнопкою, при натисканні на яку відображається вікно повідомлення (messagebox)</h1>
     <p>Ось приклад коду для створення вікна повідомлення за допомогою Tkinter:</p>
     <pre><code>
-import tkinter as tk
-from tkinter import messagebox
+import tkinter
+import tkinter.messagebox
 
 # Функція для відображення вікна повідомлення
 def show_message():
-    messagebox.showinfo("Відповідь", "Hello Again!")
+    tkinter.messagebox.showinfo("Відповідь", "Hello Again!")
 
 # Створення головного вікна
-root = tk.Tk()
-root.title("Hello World!")
+window = tkinter.Tk()
+window.title("Hello World!")
 
 # Текст на вікні
-label = tk.Label(root, text="Hello World!")
+label = tkinter.Label(window, text="Hello World!")
 label.pack(pady=10)
 
 # Кнопка
-button = tk.Button(root, text="Привіт", command=show_message)
+button = tkinter.Button(window, text="Привіт", command=show_message)
 button.pack(pady=10)
 
 # Запуск програми
-root.mainloop()
+window.mainloop()
     </code></pre>
+<a href="index.html">На головну</a>
 </body>
 </html>
