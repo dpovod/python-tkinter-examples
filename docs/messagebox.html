@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messagebox</title>
+</head>
+<body>
+    <h1>Програма Hello World!</h1>
+    <p>Ось приклад коду для створення вікна повідомлення за допомогою Tkinter:</p>
+    <pre><code>
+import tkinter as tk
+from tkinter import messagebox
+
+# Функція для відображення вікна повідомлення
+def show_message():
+    messagebox.showinfo("Відповідь", "Hello Again!")
+
+# Створення головного вікна
+root = tk.Tk()
+root.title("Hello World!")
+
+# Текст на вікні
+label = tk.Label(root, text="Hello World!")
+label.pack(pady=10)
+
+# Кнопка
+button = tk.Button(root, text="Привіт", command=show_message)
+button.pack(pady=10)
+
+# Запуск програми
+root.mainloop()
+    </code></pre>
+</body>
+</html>
