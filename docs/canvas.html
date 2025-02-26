@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Відображення геометричних фігур за домогою модуля Canvas</h1>
+    <p>Приклад коду для створення полотна з прямокутником за допомогою Canvas:</p>
+    <pre><code>
+from tkinter import *  # Імпортуємо все з модуля tkinter
+
+window = Tk()  # Створюємо головне вікно
+
+# Створюємо полотно (Canvas) розміром 200x200 пікселів з білим фоном
+c = Canvas(window, width=200, height=200, bg='white')
+c.pack()  # Розміщуємо полотно у вікні
+
+# Малюємо прямокутник
+c.create_rectangle(
+    60, 80, 140, 190,   # координати діагоналі
+    fill='yellow',      # колір заповнення
+    outline='blue',     # колір межі
+    width=3             # ширина межі
+)
+
+window.mainloop()  # Запускаємо головний цикл обробки подій
+    </code></pre>
+<a href="index.html">На головну</a>
+</body>
+</html>
