@@ -46,13 +46,14 @@ greet(name)
         <p>Функція <code>sum_two_numbers(a, b)</code> приймає два числа і повертає їх суму.</p>
         <pre><code>
 def sum_two_numbers(a, b):
-    suma = a + b
-    print("Сума чисел =", suma)
-
+    return a + b
+    
 a = int(input("Введіть перше число: "))
 b = int(input("Введіть друге число: "))
+
 # Виклик функції
-sum_two_numbers(a, b)
+suma = sum_two_numbers(a, b)
+print("Сума чисел =", suma)
         </code></pre>
 
         <a href="index">На головну</a>
