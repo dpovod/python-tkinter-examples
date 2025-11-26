@@ -37,3 +37,6 @@ a {
 a:hover {
     background-color: #005bb5;
 }
+.nowrap {
+    white-space: nowrap;
+}
