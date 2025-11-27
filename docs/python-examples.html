@@ -1,39 +1,46 @@
 <!DOCTYPE html>
 <html lang="uk">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Приклади простих програм мовою Python</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <h1>Приклади простих програм мовою Python</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приклади простих програм мовою Python</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Приклади простих програм мовою Python</h1>
 
-        <h2>Без функцій</h2>
+    <h2>Без функцій</h2>
 
-        <h3>1. Привітання</h3>
-        <p>Користувач вводить ім'я. Програма відповідає, наприклад: "Привіт, Сергій". У відповіді програми має бути ім'я користувача.</p>
-        <pre><code>
+    <h3>1. Привітання</h3>
+    <p>
+      Користувач вводить ім'я. Програма відповідає, наприклад: "Привіт, Сергій".
+      У відповіді програми має бути ім'я користувача.
+    </p>
+    <pre><code>
 name = input("Введіть своє ім'я: ")
 print("Привіт,", name + "!")
         </code></pre>
 
-        <h3>2. Сума двох чисел</h3>
-        <p>Користувач вводить два числа. Програма рахує їх суму і повертає користувачу.</p>
-        <pre><code>
+    <h3>2. Сума двох чисел</h3>
+    <p>
+      Користувач вводить два числа. Програма рахує їх суму і повертає
+      користувачу.
+    </p>
+    <pre><code>
 a = int(input("Введіть перше число: "))
 b = int(input("Введіть друге число: "))
 suma = a + b
 print("Сума чисел =", suma)
         </code></pre>
 
-        <hr>
+    <h2>Ті самі приклади, але через функції з параметрами</h2>
 
-        <h2>Ті самі приклади, але через функції з параметрами</h2>
-
-        <h3>1. Привітання (через функцію з параметром)</h3>
-        <p>Функція <code>greet(name)</code> приймає ім’я користувача як аргумент і виводить привітання.</p>
-        <pre><code>
+    <h3>1. Привітання (через функцію з параметром)</h3>
+    <p>
+      Функція <code>greet(name)</code> приймає ім’я користувача як аргумент і
+      виводить привітання.
+    </p>
+    <pre><code>
 def greet(name):
     print("Привіт,", name + "!")
 
@@ -42,9 +49,12 @@ name = input("Введіть своє ім'я: ")
 greet(name)
         </code></pre>
 
-        <h3>2. Сума двох чисел (через функцію з параметрами)</h3>
-        <p>Функція <code>sum_two_numbers(a, b)</code> приймає два числа і повертає їх суму.</p>
-        <pre><code>
+    <h3>2. Сума двох чисел (через функцію з параметрами)</h3>
+    <p>
+      Функція <code>sum_two_numbers(a, b)</code> приймає два числа і повертає їх
+      суму.
+    </p>
+    <pre><code>
 def sum_two_numbers(a, b):
     return a + b
     
@@ -56,6 +66,15 @@ suma = sum_two_numbers(a, b)
 print("Сума чисел =", suma)
         </code></pre>
 
-        <a href="index.html">На головну</a>
-    </body>
+    <footer>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
+          />
+        </svg>
+        На головну
+      </a>
+    </footer>
+  </body>
 </html>

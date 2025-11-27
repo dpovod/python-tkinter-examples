@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Налагодження програм (debug)</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <h1>Налагодження програм (debug)</h1>
     <p>1. Додавання двох чисел</p>
     <pre><code>
@@ -16,7 +16,7 @@ num2 = input("Enter the second number: ")
 sum = num1 + num2
 print("Sum:", sum)
     </code></pre>
-  <p>2. Обчислення площі прямокутника</p>
+    <p>2. Обчислення площі прямокутника</p>
     <pre><code>
 # Код з помилкою
 length = 5
@@ -24,7 +24,7 @@ width = "3"
 area = length * width
 print("Площа прямокутника: ", area)
     </code></pre>
-  <p>3. Виведення результату ділення</p>
+    <p>3. Виведення результату ділення</p>
     <pre><code>
 # Код з помилкою
 numerator = 10
@@ -41,7 +41,7 @@ num3 = 30
 average = num1 + num2 + num3 / 3
 print("Середнє значення:", average)
     </code></pre>
-<p>4. Функція піднесення до квадрату</p>
+    <p>4. Функція піднесення до квадрату</p>
     <pre><code>
 # Код з помилкою
 def square(num):
@@ -124,15 +124,22 @@ age = 13
 message = "Привіт, мене звати" + name + "і мені" + age + "років."
 print(message)
     </code></pre>
-    <p>14. Програма має обчислити суму до оплати після 15% знижки на товар вартістю 1200 грн.</p>
+    <p>
+      14. Програма має обчислити суму до оплати після 15% знижки на товар
+      вартістю 1200 грн.
+    </p>
     <pre><code>
 price = 1200
 discount = 15
 final_price = price - price * discount
 print("Сума до оплати:", final_price, "грн")
     </code></pre>
-<p>15. Повідомлення про покупку.</p>
-<p>Програма має сформувати повідомлення:<br><i>Ви купили 3 ручки по 12 грн. Загальна сума: 36 грн.</i></p>
+    <p>15. Повідомлення про покупку.</p>
+    <p>
+      Програма має сформувати повідомлення:<br /><i
+        >Ви купили 3 ручки по 12 грн. Загальна сума: 36 грн.</i
+      >
+    </p>
     <pre><code>
 item = "ручки"
 quantity = 3
@@ -140,7 +147,16 @@ price = 12
 total = price + quantity
 message = "Ви купили " + quantity + " " + item + " по " + price + " грн. Загальна сума: " + total + " грн."
 print(message)
-    </code></pre> 
-<a href="index.html">На головну</a>
-</body>
+    </code></pre>
+    <footer>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
+          />
+        </svg>
+        На головну
+      </a>
+    </footer>
+  </body>
 </html>
