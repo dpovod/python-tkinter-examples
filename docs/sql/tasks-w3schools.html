@@ -20,7 +20,7 @@
 
     <p>❗ <strong>Відповідь на кожне завдання — SQL-запит</strong></p>
 
-    <h2>Рівень 1. Базова вибірка</h2>
+    <h2>🟢 Рівень 1. Базова вибірка (SELECT)</h2>
 
     <div class="task">
       <strong>1.</strong> Вибрати всіх клієнтів з таблиці
@@ -40,7 +40,8 @@
 
     <div class="task">
       <strong>2.</strong> Вибрати ідентифікатор, назву клієнта та країну
-      (<code>CustomerID</code>, <code>CustomerName</code>, <code>Country</code>).
+      (<code>CustomerID</code>, <code>CustomerName</code>,
+      <code>Country</code>).
       <div class="hint">
         Де подивитись приклад: W3Schools →
         <strong
@@ -70,25 +71,10 @@
       </div>
     </div>
 
-    <h2>Рівень 2. Фільтрація</h2>
+    <h2>🔎 Рівень 2. Фільтрація даних (WHERE)</h2>
 
     <div class="task">
-      <strong>4.</strong> Вибрати всі продукти, у яких ціна більша за 60.
-      <div class="hint">
-        Де подивитись приклад: W3Schools →
-        <strong
-          ><a
-            href="https://www.w3schools.com/sql/sql_where.asp"
-            target="_blank"
-          >
-            SQL WHERE
-          </a></strong
-        >
-      </div>
-    </div>
-
-    <div class="task">
-      <strong>5.</strong> Вибрати всіх постачальників з країни
+      <strong>4.</strong> Вибрати всіх постачальників з країни
       <code>Germany</code>.
       <div class="hint">
         Де подивитись приклад: W3Schools →
@@ -104,7 +90,7 @@
     </div>
 
     <div class="task">
-      <strong>6.</strong> Вибрати всіх клієнтів з міста <code>London</code>.
+      <strong>5.</strong> Вибрати всі замовлення після <code>1997-01-01</code>.
       <div class="hint">
         Де подивитись приклад: W3Schools →
         <strong
@@ -119,37 +105,7 @@
     </div>
 
     <div class="task">
-      <strong>7.</strong> Вибрати працівників з іменем <code>Robert</code>.
-      <div class="hint">
-        Де подивитись приклад: W3Schools →
-        <strong
-          ><a
-            href="https://www.w3schools.com/sql/sql_where.asp"
-            target="_blank"
-          >
-            SQL WHERE
-          </a></strong
-        >
-      </div>
-    </div>
-
-    <div class="task">
-      <strong>8.</strong> Вибрати всі замовлення після <code>1997-01-01</code>.
-      <div class="hint">
-        Де подивитись приклад: W3Schools →
-        <strong
-          ><a
-            href="https://www.w3schools.com/sql/sql_where.asp"
-            target="_blank"
-          >
-            SQL WHERE
-          </a></strong
-        >
-      </div>
-    </div>
-
-    <div class="task">
-      <strong>9.</strong> Вибрати продукти з ціною від 10 до 30.
+      <strong>6.</strong> Вибрати продукти з ціною від 10 до 30.
       <div class="hint">
         Де подивитись приклад: W3Schools →
         <strong
@@ -164,7 +120,7 @@
     </div>
 
     <div class="task">
-      <strong>10.</strong> Вибрати клієнтів, які не з країни <code>USA</code>.
+      <strong>7.</strong> Вибрати клієнтів, які не з країни <code>USA</code>.
       <div class="hint">
         Де подивитись приклад: W3Schools →
         <strong
@@ -172,6 +128,123 @@
             SQL WHERE (NOT)
           </a></strong
         >
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>8.</strong> Вибрати всі продукти, назва яких містить "ch".
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_like.asp" target="_blank">
+            SQL LIKE
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>9.</strong> Вибрати всі замовлення, де ідентифікатор товару
+      дорівнює <code>11</code> <strong>та</strong> кількість одиниць товару
+      більша ніж <code>15</code>.
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_and.asp" target="_blank">
+            SQL AND
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>10.</strong> Вибрати всіх клієнтів з міста <code>London</code>
+      <strong>або</strong> <code>Berlin</code>.
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_or.asp" target="_blank">
+            SQL OR
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>11.</strong> Вибрати працівників з іменами <code>Robert</code> або
+      <code>Margaret</code>. (Використати оператор <code>IN</code> — це короткий
+      запис для кількох умов <code>OR</code>.)
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_in.asp" target="_blank">
+            SQL IN
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <h2>📊 Рівень 3. Агрегація даних (GROUP BY)</h2>
+
+    <div class="task">
+      <strong>12.</strong> Порахувати кількість клієнтів у кожній країні.
+      Вивести назву країни та кількість клієнтів.
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a
+            href="https://www.w3schools.com/sql/sql_groupby.asp"
+            target="_blank"
+          >
+            SQL GROUP BY
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>13.</strong> Вивести країни, в яких більше ніж 5 клієнтів.
+      (Використати <code>GROUP BY</code> та <code>HAVING</code>.)
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a
+            href="https://www.w3schools.com/sql/sql_having.asp"
+            target="_blank"
+          >
+            SQL HAVING
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <h2>🔗 Рівень 4. Об'єднання таблиць (JOIN)</h2>
+
+    <div class="task">
+      <strong>14.</strong> Вивести номер замовлення та ім’я клієнта для кожного
+      замовлення. (Об’єднати таблиці <code>Orders</code> та
+      <code>Customers</code>.)
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_join.asp" target="_blank">
+            SQL JOIN
+          </a>
+        </strong>
+      </div>
+    </div>
+
+    <div class="task">
+      <strong>15.</strong> Вивести назву продукту та назву категорії, до якої
+      він належить. (Об’єднати таблиці <code>Products</code> та
+      <code>Categories</code>.)
+      <div class="hint">
+        Де подивитись приклад: W3Schools →
+        <strong>
+          <a href="https://www.w3schools.com/sql/sql_join.asp" target="_blank">
+            SQL JOIN
+          </a>
+        </strong>
       </div>
     </div>
 
