@@ -181,6 +181,29 @@ body {
     overflow: hidden;
 }
 
+.container:has(img) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container:has(img) img {
+    width: calc(33.333% - 7px);
+    height: 200px;
+    object-fit: cover;
+}
+
+.container:has(img:only-child) img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+}
+
+.container:has(img:nth-child(2):last-child) img {
+    width: calc(50% - 5px);
+    height: 200px;
+}
+
 /* Заголовки */
 h1,
 h2,
@@ -208,8 +231,6 @@ nav a:hover {
 
 /* Зображення */
 img {
-    max-width: 100%;
-    height: auto;
     display: block;
     border-radius: 8px;
 }
