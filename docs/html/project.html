@@ -132,31 +132,75 @@
 
     <pre><code>
 &lt;!doctype html&gt;
-&lt;html lang="uk"&gt;
+&lt;html&gt;
   &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
+    &lt;meta charset=&quot;UTF-8&quot; /&gt;
+    &lt;meta lang=&quot;ua&quot; /&gt;
     &lt;title&gt;Мій сайт&lt;/title&gt;
-    &lt;link rel="stylesheet" href="style.css" /&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
   &lt;/head&gt;
-
   &lt;body&gt;
     &lt;nav&gt;
-      &lt;a href="index.html"&gt;Головна&lt;/a&gt;
-      &lt;a href="events.html"&gt;Події&lt;/a&gt;
-      &lt;a href="contacts.html"&gt;Контакти&lt;/a&gt;
+      &lt;a href=&quot;index.html&quot;&gt;Головна&lt;/a&gt; &lt;a href=&quot;events.html&quot;&gt;Події&lt;/a&gt;
+      &lt;a href=&quot;contacts.html&quot;&gt;Контакти&lt;/a&gt;
     &lt;/nav&gt;
-
-    &lt;div class="container"&gt;
-      &lt;h1&gt;Заголовок&lt;/h1&gt;
-      &lt;p&gt;Текст...&lt;/p&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;h1&gt;Заголовок сторінки&lt;/h1&gt;
+      &lt;p&gt;
+        Ever can rejects has, rejects teachings because pursue man pursue
+        advantage those take because master fault do. In no&amp;nbsp;&amp;mdash;
+        laborious a, will avoids find one expound will occasionally and, us
+        fault itself, encounter painful encounter has there human pursue example
+        because but.
+      &lt;/p&gt;
+      &lt;p&gt;
+        How system trivial, account, again circumstances itself extremely know
+        toil because occur happiness truth loves: fault has actual mistaken who
+        praising.
+      &lt;/p&gt;
+      &lt;p&gt;
+        The except right: with, explorer pursues pursue, truth in is
+        which&amp;nbsp;&amp;mdash; ever give pursue: painful desires rationally pursues
+        has desires you teachings not example.
+      &lt;/p&gt;
     &lt;/div&gt;
-
-    &lt;div class="container"&gt;
-      &lt;h1&gt;Ще один блок&lt;/h1&gt;
-      &lt;p&gt;Ще текст...&lt;/p&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;h1&gt;Галерея&lt;/h1&gt;
+      &lt;p&gt;Нижче показано приклад фотогалереї...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;img src=&quot;https://picsum.photos/400/200&quot; /&gt;
+      &lt;img src=&quot;https://picsum.photos/400/201&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;&lt;img src=&quot;https://picsum.photos/400/202&quot; /&gt;&lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;img src=&quot;https://picsum.photos/400/203&quot; /&gt;
+      &lt;img src=&quot;https://picsum.photos/400/204&quot; /&gt;
+      &lt;img src=&quot;https://picsum.photos/400/205&quot; /&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;container&quot;&gt;
+      &lt;h1&gt;Список товарів&lt;/h1&gt;
+      &lt;div class=&quot;cards&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;
+          &lt;img src=&quot;https://picsum.photos/400/300&quot; /&gt;
+          &lt;h3&gt;Product 1&lt;/h3&gt;
+          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;card&quot;&gt;
+          &lt;img src=&quot;https://picsum.photos/400/301&quot; /&gt;
+          &lt;h3&gt;Product 2&lt;/h3&gt;
+          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;card&quot;&gt;
+          &lt;img src=&quot;https://picsum.photos/400/302&quot; /&gt;
+          &lt;h3&gt;Product 3&lt;/h3&gt;
+          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
     &lt;/div&gt;
   &lt;/body&gt;
 &lt;/html&gt;
+
     </code></pre>
 
     <h2>Базовий CSS</h2>
@@ -179,6 +223,29 @@ body {
     padding: 20px;
     background: white;
     overflow: hidden;
+}
+
+.container:has(> img) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.container:has(> img) img {
+    width: calc(33.333% - 7px);
+    height: 200px;
+    object-fit: cover;
+}
+
+.container:has(> img:only-child) img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+}
+
+.container:has(> img:nth-child(2):last-child) img {
+    width: calc(50% - 5px);
+    height: 200px;
 }
 
 /* Заголовки */
@@ -208,8 +275,6 @@ nav a:hover {
 
 /* Зображення */
 img {
-    max-width: 100%;
-    height: auto;
     display: block;
     border-radius: 8px;
 }
@@ -220,12 +285,39 @@ ul {
 }
 
 /* Картки (можна використати) */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
 .card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 8px;
-    background: #fafafa;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    /* важливо для картинки */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    /* магія */
+}
+
+.card h3 {
+    margin: 10px 15px 5px;
+}
+
+.card p {
+    margin: 0 15px 15px;
+    color: #555;
 }
     </code></pre>
 
