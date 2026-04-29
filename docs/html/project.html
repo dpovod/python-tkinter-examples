@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Проєкт: створення сайту</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <h1>Проєкт: створення сайту</h1>
+
+    <p>
+      Ваше завдання — створити <strong>повноцінний сайт</strong>, а не
+      презентацію.
+    </p>
+
+    <p>Ви можете обрати тему нижче та використати готову структуру.</p>
+
+    <h2>Оберіть тему сайту</h2>
+
+    <h3>🎮 Сайт про гру</h3>
+    <ul>
+      <li>Головна (опис гри)</li>
+      <li>Персонажі</li>
+      <li>Геймплей</li>
+      <li>Галерея</li>
+    </ul>
+
+    <h3>🎬 Сайт про фільм або серіал</h3>
+    <ul>
+      <li>Головна (сюжет)</li>
+      <li>Герої</li>
+      <li>Цікаві факти</li>
+      <li>Трейлер</li>
+    </ul>
+
+    <h3>🌍 Подорож / країна</h3>
+    <ul>
+      <li>Головна</li>
+      <li>Цікаві місця</li>
+      <li>Культура / їжа</li>
+      <li>Галерея</li>
+    </ul>
+
+    <h3>🍔 Сайт кафе</h3>
+    <ul>
+      <li>Головна</li>
+      <li>Меню</li>
+      <li>Про нас</li>
+      <li>Контакти</li>
+    </ul>
+
+    <h3>🎧 Музичний виконавець</h3>
+    <ul>
+      <li>Головна (біографія)</li>
+      <li>Альбоми</li>
+      <li>Популярні пісні</li>
+      <li>Відео</li>
+    </ul>
+
+    <h3>🚗 Улюблений автомобіль</h3>
+    <ul>
+      <li>Головна</li>
+      <li>Характеристики</li>
+      <li>Плюси / мінуси</li>
+      <li>Галерея</li>
+    </ul>
+
+    <h3>🎮 ТОП-5 ігор</h3>
+    <ul>
+      <li>Головна</li>
+      <li>Гра 1</li>
+      <li>Гра 2</li>
+      <li>Гра 3</li>
+      <li>Гра 4</li>
+      <li>Гра 5</li>
+    </ul>
+
+    <h2>Складніший варіант</h2>
+
+    <h3>💻 Інтернет-магазин</h3>
+    <ul>
+      <li>Головна</li>
+      <li>
+        Каталог
+        <ul>
+          <li>Категорія 1</li>
+          <li>Категорія 2</li>
+        </ul>
+      </li>
+      <li>Про нас</li>
+      <li>Контакти</li>
+    </ul>
+
+    <p>
+      <strong>Можна обрати свою тему, але структура має бути схожа.</strong>
+    </p>
+
+    <h2>План роботи</h2>
+
+    <ol>
+      <li>Оберіть тему сайту</li>
+      <li>Продумайте структуру</li>
+      <li>Знайдіть текст і зображення</li>
+      <li>Створіть HTML-сторінки</li>
+      <li>Зробіть меню на кожній сторінці</li>
+      <li>Перевірте, чи всі сторінки пов’язані</li>
+      <li>Додайте стилі (CSS)</li>
+    </ol>
+
+    <h2>Чекліст</h2>
+
+    <ul>
+      <li>✅ У мене є 3–5 сторінок</li>
+      <li>✅ Кожна сторінка має назву (не "Сторінка 1")</li>
+      <li>✅ Є меню на кожній сторінці</li>
+      <li>✅ Всі сторінки пов’язані між собою</li>
+      <li>✅ Є текст і зображення</li>
+      <li>✅ З головної сторінки можна перейти всюди</li>
+    </ul>
+
+    <h2>Правила</h2>
+
+    <ul>
+      <li>❌ Не можна робити "Сторінка 1 / 2 / 3"</li>
+      <li>❌ Не можна робити сайт без меню</li>
+      <li>❌ Не можна робити сторінки без тексту</li>
+      <li>❌ Сторінки повинні бути пов’язані між собою</li>
+    </ul>
+
+    <h2>Базовий HTML-шаблон</h2>
+
+    <pre><code>
+&lt;!doctype html&gt;
+&lt;html lang="uk"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8" /&gt;
+    &lt;title&gt;Мій сайт&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css" /&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;nav&gt;
+      &lt;a href="index.html"&gt;Головна&lt;/a&gt;
+      &lt;a href="events.html"&gt;Події&lt;/a&gt;
+      &lt;a href="contacts.html"&gt;Контакти&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;div class="container"&gt;
+      &lt;h1&gt;Заголовок&lt;/h1&gt;
+      &lt;p&gt;Текст...&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div class="container"&gt;
+      &lt;h1&gt;Ще один блок&lt;/h1&gt;
+      &lt;p&gt;Ще текст...&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+
+    <h2>Базовий CSS</h2>
+
+    <pre><code>
+/* Базові налаштування */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Контейнер */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: white;
+    overflow: hidden;
+}
+
+/* Заголовки */
+h1,
+h2,
+h3 {
+    color: #222;
+}
+
+/* Меню */
+nav {
+    background-color: #333;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+nav a {
+    color: white;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Зображення */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Списки */
+ul {
+    padding-left: 20px;
+}
+
+/* Картки (можна використати) */
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 8px;
+    background: #fafafa;
+}
+    </code></pre>
+
+    <h2>Перевір себе</h2>
+
+    <p>Якщо інша людина зайде на твій сайт — вона зрозуміє, куди натискати?</p>
+
+    <footer>
+      <a href="../index.html" class="back-link">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
+          />
+        </svg>
+        На головну
+      </a>
+    </footer>
+  </body>
+</html>
