@@ -1,6 +1,6 @@
 {%- comment -%}
   Бейджі рівня уроку, згруповані за діапазонами класів:
-  «7–8 кл. База», «9 кл. Додатково» (правило 3.4 плану редизайну).
+  «7–8 кл. Стандарт», «9 кл. Додатково» (правило 3.4 плану редизайну).
   Вимагає include.lesson (об'єкт з _data/lessons.yml: grades, extra).
 {%- endcomment -%}
 {%- assign lesson = include.lesson -%}
@@ -71,7 +71,7 @@
 {%- endif -%}
 
 {%- if base_result != "" %}
-<span class="badge badge--level-base">{{ base_result }} кл. База</span>
+<span class="badge badge--level-base">{{ base_result }} кл. Стандарт</span>
 {%- endif -%}
 {%- if extra_result != "" %}
 <span class="badge badge--level-extra">{{ extra_result }} кл. Додатково</span>
