@@ -541,6 +541,12 @@ details.solution[open] summary {
   background: var(--row-hover);
 }
 
+/* Клас(и) і бейдж рівня завжди притиснуті до правого краю — і коли
+   стоять поруч із назвою, і коли переносяться на свій рядок. */
+.lesson-row > *:last-child {
+  margin-left: auto;
+}
+
 .lesson-row__meta {
   display: flex;
   align-items: center;
@@ -802,13 +808,6 @@ details.solution[open] summary {
 
 .lesson-row__title {
   min-width: 0;
-}
-
-@media (max-width: 480px) {
-  .lesson-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
 }
 
 /* Картка "Розділ готується" */
