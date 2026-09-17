@@ -117,6 +117,32 @@
     applyHash();
   }
 
+  function initResourceFilter() {
+    var filter = document.querySelector(".resources-filter");
+    if (!filter) return;
+    var chips = filter.querySelectorAll(".grade-chip");
+    var cards = document.querySelectorAll(".resource-card");
+
+    filter.addEventListener("click", function (e) {
+      var chip = e.target.closest(".grade-chip");
+      if (!chip) return;
+      var grade = chip.getAttribute("data-grade");
+
+      chips.forEach(function (c) {
+        c.setAttribute("aria-pressed", c === chip ? "true" : "false");
+      });
+
+      cards.forEach(function (card) {
+        if (grade === "all") {
+          card.classList.remove("is-hidden-by-filter");
+          return;
+        }
+        var grades = (card.getAttribute("data-grades") || "").split(",");
+        card.classList.toggle("is-hidden-by-filter", grades.indexOf(grade) === -1);
+      });
+    });
+  }
+
   function enableArrowKeyTabs(container, selector) {
     if (!container) return;
     container.addEventListener("keydown", function (e) {
@@ -134,6 +160,7 @@
   function init() {
     addCopyButtons();
     initHomeView();
+    initResourceFilter();
     enableArrowKeyTabs(document.querySelector(".view-switcher"), ".view-tab");
     enableArrowKeyTabs(document.querySelector(".grade-chips"), ".grade-chip");
   }

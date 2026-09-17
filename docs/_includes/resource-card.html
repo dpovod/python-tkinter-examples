@@ -9,7 +9,7 @@
   {%- if r.url contains "://" -%}{%- assign is_external = true -%}{%- endif -%}
   {%- assign new_tab = false -%}
   {%- if is_external or r.type == "file" -%}{%- assign new_tab = true -%}{%- endif -%}
-  <a class="resource-card" href="{% if is_external %}{{ r.url }}{% else %}{{ r.url | relative_url }}{% endif %}"{% if new_tab %} target="_blank" rel="noopener"{% endif %}>
+  <a class="resource-card" href="{% if is_external %}{{ r.url }}{% else %}{{ r.url | relative_url }}{% endif %}"{% if new_tab %} target="_blank" rel="noopener"{% endif %}{% if r.grades %} data-grades="{{ r.grades | join: ',' }}"{% endif %}>
     {%- case r.type -%}
       {%- when "book" -%}
       <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="book" dim=20 %}</span>
