@@ -393,14 +393,26 @@ p code {
   overflow: hidden;
 }
 
-.code-block .highlight,
-.code-block pre {
+.code-block .highlight {
+  display: block;
   margin: 0;
   padding: 24px;
   overflow-x: auto;
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-mono);
   font-size: 15px;
   line-height: 1.7;
+  color: var(--code-text);
+}
+
+/* Виділення тексту в блоці коду: типовий колір браузера погано читається
+   на темному фоні (майже білий на світлому тексті), тому задаємо свій. */
+.code-block ::selection {
+  background: rgba(196, 181, 253, 0.35);
   color: var(--code-text);
 }
 
