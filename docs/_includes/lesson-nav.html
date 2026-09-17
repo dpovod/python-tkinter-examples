@@ -1,0 +1,34 @@
+{%- comment -%}
+  Навігація "попередня/наступна тема" в межах одного розділу (subject).
+  Без site.data.lessons (до фази 2) нічого не виводить.
+{%- endcomment -%}
+{%- if site.data.lessons and page.lesson -%}
+  {%- assign lesson = site.data.lessons | where: "id", page.lesson | first -%}
+  {%- if lesson -%}
+    {%- assign siblings = site.data.lessons | where: "subject", lesson.subject -%}
+    {%- assign idx = nil -%}
+    {%- for l in siblings -%}
+      {%- if l.id == lesson.id -%}{%- assign idx = forloop.index0 -%}{%- endif -%}
+    {%- endfor -%}
+    {%- if idx -%}
+      {%- assign prev_idx = idx | minus: 1 -%}
+      {%- if prev_idx >= 0 -%}{%- assign prev = siblings[prev_idx] -%}{%- endif -%}
+    {%- endif -%}
+    {%- assign next_idx = idx | plus: 1 -%}
+    {%- assign next = siblings[next_idx] -%}
+    {%- if prev or next %}
+    <nav class="lesson-nav" aria-label="Навігація між темами">
+      {%- if prev %}
+      <a class="lesson-nav__btn lesson-nav__btn--prev" href="{{ prev.url | relative_url }}">
+        {% include icon.html name="chevron-left" %}{{ prev.title }}
+      </a>
+      {%- endif %}
+      {%- if next %}
+      <a class="lesson-nav__btn lesson-nav__btn--next" href="{{ next.url | relative_url }}">
+        {{ next.title }}{% include icon.html name="chevron-right" %}
+      </a>
+      {%- endif %}
+    </nav>
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}

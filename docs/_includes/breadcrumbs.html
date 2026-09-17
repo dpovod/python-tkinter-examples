@@ -1,0 +1,21 @@
+{%- comment -%}
+  Навігаційний шлях. Працює і без даних (фаза 2): без site.data.lessons/
+  subjects показує лише «Головна / Назва сторінки».
+{%- endcomment -%}
+{%- assign lesson = nil -%}
+{%- if site.data.lessons and page.lesson -%}
+  {%- assign lesson = site.data.lessons | where: "id", page.lesson | first -%}
+{%- endif -%}
+{%- assign subject = nil -%}
+{%- if lesson and site.data.subjects -%}
+  {%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+{%- endif -%}
+<nav class="breadcrumbs" aria-label="Навігаційний шлях">
+  <ol>
+    <li><a href="{{ '/' | relative_url }}">Головна</a></li>
+    {%- if subject %}
+    <li><a href="{{ '/' | relative_url }}#subject-{{ subject.id }}" style="color: {{ subject.fg }};">{{ subject.label }}</a></li>
+    {%- endif %}
+    <li aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>

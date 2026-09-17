@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article>
+  {% include breadcrumbs.html %}
+
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>{{ page.title }}</h1>
+      {%- if page.description %}
+      <p class="page-header__description">{{ page.description }}</p>
+      {%- endif %}
+    </div>
+  </div>
+
+  {{ content }}
+</article>

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<article>
+  {% include breadcrumbs.html %}
+
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>{{ page.heading | default: page.title }}</h1>
+      {%- if page.description %}
+      <p class="page-header__description">{{ page.description }}</p>
+      {%- endif %}
+    </div>
+    {%- comment -%}
+      Бейджі розділу й рівня за класами підключаються у фазі 2,
+      коли з'явиться _data/lessons.yml і _data/subjects.yml.
+    {%- endcomment -%}
+  </div>
+
+  {{ content }}
+
+  {% include lesson-nav.html %}
+</article>
