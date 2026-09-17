@@ -375,9 +375,7 @@ main {
   margin: 0;
 }
 
-.card code,
-.card p code,
-p code {
+code:not([class*="language-"]) {
   background: var(--code-inline-bg);
   padding: 2px 8px;
   border-radius: 6px;
