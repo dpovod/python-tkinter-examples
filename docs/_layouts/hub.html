@@ -11,6 +11,21 @@ layout: default
       <p class="page-header__description">{{ page.description }}</p>
       {%- endif %}
     </div>
+    {%- assign lesson = nil -%}
+    {%- if site.data.lessons and page.lesson -%}
+      {%- assign lesson = site.data.lessons | where: "id", page.lesson | first -%}
+    {%- endif -%}
+    {%- assign subject = nil -%}
+    {%- if lesson -%}
+      {%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+    {%- elsif page.subject -%}
+      {%- assign subject = site.data.subjects | where: "id", page.subject | first -%}
+    {%- endif -%}
+    {%- if subject -%}
+    <div class="page-header__badges">
+      {%- include subject-badge.html subject=subject -%}
+    </div>
+    {%- endif -%}
   </div>
 
   {{ content }}

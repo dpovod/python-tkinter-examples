@@ -9,6 +9,9 @@
 {%- assign subject = nil -%}
 {%- if lesson and site.data.subjects -%}
   {%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+{%- elsif page.subject and site.data.subjects -%}
+  {%- comment -%} Хаби без власного lesson (наприклад excel.html) вказують subject напряму. {%- endcomment -%}
+  {%- assign subject = site.data.subjects | where: "id", page.subject | first -%}
 {%- endif -%}
 <nav class="breadcrumbs" aria-label="Навігаційний шлях">
   <ol>

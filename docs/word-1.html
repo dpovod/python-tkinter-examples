@@ -5,11 +5,6 @@ lesson: word
 description: "Структура документа Word."
 ---
 <div class="card">
-  <a class="resource-card" href="{{ '/files/word-structure.pdf' | relative_url }}" target="_blank" rel="noopener">
-    <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="file-download" dim=20 %}</span>
-    <span>
-      <span class="resource-card__title">Структура документа Word</span><br />
-      <span class="resource-card__note">PDF, відкриється в новій вкладці</span>
-    </span>
-  </a>
+  {%- assign word_pdf = site.data.resources | where: "id", "word-structure-pdf" | first -%}
+  {% include resource-card.html resource=word_pdf %}
 </div>

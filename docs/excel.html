@@ -1,13 +1,17 @@
 ---
 layout: hub
 title: "Excel"
+subject: office
 description: "Завдання з Excel: формули, посилання на комірки, діаграми, автоматичні фільтри."
 ---
 <div class="card">
   <div class="lesson-row-list">
-    <a class="lesson-row" href="{{ '/excel/formulas.html' | relative_url }}">Використання формул в Excel</a>
-    <a class="lesson-row" href="{{ '/excel/cell-address.html' | relative_url }}">Абсолютні, відносні й мішані посилання на комірки в Excel</a>
-    <a class="lesson-row" href="{{ '/excel/diagram.html' | relative_url }}">Діаграми в Excel</a>
-    <a class="lesson-row" href="{{ '/excel/filter.html' | relative_url }}">Автоматичні фільтри в Excel</a>
+    {%- assign excel_lessons = site.data.lessons | where_exp: "l", "l.id contains 'excel'" -%}
+    {%- for lesson in excel_lessons -%}
+    <a class="lesson-row" href="{{ lesson.url | relative_url }}">
+      <span class="lesson-row__title">{{ lesson.title }}</span>
+      <span class="grade-range">{% include grade-range.html grades=lesson.grades %}</span>
+    </a>
+    {%- endfor -%}
   </div>
 </div>
