@@ -835,6 +835,37 @@ details.solution[open] summary {
   margin: 0;
 }
 
+/* Короткий спалах картки розділу, коли на неї веде чип-посилання
+   (#subject-python). Наскрізне затухання без JS: :target + анімація,
+   що сама повертається до звичайного вигляду картки. */
+@keyframes subject-card-target-flash {
+  0% {
+    box-shadow: 0 0 0 3px var(--hero), var(--shadow);
+    background: var(--row-hover);
+  }
+  100% {
+    box-shadow: var(--shadow);
+    background: var(--surface);
+  }
+}
+
+@keyframes subject-card-planned-target-flash {
+  0% {
+    box-shadow: 0 0 0 3px var(--hero);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+
+.subject-card:target {
+  animation: subject-card-target-flash 1.6s ease-out;
+}
+
+.subject-card--planned:target {
+  animation: subject-card-planned-target-flash 1.6s ease-out;
+}
+
 /* За класами */
 .grade-chips {
   display: flex;
