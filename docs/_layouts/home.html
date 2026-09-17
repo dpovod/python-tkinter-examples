@@ -118,22 +118,7 @@ layout: default
   <div class="resource-grid">
     {%- assign featured = site.data.resources | where: "featured", true -%}
     {%- for r in featured -%}
-      {%- unless r.url == "TODO" -%}
-      <a class="resource-card" href="{{ r.url }}" target="_blank" rel="noopener">
-        {%- case r.type -%}
-          {%- when "book" -%}
-          <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="book" dim=20 %}</span>
-          {%- when "file" -%}
-          <span class="resource-card__icon" style="background: #E9F5FF; color: #1D7FBF;">{% include icon.html name="file-download" dim=20 %}</span>
-          {%- else -%}
-          <span class="resource-card__icon" style="background: #F1EFFF; color: #6D5BD0;">{% include icon.html name="link" dim=20 %}</span>
-        {%- endcase -%}
-        <span>
-          <span class="resource-card__title">{{ r.title }}<span class="visually-hidden"> (відкриється в новій вкладці)</span></span><br />
-          {%- if r.note %}<span class="resource-card__note">{{ r.note }}</span>{%- endif %}
-        </span>
-      </a>
-      {%- endunless -%}
+      {%- include resource-card.html resource=r -%}
     {%- endfor -%}
   </div>
   <p><a href="{{ '/resources/' | relative_url }}">Усі ресурси</a></p>

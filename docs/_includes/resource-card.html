@@ -1,0 +1,26 @@
+{%- comment -%}
+  Картка ресурсу (посилання/файл/книга) з _data/resources.yml.
+  Пропускає записи з url: TODO. Usage:
+  {% include resource-card.html resource=r %}
+{%- endcomment -%}
+{%- assign r = include.resource -%}
+{%- if r and r.url != "TODO" -%}
+  {%- assign is_external = false -%}
+  {%- if r.url contains "://" -%}{%- assign is_external = true -%}{%- endif -%}
+  {%- assign new_tab = false -%}
+  {%- if is_external or r.type == "file" -%}{%- assign new_tab = true -%}{%- endif -%}
+  <a class="resource-card" href="{% if is_external %}{{ r.url }}{% else %}{{ r.url | relative_url }}{% endif %}"{% if new_tab %} target="_blank" rel="noopener"{% endif %}>
+    {%- case r.type -%}
+      {%- when "book" -%}
+      <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="book" dim=20 %}</span>
+      {%- when "file" -%}
+      <span class="resource-card__icon" style="background: #E9F5FF; color: #1D7FBF;">{% include icon.html name="file-download" dim=20 %}</span>
+      {%- else -%}
+      <span class="resource-card__icon" style="background: #F1EFFF; color: #6D5BD0;">{% include icon.html name="link" dim=20 %}</span>
+    {%- endcase -%}
+    <span>
+      <span class="resource-card__title">{{ r.title }}{% if new_tab %}<span class="visually-hidden"> (відкриється в новій вкладці)</span>{% endif %}</span><br />
+      {%- if r.note %}<span class="resource-card__note">{{ r.note }}</span>{%- endif %}
+    </span>
+  </a>
+{%- endif -%}
