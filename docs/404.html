@@ -1,0 +1,22 @@
+---
+layout: default
+title: "Сторінку не знайдено"
+permalink: /404.html
+description: "Сторінку не знайдено."
+---
+<article>
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>Сторінку не знайдено</h1>
+      <p class="page-header__description">Можливо, адреса застаріла або містить одруку. Спробуйте один із варіантів нижче.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="lesson-row-list">
+      <a class="lesson-row" href="{{ '/' | relative_url }}">{% include icon.html name="home" dim=18 %} На головну</a>
+      <a class="lesson-row" href="{{ '/' | relative_url }}#grade-6">За класами</a>
+      <a class="lesson-row" href="{{ '/resources/' | relative_url }}">Ресурси</a>
+    </div>
+  </div>
+</article>
