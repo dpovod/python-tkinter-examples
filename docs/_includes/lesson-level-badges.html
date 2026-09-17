@@ -1,0 +1,78 @@
+{%- comment -%}
+  Бейджі рівня уроку, згруповані за діапазонами класів:
+  «7–8 кл. База», «9 кл. Додатково» (правило 3.4 плану редизайну).
+  Вимагає include.lesson (об'єкт з _data/lessons.yml: grades, extra).
+{%- endcomment -%}
+{%- assign lesson = include.lesson -%}
+{%- assign all_grades = lesson.grades | sort -%}
+{%- assign extra_grades = lesson.extra | sort -%}
+{%- assign extra_str = "," -%}
+{%- for e in extra_grades -%}{%- assign extra_str = extra_str | append: e | append: "," -%}{%- endfor -%}
+
+{%- assign base_result = "" -%}
+{%- assign base_start = nil -%}
+{%- assign base_end = nil -%}
+{%- assign extra_result = "" -%}
+{%- assign extra_start = nil -%}
+{%- assign extra_end = nil -%}
+
+{%- for g in all_grades -%}
+  {%- assign needle = "," | append: g | append: "," -%}
+  {%- if extra_str contains needle -%}
+    {%- assign extra_expected_next = extra_end | plus: 1 -%}
+    {%- if extra_start != nil and g == extra_expected_next -%}
+      {%- assign extra_end = g -%}
+    {%- else -%}
+      {%- if extra_start != nil -%}
+        {%- if extra_result != "" -%}{%- assign extra_result = extra_result | append: ", " -%}{%- endif -%}
+        {%- if extra_start == extra_end -%}
+          {%- assign extra_result = extra_result | append: extra_start -%}
+        {%- else -%}
+          {%- assign extra_result = extra_result | append: extra_start | append: "–" | append: extra_end -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- assign extra_start = g -%}
+      {%- assign extra_end = g -%}
+    {%- endif -%}
+  {%- else -%}
+    {%- assign base_expected_next = base_end | plus: 1 -%}
+    {%- if base_start != nil and g == base_expected_next -%}
+      {%- assign base_end = g -%}
+    {%- else -%}
+      {%- if base_start != nil -%}
+        {%- if base_result != "" -%}{%- assign base_result = base_result | append: ", " -%}{%- endif -%}
+        {%- if base_start == base_end -%}
+          {%- assign base_result = base_result | append: base_start -%}
+        {%- else -%}
+          {%- assign base_result = base_result | append: base_start | append: "–" | append: base_end -%}
+        {%- endif -%}
+      {%- endif -%}
+      {%- assign base_start = g -%}
+      {%- assign base_end = g -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- if base_start != nil -%}
+  {%- if base_result != "" -%}{%- assign base_result = base_result | append: ", " -%}{%- endif -%}
+  {%- if base_start == base_end -%}
+    {%- assign base_result = base_result | append: base_start -%}
+  {%- else -%}
+    {%- assign base_result = base_result | append: base_start | append: "–" | append: base_end -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if extra_start != nil -%}
+  {%- if extra_result != "" -%}{%- assign extra_result = extra_result | append: ", " -%}{%- endif -%}
+  {%- if extra_start == extra_end -%}
+    {%- assign extra_result = extra_result | append: extra_start -%}
+  {%- else -%}
+    {%- assign extra_result = extra_result | append: extra_start | append: "–" | append: extra_end -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if base_result != "" %}
+<span class="badge badge--level-base">{{ base_result }} кл. База</span>
+{%- endif -%}
+{%- if extra_result != "" %}
+<span class="badge badge--level-extra">{{ extra_result }} кл. Додатково</span>
+{%- endif -%}

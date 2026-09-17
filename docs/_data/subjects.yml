@@ -1,0 +1,46 @@
+- id: python
+  label: "Python"
+  bg: "#EAF2FF"
+  fg: "#2563EB"
+  icon: braces
+- id: tkinter
+  label: "Tkinter"
+  bg: "#E6FBF7"
+  fg: "#0D7C72"
+  icon: window
+- id: office
+  label: "Microsoft Office"
+  bg: "#FFF6E5"
+  fg: "#946008"
+  icon: document
+- id: db
+  label: "Бази даних"
+  bg: "#F3EEFF"
+  fg: "#7C3AED"
+  icon: database
+- id: web
+  label: "Веб"
+  bg: "#FFEEF1"
+  fg: "#BE123C"
+  icon: code
+- id: security
+  label: "Кібербезпека й медіаграмотність"
+  bg: "#EEF1F5"
+  fg: "#334155"
+  icon: shield
+  planned: true
+  grades: [6, 7, 8, 9, 10]
+- id: graphics
+  label: "Графіка й мультимедіа"
+  bg: "#FCEBFB"
+  fg: "#A21CAF"
+  icon: image
+  planned: true
+  grades: [8, 9, 11]
+- id: grade6
+  label: "Презентації та ігрові проєкти"
+  bg: "#FFEFE6"
+  fg: "#C2410C"
+  icon: presentation
+  planned: true
+  grades: [6]

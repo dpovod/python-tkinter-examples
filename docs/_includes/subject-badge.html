@@ -1,0 +1,6 @@
+{%- comment -%}
+  Бейдж розділу кольором subjects.yml. Usage: {% include subject-badge.html subject=subject %}
+{%- endcomment -%}
+{%- if include.subject -%}
+<span class="badge" style="background: {{ include.subject.bg }}; color: {{ include.subject.fg }};">{{ include.subject.label }}</span>
+{%- endif -%}

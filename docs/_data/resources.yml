@@ -1,0 +1,96 @@
+# ---------- Підручники ----------
+- id: imzo-library
+  title: "Електронна бібліотека ІМЗО: підручники"
+  type: link
+  group: textbooks
+  url: "https://lib.imzo.gov.ua/"
+  note: "Офіційні електронні версії підручників"
+  grades: [6, 7, 8, 9, 10, 11]
+  featured: true
+
+- id: textbook-6
+  title: "Підручник для 6 класу"   # TODO: автори
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [6]
+
+- id: textbook-7
+  title: "Підручник для 7 класу"   # TODO: автори
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [7]
+
+- id: textbook-8
+  title: "Підручник для 8 класу"   # TODO: автори (ймовірно Морзе Н. В., Барна О. В., 2025)
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [8]
+
+- id: textbook-9
+  title: "Н. Морзе, О. Барна. Інформатика-9"
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [9]
+
+- id: textbook-10
+  title: "Підручник для 10 класу"  # TODO: автори
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [10]
+
+- id: textbook-11
+  title: "Підручник для 11 класу"  # TODO: автори
+  type: book
+  group: textbooks
+  url: TODO
+  grades: [11]
+
+# ---------- Кібербезпека ----------
+- id: phishing-quiz
+  title: "Phishing Quiz від Google"
+  type: link
+  group: security
+  url: "https://phishingquiz.withgoogle.com/"
+  note: "Англійською. 8 листів із поясненнями після кожної відповіді."
+  grades: [6, 7, 8, 9]
+  featured: true
+
+- id: interland
+  title: "Interland: безпека дітей в Інтернеті"
+  type: link
+  group: security
+  url: TODO   # знайти українськомовну версію гри Google Be Internet Awesome
+  note: "Українською. Гра з чотирма світами: ввічливість, фейки, приватність, захист даних."
+  grades: [6, 7]
+  featured: true
+
+- id: dia-online-safety
+  title: "Освітній серіал про онлайн-безпеку (Дія.Освіта)"
+  type: link
+  group: security
+  url: TODO   # знайти сторінку серіалу на osvita.diia.gov.ua
+  note: "Фінальний тест і сертифікат після перегляду."
+  grades: [8, 9, 10]
+
+# ---------- Практика ----------
+- id: w3schools-trysql
+  title: "W3Schools: онлайн-редактор SQL"
+  type: link
+  group: practice
+  url: "https://www.w3schools.com/sql/trysql.asp"
+  note: "Готова база даних, нічого не треба встановлювати"
+  grades: [9, 10, 11]
+
+# ---------- Файли вчителя ----------
+- id: word-structure-pdf
+  title: "Структура документа Word"
+  type: file
+  group: files
+  url: /files/word-structure.pdf
+  note: "PDF"
+  grades: [7, 8, 11]

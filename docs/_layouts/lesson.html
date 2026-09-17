@@ -11,10 +11,17 @@ layout: default
       <p class="page-header__description">{{ page.description }}</p>
       {%- endif %}
     </div>
-    {%- comment -%}
-      Бейджі розділу й рівня за класами підключаються у фазі 2,
-      коли з'явиться _data/lessons.yml і _data/subjects.yml.
-    {%- endcomment -%}
+    {%- assign lesson = nil -%}
+    {%- if site.data.lessons and page.lesson -%}
+      {%- assign lesson = site.data.lessons | where: "id", page.lesson | first -%}
+    {%- endif -%}
+    {%- if lesson -%}
+    <div class="page-header__badges">
+      {%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+      {%- include subject-badge.html subject=subject -%}
+      {%- include lesson-level-badges.html lesson=lesson -%}
+    </div>
+    {%- endif -%}
   </div>
 
   {{ content }}
