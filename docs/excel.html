@@ -1,30 +1,13 @@
-<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Excel</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Excel</h1>
-    <div class="card-list">
-      <a class="card" href="excel/formulas.html">Використання формул в Excel</a>
-      <a class="card" href="excel/cell-address.html"
-        >Абсолютні, відносні й мішані посилання на комірки в Excel</a
-      >
-      <a class="card" href="excel/diagram.html">Діаграми в Excel</a>
-      <a class="card" href="excel/filter.html">Автоматичні фільтри в Excel</a>
-    </div>
-    <footer>
-      <a href="index.html" class="back-link">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
-          />
-        </svg>
-        На головну
-      </a>
-    </footer>
-  </body>
-</html>
+---
+layout: hub
+title: "Excel"
+description: "Завдання з Excel: формули, посилання на комірки, діаграми, автоматичні фільтри."
+---
+<div class="card">
+  <div class="lesson-row-list">
+    <a class="lesson-row" href="{{ '/excel/formulas.html' | relative_url }}">Використання формул в Excel</a>
+    <a class="lesson-row" href="{{ '/excel/cell-address.html' | relative_url }}">Абсолютні, відносні й мішані посилання на комірки в Excel</a>
+    <a class="lesson-row" href="{{ '/excel/diagram.html' | relative_url }}">Діаграми в Excel</a>
+    <a class="lesson-row" href="{{ '/excel/filter.html' | relative_url }}">Автоматичні фільтри в Excel</a>
+  </div>
+</div>

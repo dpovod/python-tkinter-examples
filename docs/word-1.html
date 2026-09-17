@@ -1,18 +1,15 @@
-<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Word</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Word</h1>
-    <div class="card-list">
-      <a class="card" href="структура%20документа%20Word.pdf" target="_blank"
-        >Структура документа Word</a
-      >
-    </div>
-    <a class="back-link" href="index.html">На головну</a>
-  </body>
-</html>
+---
+layout: hub
+title: "Word"
+lesson: word
+description: "Структура документа Word."
+---
+<div class="card">
+  <a class="resource-card" href="{{ '/files/word-structure.pdf' | relative_url }}" target="_blank" rel="noopener">
+    <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="file-download" dim=20 %}</span>
+    <span>
+      <span class="resource-card__title">Структура документа Word</span><br />
+      <span class="resource-card__note">PDF, відкриється в новій вкладці</span>
+    </span>
+  </a>
+</div>
