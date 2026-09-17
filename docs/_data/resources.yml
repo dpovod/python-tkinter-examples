@@ -82,7 +82,7 @@
   title: "W3Schools: онлайн-редактор SQL"
   type: link
   group: practice
-  url: "https://www.w3schools.com/sql/trysql.asp"
+  url: "https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all"
   note: "Готова база даних, нічого не треба встановлювати"
   grades: [9, 10, 11]
 
