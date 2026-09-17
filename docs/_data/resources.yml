@@ -64,7 +64,7 @@
   title: "Interland: безпека дітей в Інтернеті"
   type: link
   group: security
-  url: TODO   # знайти українськомовну версію гри Google Be Internet Awesome
+  url: "https://beinternetawesome.withgoogle.com/uk_ua/interland/"
   note: "Українською. Гра з чотирма світами: ввічливість, фейки, приватність, захист даних."
   grades: [6, 7]
   featured: true
@@ -73,7 +73,7 @@
   title: "Освітній серіал про онлайн-безпеку (Дія.Освіта)"
   type: link
   group: security
-  url: TODO   # знайти сторінку серіалу на osvita.diia.gov.ua
+  url: "https://osvita.diia.gov.ua/courses/digital-skills-and-online-safety"
   note: "Фінальний тест і сертифікат після перегляду."
   grades: [8, 9, 10]
 
