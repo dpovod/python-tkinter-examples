@@ -1,211 +1,200 @@
+---
+layout: lesson
+title: "Проєкт: створення сайту"
+lesson: html-project
+description: "Проєктне завдання: створити багатосторінковий сайт на HTML і CSS за обраною темою."
+---
+<p>Ваше завдання — створити <strong>повноцінний сайт</strong>, а не презентацію.</p>
+<p>Ви можете обрати тему нижче та використати готову структуру.</p>
+
+<h2>Оберіть тему сайту</h2>
+
+<h3>🎮 Сайт про гру</h3>
+<ul>
+  <li>Головна (опис гри)</li>
+  <li>Персонажі</li>
+  <li>Геймплей</li>
+  <li>Галерея</li>
+</ul>
+
+<h3>🎬 Сайт про фільм або серіал</h3>
+<ul>
+  <li>Головна (сюжет)</li>
+  <li>Герої</li>
+  <li>Цікаві факти</li>
+  <li>Трейлер</li>
+</ul>
+
+<h3>🌍 Подорож / країна</h3>
+<ul>
+  <li>Головна</li>
+  <li>Цікаві місця</li>
+  <li>Культура / їжа</li>
+  <li>Галерея</li>
+</ul>
+
+<h3>🍔 Сайт кафе</h3>
+<ul>
+  <li>Головна</li>
+  <li>Меню</li>
+  <li>Про нас</li>
+  <li>Контакти</li>
+</ul>
+
+<h3>🎧 Музичний виконавець</h3>
+<ul>
+  <li>Головна (біографія)</li>
+  <li>Альбоми</li>
+  <li>Популярні пісні</li>
+  <li>Відео</li>
+</ul>
+
+<h3>🚗 Улюблений автомобіль</h3>
+<ul>
+  <li>Головна</li>
+  <li>Характеристики</li>
+  <li>Плюси / мінуси</li>
+  <li>Галерея</li>
+</ul>
+
+<h3>🎮 ТОП-5 ігор</h3>
+<ul>
+  <li>Головна</li>
+  <li>Гра 1</li>
+  <li>Гра 2</li>
+  <li>Гра 3</li>
+  <li>Гра 4</li>
+  <li>Гра 5</li>
+</ul>
+
+<h2>Складніший варіант</h2>
+
+<h3>💻 Інтернет-магазин</h3>
+<ul>
+  <li>Головна</li>
+  <li>
+    Каталог
+    <ul>
+      <li>Категорія 1</li>
+      <li>Категорія 2</li>
+    </ul>
+  </li>
+  <li>Про нас</li>
+  <li>Контакти</li>
+</ul>
+
+<p><strong>Можна обрати свою тему, але структура має бути схожа.</strong></p>
+
+<h2>План роботи</h2>
+<ol>
+  <li>Оберіть тему сайту</li>
+  <li>Продумайте структуру</li>
+  <li>Знайдіть текст і зображення</li>
+  <li>Створіть HTML-сторінки</li>
+  <li>Зробіть меню на кожній сторінці</li>
+  <li>Перевірте, чи всі сторінки пов’язані</li>
+  <li>Додайте стилі (CSS)</li>
+</ol>
+
+<h2>Чекліст</h2>
+<ul>
+  <li>✅ У мене є 3–5 сторінок</li>
+  <li>✅ Кожна сторінка має назву (не "Сторінка 1")</li>
+  <li>✅ Є меню на кожній сторінці</li>
+  <li>✅ Всі сторінки пов’язані між собою</li>
+  <li>✅ Є текст і зображення</li>
+  <li>✅ З головної сторінки можна перейти всюди</li>
+</ul>
+
+<h2>Правила</h2>
+<ul>
+  <li>❌ Не можна робити "Сторінка 1 / 2 / 3"</li>
+  <li>❌ Не можна робити сайт без меню</li>
+  <li>❌ Не можна робити сторінки без тексту</li>
+  <li>❌ Сторінки повинні бути пов’язані між собою</li>
+</ul>
+
+<h2>Базовий HTML-шаблон</h2>
+<div class="card card--example">
+  <div class="code-block">
+{% highlight html %}
 <!doctype html>
-<html lang="uk">
+<html>
   <head>
     <meta charset="UTF-8" />
-    <title>Проєкт: створення сайту</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles.css" />
+    <meta lang="ua" />
+    <title>Мій сайт</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Проєкт: створення сайту</h1>
-
-    <p>
-      Ваше завдання — створити <strong>повноцінний сайт</strong>, а не
-      презентацію.
-    </p>
-
-    <p>Ви можете обрати тему нижче та використати готову структуру.</p>
-
-    <h2>Оберіть тему сайту</h2>
-
-    <h3>🎮 Сайт про гру</h3>
-    <ul>
-      <li>Головна (опис гри)</li>
-      <li>Персонажі</li>
-      <li>Геймплей</li>
-      <li>Галерея</li>
-    </ul>
-
-    <h3>🎬 Сайт про фільм або серіал</h3>
-    <ul>
-      <li>Головна (сюжет)</li>
-      <li>Герої</li>
-      <li>Цікаві факти</li>
-      <li>Трейлер</li>
-    </ul>
-
-    <h3>🌍 Подорож / країна</h3>
-    <ul>
-      <li>Головна</li>
-      <li>Цікаві місця</li>
-      <li>Культура / їжа</li>
-      <li>Галерея</li>
-    </ul>
-
-    <h3>🍔 Сайт кафе</h3>
-    <ul>
-      <li>Головна</li>
-      <li>Меню</li>
-      <li>Про нас</li>
-      <li>Контакти</li>
-    </ul>
-
-    <h3>🎧 Музичний виконавець</h3>
-    <ul>
-      <li>Головна (біографія)</li>
-      <li>Альбоми</li>
-      <li>Популярні пісні</li>
-      <li>Відео</li>
-    </ul>
-
-    <h3>🚗 Улюблений автомобіль</h3>
-    <ul>
-      <li>Головна</li>
-      <li>Характеристики</li>
-      <li>Плюси / мінуси</li>
-      <li>Галерея</li>
-    </ul>
-
-    <h3>🎮 ТОП-5 ігор</h3>
-    <ul>
-      <li>Головна</li>
-      <li>Гра 1</li>
-      <li>Гра 2</li>
-      <li>Гра 3</li>
-      <li>Гра 4</li>
-      <li>Гра 5</li>
-    </ul>
-
-    <h2>Складніший варіант</h2>
-
-    <h3>💻 Інтернет-магазин</h3>
-    <ul>
-      <li>Головна</li>
-      <li>
-        Каталог
-        <ul>
-          <li>Категорія 1</li>
-          <li>Категорія 2</li>
-        </ul>
-      </li>
-      <li>Про нас</li>
-      <li>Контакти</li>
-    </ul>
-
-    <p>
-      <strong>Можна обрати свою тему, але структура має бути схожа.</strong>
-    </p>
-
-    <h2>План роботи</h2>
-
-    <ol>
-      <li>Оберіть тему сайту</li>
-      <li>Продумайте структуру</li>
-      <li>Знайдіть текст і зображення</li>
-      <li>Створіть HTML-сторінки</li>
-      <li>Зробіть меню на кожній сторінці</li>
-      <li>Перевірте, чи всі сторінки пов’язані</li>
-      <li>Додайте стилі (CSS)</li>
-    </ol>
-
-    <h2>Чекліст</h2>
-
-    <ul>
-      <li>✅ У мене є 3–5 сторінок</li>
-      <li>✅ Кожна сторінка має назву (не "Сторінка 1")</li>
-      <li>✅ Є меню на кожній сторінці</li>
-      <li>✅ Всі сторінки пов’язані між собою</li>
-      <li>✅ Є текст і зображення</li>
-      <li>✅ З головної сторінки можна перейти всюди</li>
-    </ul>
-
-    <h2>Правила</h2>
-
-    <ul>
-      <li>❌ Не можна робити "Сторінка 1 / 2 / 3"</li>
-      <li>❌ Не можна робити сайт без меню</li>
-      <li>❌ Не можна робити сторінки без тексту</li>
-      <li>❌ Сторінки повинні бути пов’язані між собою</li>
-    </ul>
-
-    <h2>Базовий HTML-шаблон</h2>
-
-    <pre><code>
-&lt;!doctype html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot; /&gt;
-    &lt;meta lang=&quot;ua&quot; /&gt;
-    &lt;title&gt;Мій сайт&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot; /&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;nav&gt;
-      &lt;a href=&quot;index.html&quot;&gt;Головна&lt;/a&gt; &lt;a href=&quot;events.html&quot;&gt;Події&lt;/a&gt;
-      &lt;a href=&quot;contacts.html&quot;&gt;Контакти&lt;/a&gt;
-    &lt;/nav&gt;
-    &lt;div class=&quot;container&quot;&gt;
-      &lt;h1&gt;Заголовок сторінки&lt;/h1&gt;
-      &lt;p&gt;
+    <nav>
+      <a href="index.html">Головна</a> <a href="events.html">Події</a>
+      <a href="contacts.html">Контакти</a>
+    </nav>
+    <div class="container">
+      <h1>Заголовок сторінки</h1>
+      <p>
         Ever can rejects has, rejects teachings because pursue man pursue
-        advantage those take because master fault do. In no&amp;nbsp;&amp;mdash;
+        advantage those take because master fault do. In no&nbsp;&mdash;
         laborious a, will avoids find one expound will occasionally and, us
         fault itself, encounter painful encounter has there human pursue example
         because but.
-      &lt;/p&gt;
-      &lt;p&gt;
+      </p>
+      <p>
         How system trivial, account, again circumstances itself extremely know
         toil because occur happiness truth loves: fault has actual mistaken who
         praising.
-      &lt;/p&gt;
-      &lt;p&gt;
+      </p>
+      <p>
         The except right: with, explorer pursues pursue, truth in is
-        which&amp;nbsp;&amp;mdash; ever give pursue: painful desires rationally pursues
+        which&nbsp;&mdash; ever give pursue: painful desires rationally pursues
         has desires you teachings not example.
-      &lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;container&quot;&gt;
-      &lt;h1&gt;Галерея&lt;/h1&gt;
-      &lt;p&gt;Нижче показано приклад фотогалереї...&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;container&quot;&gt;
-      &lt;img src=&quot;https://picsum.photos/400/200&quot; /&gt;
-      &lt;img src=&quot;https://picsum.photos/400/201&quot; /&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;container&quot;&gt;&lt;img src=&quot;https://picsum.photos/400/202&quot; /&gt;&lt;/div&gt;
-    &lt;div class=&quot;container&quot;&gt;
-      &lt;img src=&quot;https://picsum.photos/400/203&quot; /&gt;
-      &lt;img src=&quot;https://picsum.photos/400/204&quot; /&gt;
-      &lt;img src=&quot;https://picsum.photos/400/205&quot; /&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;container&quot;&gt;
-      &lt;h1&gt;Список товарів&lt;/h1&gt;
-      &lt;div class=&quot;cards&quot;&gt;
-        &lt;div class=&quot;card&quot;&gt;
-          &lt;img src=&quot;https://picsum.photos/400/300&quot; /&gt;
-          &lt;h3&gt;Product 1&lt;/h3&gt;
-          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;card&quot;&gt;
-          &lt;img src=&quot;https://picsum.photos/400/301&quot; /&gt;
-          &lt;h3&gt;Product 2&lt;/h3&gt;
-          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;card&quot;&gt;
-          &lt;img src=&quot;https://picsum.photos/400/302&quot; /&gt;
-          &lt;h3&gt;Product 3&lt;/h3&gt;
-          &lt;p&gt;Короткий опис товару...&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+      </p>
+    </div>
+    <div class="container">
+      <h1>Галерея</h1>
+      <p>Нижче показано приклад фотогалереї...</p>
+    </div>
+    <div class="container">
+      <img src="https://picsum.photos/400/200" />
+      <img src="https://picsum.photos/400/201" />
+    </div>
+    <div class="container"><img src="https://picsum.photos/400/202" /></div>
+    <div class="container">
+      <img src="https://picsum.photos/400/203" />
+      <img src="https://picsum.photos/400/204" />
+      <img src="https://picsum.photos/400/205" />
+    </div>
+    <div class="container">
+      <h1>Список товарів</h1>
+      <div class="cards">
+        <div class="card">
+          <img src="https://picsum.photos/400/300" />
+          <h3>Product 1</h3>
+          <p>Короткий опис товару...</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/301" />
+          <h3>Product 2</h3>
+          <p>Короткий опис товару...</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/400/302" />
+          <h3>Product 3</h3>
+          <p>Короткий опис товару...</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+{% endhighlight %}
+  </div>
+</div>
 
-    </code></pre>
-
-    <h2>Базовий CSS</h2>
-
-    <pre><code>
+<h2>Базовий CSS</h2>
+<div class="card card--example">
+  <div class="code-block">
+{% highlight css %}
 /* Базові налаштування */
 body {
     font-family: Arial, sans-serif;
@@ -319,21 +308,9 @@ ul {
     margin: 0 15px 15px;
     color: #555;
 }
-    </code></pre>
+{% endhighlight %}
+  </div>
+</div>
 
-    <h2>Перевір себе</h2>
-
-    <p>Якщо інша людина зайде на твій сайт — вона зрозуміє, куди натискати?</p>
-
-    <footer>
-      <a href="../index.html" class="back-link">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
-          />
-        </svg>
-        На головну
-      </a>
-    </footer>
-  </body>
-</html>
+<h2>Перевір себе</h2>
+<p>Якщо інша людина зайде на твій сайт — вона зрозуміє, куди натискати?</p>
