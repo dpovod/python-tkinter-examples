@@ -636,28 +636,6 @@ details.solution[open] summary {
   }
 }
 
-.hero__logo {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-family: var(--font-heading);
-  font-weight: 800;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-}
-
-.hero__logo-tile {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
-  background: var(--text);
-  color: var(--hero);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
 .hero h1 {
   font-size: 50px;
   font-weight: 800;
