@@ -607,3 +607,352 @@ details.solution[open] summary {
 .site-footer a:hover {
   text-decoration: underline;
 }
+
+/* ============ Головна сторінка ============ */
+
+.hero {
+  background: var(--hero);
+  border-radius: var(--radius-hero);
+  padding: 48px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 28px 24px;
+  }
+}
+
+.hero__logo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.hero__logo-tile {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--text);
+  color: var(--hero);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hero h1 {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.12;
+  max-width: 920px;
+}
+
+@media (max-width: 640px) {
+  .hero h1 {
+    font-size: 32px;
+  }
+}
+
+.hero__subtitle {
+  font-size: 19px;
+  color: var(--text-2);
+  max-width: 760px;
+  line-height: 1.55;
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .hero__subtitle {
+    font-size: 17px;
+  }
+}
+
+/* Чипи розділів під hero */
+.subject-chips {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.subject-chip {
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+/* Перемикач "За темами / За класами" */
+.view-switcher-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.no-js .view-switcher {
+  display: none;
+}
+
+.view-switcher {
+  display: inline-flex;
+  background: var(--row-hover);
+  border-radius: var(--radius-pill);
+  padding: 6px;
+  gap: 4px;
+}
+
+.view-tab {
+  padding: 12px 26px;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+  color: var(--text-2);
+}
+
+.view-tab[aria-selected="true"] {
+  background: var(--text);
+  color: var(--bg);
+}
+
+.view-hint {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.no-js .view-hint {
+  display: none;
+}
+
+/* Приховати/показати панелі лише коли є JS */
+.js .view-panel {
+  display: none;
+}
+
+.js .view-panel.is-active {
+  display: block;
+}
+
+.no-js .view-panel-heading {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.js .view-panel-heading {
+  display: none;
+}
+
+/* Картки розділів (за темами) */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.subject-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (max-width: 640px) {
+  .subject-card {
+    padding: 20px;
+  }
+}
+
+.subject-card__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.subject-card__tile {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.subject-card__header h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.subject-card__count {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.subject-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.lesson-row__title {
+  min-width: 0;
+}
+
+@media (max-width: 480px) {
+  .lesson-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Картка "Розділ готується" */
+.subject-card--planned {
+  border: 2px dashed var(--dashed);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.subject-card--planned h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.subject-card--planned p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/* За класами */
+.grade-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 640px) {
+  .grade-chips {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+}
+
+.grade-chip {
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  font-weight: 800;
+  font-size: 16px;
+  text-decoration: none;
+  background: var(--row-hover);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.grade-chip[aria-selected="true"] {
+  background: var(--text);
+  color: var(--hero);
+}
+
+.no-js .grade-chip {
+  pointer-events: none;
+}
+
+.js .grade-panel {
+  display: none;
+}
+
+.js .grade-panel.is-active {
+  display: block;
+}
+
+.no-js .grade-panel {
+  margin-bottom: 24px;
+}
+
+.no-js .grade-panel-heading {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.js .grade-panel-heading {
+  display: none;
+}
+
+.grade-panel-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .grade-panel-card {
+    padding: 20px;
+  }
+}
+
+.grade-panel-card__title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.grade-panel-empty {
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-style: italic;
+}
+
+.grade-panel-cta {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+.section-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Додаткові матеріали */
+.resource-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

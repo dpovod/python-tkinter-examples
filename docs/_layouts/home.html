@@ -1,0 +1,140 @@
+---
+layout: default
+---
+<div class="hero">
+  <div class="hero__logo">
+    <span class="hero__logo-tile">{% include icon.html name="logo" dim=26 %}</span>
+    <span>{{ site.title }}</span>
+  </div>
+  <h1>Приклади коду та навчальні завдання</h1>
+  <p class="hero__subtitle">{{ site.description }}</p>
+</div>
+
+<nav class="subject-chips" aria-label="Розділи">
+  {%- for subject in site.data.subjects -%}
+    {%- unless subject.planned -%}
+    <a class="subject-chip" href="#subject-{{ subject.id }}" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{{ subject.label }}</a>
+    {%- endunless -%}
+  {%- endfor -%}
+</nav>
+
+<div class="view-switcher-row">
+  <div class="view-switcher" role="tablist" aria-label="Режим перегляду">
+    <a href="#topics" class="view-tab" id="tab-topics" role="tab" aria-selected="true" aria-controls="topics">За темами</a>
+    <a href="#grade-6" class="view-tab" id="tab-classes" role="tab" aria-selected="false" aria-controls="classes-section">За класами</a>
+  </div>
+  <div class="view-hint" id="view-hint">Розділи згруповано за предметами</div>
+</div>
+
+<section id="topics" class="view-panel is-active" role="tabpanel" aria-labelledby="tab-topics">
+  <h2 class="view-panel-heading">За темами</h2>
+  <div class="subject-grid">
+    {%- for subject in site.data.subjects -%}
+      {%- assign subject_lessons = site.data.lessons | where: "subject", subject.id -%}
+      {%- if subject.planned -%}
+      <div class="subject-card--planned" id="subject-{{ subject.id }}">
+        <div class="subject-card__tile" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{% include icon.html name=subject.icon %}</div>
+        <h2>{{ subject.label }}</h2>
+        {%- include grade-range.html grades=subject.grades -%}
+        <p>Матеріали з'являться протягом року</p>
+      </div>
+      {%- else -%}
+      <div class="subject-card" id="subject-{{ subject.id }}">
+        <div class="subject-card__header">
+          <div class="subject-card__tile" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{% include icon.html name=subject.icon %}</div>
+          <div>
+            <h2>{{ subject.label }}</h2>
+            <div class="subject-card__count">{{ subject_lessons.size }} {% include plural-tem.html count=subject_lessons.size %}</div>
+          </div>
+        </div>
+        <div class="subject-card__rows">
+          {%- for lesson in subject_lessons -%}
+            {%- assign is_all_extra = false -%}
+            {%- if lesson.extra.size >= lesson.grades.size -%}{%- assign is_all_extra = true -%}{%- endif -%}
+            <a class="lesson-row" href="{{ lesson.url | relative_url }}">
+              <span class="lesson-row__title">{{ lesson.title }}</span>
+              <span class="lesson-row__meta">
+                <span class="grade-range">{% include grade-range.html grades=lesson.grades %}</span>
+                {%- if is_all_extra -%}
+                <span class="badge badge--level-extra">Додатково</span>
+                {%- else -%}
+                <span class="badge badge--level-base">База</span>
+                {%- endif -%}
+              </span>
+            </a>
+          {%- endfor -%}
+        </div>
+      </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>
+
+<section id="classes-section" class="view-panel" role="tabpanel" aria-labelledby="tab-classes">
+  <h2 class="view-panel-heading">За класами</h2>
+  <div class="grade-chips" role="tablist" aria-label="Обрати клас">
+    {%- for n in (6..11) -%}
+    <a href="#grade-{{ n }}" class="grade-chip" id="grade-chip-{{ n }}" role="tab" aria-selected="{% if n == 6 %}true{% else %}false{% endif %}" aria-controls="grade-{{ n }}">{{ n }} клас</a>
+    {%- endfor -%}
+  </div>
+
+  {%- for n in (6..11) -%}
+    {%- assign grade_lessons = site.data.lessons | where_exp: "l", "l.grades contains n" -%}
+    <div class="grade-panel{% if n == 6 %} is-active{% endif %}" id="grade-{{ n }}" role="tabpanel" aria-labelledby="grade-chip-{{ n }}">
+      <div class="grade-panel-heading">{{ n }} клас · {{ grade_lessons.size }} {% include plural-tem.html count=grade_lessons.size %}</div>
+      <div class="grade-panel-card">
+        <div class="grade-panel-card__title">{{ n }} клас · {{ grade_lessons.size }} {% include plural-tem.html count=grade_lessons.size %}</div>
+        {%- if grade_lessons.size == 0 -%}
+        <p class="grade-panel-empty">Для цього класу матеріали ще готуються. Перегляньте <a href="{{ '/classes/' | append: n | append: '/' | relative_url }}">ресурси класу</a>.</p>
+        {%- else -%}
+          {%- for subject in site.data.subjects -%}
+            {%- assign rows = grade_lessons | where: "subject", subject.id -%}
+            {%- for lesson in rows -%}
+              {%- assign is_extra_here = false -%}
+              {%- if lesson.extra contains n -%}{%- assign is_extra_here = true -%}{%- endif -%}
+              <a class="lesson-row" href="{{ lesson.url | relative_url }}">
+                <span class="lesson-row__title">
+                  <span class="badge" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{{ subject.label }}</span>
+                  {{ lesson.title }}
+                </span>
+                {%- if is_extra_here -%}
+                <span class="badge badge--level-extra">Додатково</span>
+                {%- else -%}
+                <span class="badge badge--level-base">База</span>
+                {%- endif -%}
+              </a>
+            {%- endfor -%}
+          {%- endfor -%}
+        {%- endif -%}
+        <a class="lesson-nav__btn lesson-nav__btn--next grade-panel-cta" href="{{ '/classes/' | append: n | append: '/' | relative_url }}">Відкрити сторінку {{ n }} класу{% include icon.html name="chevron-right" dim=16 %}</a>
+      </div>
+    </div>
+  {%- endfor -%}
+</section>
+
+<section class="card">
+  <h2>Додаткові матеріали</h2>
+  <p class="section-subtitle">Електронні книжки, файли для завантаження та корисні посилання</p>
+  <div class="resource-grid">
+    {%- assign featured = site.data.resources | where: "featured", true -%}
+    {%- for r in featured -%}
+      {%- unless r.url == "TODO" -%}
+      <a class="resource-card" href="{{ r.url }}" target="_blank" rel="noopener">
+        {%- case r.type -%}
+          {%- when "book" -%}
+          <span class="resource-card__icon" style="background: #FFF1E0; color: #C2703D;">{% include icon.html name="book" dim=20 %}</span>
+          {%- when "file" -%}
+          <span class="resource-card__icon" style="background: #E9F5FF; color: #1D7FBF;">{% include icon.html name="file-download" dim=20 %}</span>
+          {%- else -%}
+          <span class="resource-card__icon" style="background: #F1EFFF; color: #6D5BD0;">{% include icon.html name="link" dim=20 %}</span>
+        {%- endcase -%}
+        <span>
+          <span class="resource-card__title">{{ r.title }}<span class="visually-hidden"> (відкриється в новій вкладці)</span></span><br />
+          {%- if r.note %}<span class="resource-card__note">{{ r.note }}</span>{%- endif %}
+        </span>
+      </a>
+      {%- endunless -%}
+    {%- endfor -%}
+  </div>
+  <p><a href="{{ '/resources/' | relative_url }}">Усі ресурси</a></p>
+</section>
