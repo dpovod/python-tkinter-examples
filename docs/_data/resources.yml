@@ -94,3 +94,11 @@
   url: /files/word-structure.pdf
   note: "PDF"
   grades: [7, 8, 11]
+
+- id: excel-filter-table
+  title: "Таблиця учнів"
+  type: file
+  group: files
+  url: /files/excel-filter-table.xlsx
+  note: "XLSX"
+  grades: [9, 10]

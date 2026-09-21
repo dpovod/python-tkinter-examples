@@ -9,9 +9,10 @@ description: "Завдання на сортування й автоматичн
     <span class="card__number">1</span>
     <h3>Завдання 1</h3>
   </div>
-  <p>Створіть таблицю, зображену на скріншоті</p>
-  <p><a href="https://drive.google.com/file/d/1-P-HgceuBarvDGGTvFSfQyzZCT6ri0Yr/view" target="_blank" rel="noopener">Таблиця<span class="visually-hidden"> (відкриється в новій вкладці)</span></a></p>
-  <p>Скопіюйте ту ж саму таблицю на декілька аркушів в тому ж файлі і виконайте сортування та фільтрацію на окремих аркушах</p>
+  <p>Завантажте файл із готовою таблицею</p>
+  {%- assign filter_table = site.data.resources | where: "id", "excel-filter-table" | first -%}
+  {% include resource-card.html resource=filter_table %}
+  <p>Скопіюйте цю таблицю на декілька аркушів в тому ж файлі і виконайте сортування та фільтрацію на окремих аркушах</p>
   <ul>
     <li>Аркуш 2: відсортуйте за датою народження (в будь-якому порядку)</li>
     <li>Аркуш 3: відсортуйте за ім'ям (від А до Я)</li>
