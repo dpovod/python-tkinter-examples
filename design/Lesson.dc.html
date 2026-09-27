@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; background: #FFFBF3; color: #23222B; }
+    a { color: inherit; text-decoration: none; }
+    a.crumb:hover { text-decoration: underline; }
+    h1, h2, h3 { font-family: 'Baloo 2', system-ui, sans-serif; margin: 0; }
+    .code { font-family: 'SFMono-Regular', Menlo, Consolas, monospace; font-size: 15px; line-height: 1.7; }
+  </style>
+</helmet>
+<div style="width: 1440px; height: 1320px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 32px; background: #FFFBF3;">
+
+  <div style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #8B87A0;">
+    <a href="Main.dc.html" class="crumb">Головна</a>
+    <span>/</span>
+    <a href="Main.dc.html" class="crumb" style="color: #2563EB;">Python</a>
+    <span>/</span>
+    <span style="color: #23222B;">Цикли</span>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between;">
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <h1 style="font-size: 42px; font-weight: 800;">Циклічні алгоритми</h1>
+      <p style="font-size: 17px; color: #514E5C; max-width: 760px; line-height: 1.5;">Розглядаємо, як виконати одну й ту саму дію кілька разів за допомогою циклів <code style="background:#F0EEE3; padding:2px 8px; border-radius:6px; font-family: 'SFMono-Regular', Menlo, monospace; font-size:15px;">while</code> та <code style="background:#F0EEE3; padding:2px 8px; border-radius:6px; font-family: 'SFMono-Regular', Menlo, monospace; font-size:15px;">for</code>.</p>
+    </div>
+    <div style="display: flex; gap: 10px; flex-shrink: 0;">
+      <div style="padding: 8px 18px; border-radius: 999px; background: #EAF2FF; color: #2563EB; font-weight: 700; font-size: 14px;">Python</div>
+      <div style="padding: 8px 18px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; font-weight: 700; font-size: 14px;">База</div>
+    </div>
+  </div>
+
+  <div style="background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 32px; height: 32px; border-radius: 10px; background: #EAF2FF; color: #2563EB; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">1</div>
+      <h3 style="font-size: 20px; font-weight: 700;">Виведення чисел від 1 до 10 (через while)</h3>
+    </div>
+    <p style="font-size: 15px; color: #514E5C; line-height: 1.6; margin: 0;">Програма виводить усі числа від 1 до 10, використовуючи цикл <code style="background:#F0EEE3; padding:2px 8px; border-radius:6px; font-family: 'SFMono-Regular', Menlo, monospace; font-size:14px;">while</code>.</p>
+    <div class="code" style="background: #1E1B2E; border-radius: 16px; padding: 24px; color: #EDEAFB;">
+      <div><span>i </span><span style="color:#EDEAFB;">=</span><span style="color:#FCD34D;"> 1</span></div>
+      <div>&nbsp;</div>
+      <div><span style="color:#C4B5FD;">while</span><span> i &lt;= </span><span style="color:#FCD34D;">10</span><span>:</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5EEAD4;">print</span><span>(i)</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;<span>i = i + </span><span style="color:#FCD34D;">1</span></div>
+    </div>
+    <button style="align-self: flex-start; padding: 10px 20px; border-radius: 12px; border: 2px solid #E4E1D4; background: transparent; color: #6B6875; font-weight: 700; font-size: 14px; font-family: 'Manrope', sans-serif; cursor: pointer;">Показати відповідь</button>
+  </div>
+
+  <div style="background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: center; gap: 12px;">
+      <div style="width: 32px; height: 32px; border-radius: 10px; background: #EAF2FF; color: #2563EB; font-weight: 800; font-size: 15px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">2</div>
+      <h3 style="font-size: 20px; font-weight: 700;">Через for .. in та range()</h3>
+    </div>
+    <p style="font-size: 15px; color: #514E5C; line-height: 1.6; margin: 0;">Той самий результат, але за допомогою циклу <code style="background:#F0EEE3; padding:2px 8px; border-radius:6px; font-family: 'SFMono-Regular', Menlo, monospace; font-size:14px;">for</code> та функції <code style="background:#F0EEE3; padding:2px 8px; border-radius:6px; font-family: 'SFMono-Regular', Menlo, monospace; font-size:14px;">range()</code>.</p>
+    <div class="code" style="background: #1E1B2E; border-radius: 16px; padding: 24px; color: #EDEAFB;">
+      <div><span style="color:#C4B5FD;">for</span><span> i </span><span style="color:#C4B5FD;">in</span><span> </span><span style="color:#5EEAD4;">range</span><span>(</span><span style="color:#FCD34D;">1</span><span>, </span><span style="color:#FCD34D;">11</span><span>):</span></div>
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:#5EEAD4;">print</span><span>(i)</span></div>
+    </div>
+    <button style="align-self: flex-start; padding: 10px 20px; border-radius: 12px; border: 2px solid #E4E1D4; background: transparent; color: #6B6875; font-weight: 700; font-size: 14px; font-family: 'Manrope', sans-serif; cursor: pointer;">Показати відповідь</button>
+  </div>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 8px;">
+    <a href="#" style="display: flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 14px; background: #ffffff; box-shadow: 0 2px 10px rgba(35,34,43,0.06); font-weight: 700; font-size: 15px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#23222B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      Умовні оператори
+    </a>
+    <a href="#" style="display: flex; align-items: center; gap: 8px; padding: 14px 22px; border-radius: 14px; background: #23222B; color: #FFFBF3; font-weight: 700; font-size: 15px;">
+      Списки
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFFBF3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </a>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

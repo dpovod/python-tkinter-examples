@@ -1,0 +1,27 @@
+{%- comment -%}
+  Правильна форма слова «тема» для лічильника. Usage:
+  {{ n }} {% include plural-tem.html count=n %}
+{%- endcomment -%}
+{%- assign n_mod10 = include.count | modulo: 10 -%}
+{%- assign n_mod100 = include.count | modulo: 100 -%}
+{%- assign is_teen = false -%}
+{%- if n_mod100 >= 11 -%}
+  {%- if n_mod100 <= 14 -%}
+    {%- assign is_teen = true -%}
+  {%- endif -%}
+{%- endif -%}
+{%- if is_teen -%}
+  тем
+{%- elsif n_mod10 == 1 -%}
+  тема
+{%- else -%}
+  {%- if n_mod10 >= 2 -%}
+    {%- if n_mod10 <= 4 -%}
+теми
+    {%- else -%}
+тем
+    {%- endif -%}
+  {%- else -%}
+тем
+  {%- endif -%}
+{%- endif -%}

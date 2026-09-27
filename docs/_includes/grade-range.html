@@ -1,0 +1,35 @@
+{%- comment -%}
+  Форматує список класів у короткий діапазон: [7,8,9] → «7–9 кл.»,
+  [9,11] → «9, 11 кл.», [8] → «8 кл.». Usage:
+  {% include grade-range.html grades=lesson.grades %}
+{%- endcomment -%}
+{%- assign sorted = include.grades | sort -%}
+{%- assign result = "" -%}
+{%- assign run_start = nil -%}
+{%- assign run_end = nil -%}
+{%- for g in sorted -%}
+  {%- assign expected_next = run_end | plus: 1 -%}
+  {%- if run_start != nil and g == expected_next -%}
+    {%- assign run_end = g -%}
+  {%- else -%}
+    {%- if run_start != nil -%}
+      {%- if result != "" -%}{%- assign result = result | append: ", " -%}{%- endif -%}
+      {%- if run_start == run_end -%}
+        {%- assign result = result | append: run_start -%}
+      {%- else -%}
+        {%- assign result = result | append: run_start | append: "–" | append: run_end -%}
+      {%- endif -%}
+    {%- endif -%}
+    {%- assign run_start = g -%}
+    {%- assign run_end = g -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if run_start != nil -%}
+  {%- if result != "" -%}{%- assign result = result | append: ", " -%}{%- endif -%}
+  {%- if run_start == run_end -%}
+    {%- assign result = result | append: run_start -%}
+  {%- else -%}
+    {%- assign result = result | append: run_start | append: "–" | append: run_end -%}
+  {%- endif -%}
+{%- endif -%}
+{{- result }} кл.

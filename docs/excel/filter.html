@@ -1,33 +1,22 @@
-<!DOCTYPE html>
-<html lang="uk">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Діаграми в Excel</title>
-    <link rel="stylesheet" href="../styles.css">
-</head>
-<body>
-    <h1>Автоматичні фільтри в Excel</h1>
+---
+layout: lesson
+title: "Автоматичні фільтри в Excel"
+lesson: excel-filter
+description: "Завдання на сортування й автоматичні фільтри в Excel."
+---
+<div class="card card--task">
+  <div class="card__header">
+    <span class="card__number">1</span>
     <h3>Завдання 1</h3>
-    <p>Створіть таблицю, зображену на скріншоті</p>
-    <a href="https://drive.google.com/file/d/1-P-HgceuBarvDGGTvFSfQyzZCT6ri0Yr/view" target="_blank">Таблиця</a>
-    <p>Скопіюйте ту ж саму таблицю на декілька аркушів в тому ж файлі і виконайте сортування та фільтрацію на окремих аркушах<br>
-      <ul>
-        <li>Аркуш 2: відсортуйте за датою народження (в будь-якому порядку)</li>
-        <li>Аркуш 3: відсортуйте за ім'ям (від А до Я)</li>
-        <li>Аркуш 4: відсортуйте за зростом (за спаданням)</li>
-        <li>Аркуш 5: за допомогою фільтру виберіть лише учнів зі зростом 140 см або вище</li>
-      </ul>
-    </p>
-    <footer>
-      <a href="../index.html" class="back-link">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
-          />
-        </svg>
-        На головну
-      </a>
-    </footer>
-</body>
-</html>
+  </div>
+  <p>Завантажте файл із готовою таблицею</p>
+  {%- assign filter_table = site.data.resources | where: "id", "excel-filter-table" | first -%}
+  {% include resource-card.html resource=filter_table %}
+  <p>Скопіюйте цю таблицю на декілька аркушів в тому ж файлі і виконайте сортування та фільтрацію на окремих аркушах</p>
+  <ul>
+    <li>Аркуш 2: відсортуйте за датою народження (в будь-якому порядку)</li>
+    <li>Аркуш 3: відсортуйте за ім'ям (від А до Я)</li>
+    <li>Аркуш 4: відсортуйте за зростом (за спаданням)</li>
+    <li>Аркуш 5: за допомогою фільтру виберіть лише учнів зі зростом 140 см або вище</li>
+  </ul>
+</div>

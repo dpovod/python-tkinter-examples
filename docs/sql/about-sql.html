@@ -1,101 +1,47 @@
-<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <title>SQL: основи та опис завдань</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles.css" />
-  </head>
-  <body>
-    <h1>SQL: основи та опис завдань</h1>
+---
+layout: lesson
+title: "SQL: основи та опис завдань"
+lesson: sql-about
+description: "Основи мови SQL і опис типів завдань, які виконуються онлайн на W3Schools."
+---
+<p>Цей розділ присвячений <strong>мові SQL</strong> — мові запитів до баз даних.</p>
+<p>SQL використовується для отримання, фільтрації та аналізу даних, які зберігаються у таблицях.</p>
 
-    <p>
-      Цей розділ присвячений <strong>мові SQL</strong> — мові запитів до баз
-      даних.
-    </p>
+<h2>Що таке SQL простими словами</h2>
+<p><strong>SQL (Structured Query Language)</strong> — це мова, за допомогою якої ми <em>ставимо запитання базі даних</em>.</p>
+<ul>
+  <li>Покажи всіх клієнтів з Німеччини</li>
+  <li>Знайди найдорожчі продукти</li>
+  <li>Порахуй, скільки замовлень у базі</li>
+</ul>
+<p>Дані в базі зберігаються у вигляді таблиць, схожих на Excel:</p>
+<ul>
+  <li>рядки — записи (дані)</li>
+  <li>стовпці — поля (властивості)</li>
+</ul>
 
-    <p>
-      SQL використовується для отримання, фільтрації та аналізу даних, які
-      зберігаються у таблицях.
-    </p>
+<h2>Де ми будемо працювати</h2>
+<p>Усі завдання виконуються онлайн на сайті <strong>W3Schools</strong>:</p>
+<p><a href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all" target="_blank" rel="noopener">https://www.w3schools.com/sql/trysql.asp<span class="visually-hidden"> (відкриється в новій вкладці)</span></a></p>
+<ul>
+  <li>не потрібно встановлювати програми</li>
+  <li>база даних уже готова</li>
+  <li>можна одразу бачити результат</li>
+</ul>
 
-    <h2>Що таке SQL простими словами</h2>
+<h2>Типи SQL-завдань</h2>
+<h3>1. Завдання на вибірку даних (SELECT)</h3>
+<p>У цих завданнях ми навчимось:</p>
+<ul>
+  <li>отримувати дані з таблиць</li>
+  <li>використовувати <code>SELECT</code>, <code>WHERE</code>, <code>ORDER BY</code></li>
+  <li>фільтрувати та сортувати результати</li>
+</ul>
+<p class="callout">👉 <strong><a href="{{ '/sql/tasks-w3schools.html' | relative_url }}">Перейти до завдань на вибірку (SELECT)</a></strong></p>
 
-    <p>
-      <strong>SQL (Structured Query Language)</strong> — це мова, за допомогою
-      якої ми <em>ставимо запитання базі даних</em>.
-    </p>
-
-    <ul>
-      <li>Покажи всіх клієнтів з Німеччини</li>
-      <li>Знайди найдорожчі продукти</li>
-      <li>Порахуй, скільки замовлень у базі</li>
-    </ul>
-
-    <p>Дані в базі зберігаються у вигляді таблиць, схожих на Excel:</p>
-
-    <ul>
-      <li>рядки — записи (дані)</li>
-      <li>стовпці — поля (властивості)</li>
-    </ul>
-
-    <h2>Де ми будемо працювати</h2>
-
-    <p>Усі завдання виконуються онлайн на сайті <strong>W3Schools</strong>:</p>
-
-    <p>
-      <a href="https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all" target="_blank">
-        https://www.w3schools.com/sql/trysql.asp
-      </a>
-    </p>
-
-    <ul>
-      <li>не потрібно встановлювати програми</li>
-      <li>база даних уже готова</li>
-      <li>можна одразу бачити результат</li>
-    </ul>
-
-    <h2>Типи SQL-завдань</h2>
-
-    <h3>1. Завдання на вибірку даних (SELECT)</h3>
-
-    <p>У цих завданнях ми навчимось:</p>
-
-    <ul>
-      <li>отримувати дані з таблиць</li>
-      <li>
-        використовувати <code>SELECT</code>, <code>WHERE</code>,
-        <code>ORDER BY</code>
-      </li>
-      <li>фільтрувати та сортувати результати</li>
-    </ul>
-
-    <div class="box">
-      👉
-      <strong
-        ><a href="tasks-w3schools.html"
-          >Перейти до завдань на вибірку (SELECT)</a
-        ></strong
-      >
-    </div>
-
-    <h3>2. Інші SQL-завдання</h3>
-
-    <p>Зʼявляться пізніше:</p>
-
-    <ul>
-      <li>робота з кількома таблицями (JOIN)</li>
-      <li>групування даних (GROUP BY)</li>
-    </ul>
-    <footer>
-      <a href="../index.html" class="back-link">
-        <svg viewBox="0 0 24 24">
-          <path
-            d="M3 10.5L12 3l9 7.5V21a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1V10.5z"
-          />
-        </svg>
-        На головну
-      </a>
-    </footer>
-  </body>
-</html>
+<h3>2. Інші SQL-завдання</h3>
+<p>Зʼявляться пізніше:</p>
+<ul>
+  <li>робота з кількома таблицями (JOIN)</li>
+  <li>групування даних (GROUP BY)</li>
+</ul>

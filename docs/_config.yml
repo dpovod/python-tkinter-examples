@@ -1,0 +1,14 @@
+title: "КОД.УРОКИ" # TODO: підтвердити назву у вчителя
+description: "Приклади коду, завдання та матеріали з інформатики для 6–11 класів"
+lang: uk
+url: "https://dpovod.github.io"
+baseurl: "/python-tkinter-examples"
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

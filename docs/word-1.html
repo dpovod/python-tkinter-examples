@@ -1,18 +1,10 @@
-<!doctype html>
-<html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Word</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <h1>Word</h1>
-    <div class="card-list">
-      <a class="card" href="структура%20документа%20Word.pdf" target="_blank"
-        >Структура документа Word</a
-      >
-    </div>
-    <a class="back-link" href="index.html">На головну</a>
-  </body>
-</html>
+---
+layout: hub
+title: "Word"
+lesson: word
+description: "Структура документа Word."
+---
+<div class="card">
+  {%- assign word_pdf = site.data.resources | where: "id", "word-structure-pdf" | first -%}
+  {% include resource-card.html resource=word_pdf %}
+</div>

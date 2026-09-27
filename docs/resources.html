@@ -1,0 +1,42 @@
+---
+layout: default
+title: "Ресурси"
+permalink: /resources/
+description: "Підручники, тренажери з кібербезпеки, практика SQL та файли вчителя."
+---
+<article>
+  {% include breadcrumbs.html %}
+
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>{{ page.title }}</h1>
+      <p class="page-header__description">{{ page.description }}</p>
+    </div>
+  </div>
+
+  <div class="resources-filter grade-chips" role="group" aria-label="Фільтр за класом">
+    <button type="button" class="grade-chip" data-grade="all" aria-pressed="true">Усі класи</button>
+    {%- for n in (6..11) -%}
+    <button type="button" class="grade-chip" data-grade="{{ n }}" aria-pressed="false">{{ n }} клас</button>
+    {%- endfor -%}
+  </div>
+
+  {%- assign group_order = "textbooks,security,practice,files" | split: "," -%}
+  {%- assign group_titles = "Підручники,Кібербезпека,Практика,Файли вчителя" | split: "," -%}
+  {%- for group_id in group_order -%}
+    {%- assign idx = forloop.index0 -%}
+    {%- assign items = site.data.resources | where: "group", group_id -%}
+    {%- assign has_visible = false -%}
+    {%- for r in items -%}{%- unless r.url == "TODO" -%}{%- assign has_visible = true -%}{%- endunless -%}{%- endfor -%}
+    {%- if has_visible -%}
+    <section class="resources-group">
+      <h2>{{ group_titles[idx] }}</h2>
+      <div class="resource-grid">
+        {%- for r in items -%}
+          {%- include resource-card.html resource=r -%}
+        {%- endfor -%}
+      </div>
+    </section>
+    {%- endif -%}
+  {%- endfor -%}
+</article>

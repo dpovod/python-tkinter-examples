@@ -1,0 +1,116 @@
+---
+layout: default
+---
+{%- assign ktp_key = "grade" | append: page.grade -%}
+{%- assign ktp = site.data.ktp[ktp_key] -%}
+<article>
+  {% include breadcrumbs.html %}
+
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>{{ page.title }}</h1>
+    </div>
+  </div>
+
+  <p class="class-meta">
+    <span class="class-meta__hours">{{ ktp.hours }}</span>
+    {%- if ktp.note %} — {{ ktp.note }}{% endif %}
+  </p>
+
+  {%- assign textbook = nil -%}
+  {%- if ktp.textbook -%}
+    {%- assign textbook = site.data.resources | where: "id", ktp.textbook | first -%}
+  {%- endif -%}
+  {%- if textbook and textbook.url != "TODO" -%}
+  <div class="card" style="margin-bottom: 32px;">
+    {% include resource-card.html resource=textbook %}
+  </div>
+  {%- endif -%}
+
+  {%- for group in ktp.groups -%}
+  <div class="card class-group">
+    <div class="class-group__header">
+      <h2>{{ group.title }}</h2>
+      {%- if group.semesters -%}
+      <div class="class-group__period">
+        {%- for pair in group.semesters -%}
+          {{ pair[0] }}: {% if pair[1] == 1 %}I семестр{% else %}II семестр{% endif %}{% unless forloop.last %}, {% endunless %}
+        {%- endfor -%}
+      </div>
+      {%- elsif group.semester -%}
+      <div class="class-group__period">{% if group.semester == 1 %}I семестр{% else %}II семестр{% endif %}</div>
+      {%- elsif group.lessons_range -%}
+      <div class="class-group__period">{{ group.lessons_range }}</div>
+      {%- endif -%}
+      {%- if group.note %}
+      <p class="class-group__topics">{{ group.note }}</p>
+      {%- endif %}
+    </div>
+
+    {%- if group.topics and group.topics.size > 0 -%}
+      {%- if group.topics.size > 4 -%}
+      <details class="class-group__topics">
+        <summary>Теми ({{ group.topics.size }})</summary>
+        <ul>
+          {%- for t in group.topics -%}<li>{{ t }}</li>{%- endfor -%}
+        </ul>
+      </details>
+      {%- else -%}
+      <ul class="class-group__topics">
+        {%- for t in group.topics -%}<li>{{ t }}</li>{%- endfor -%}
+      </ul>
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if group.lessons and group.lessons.size > 0 -%}
+    <div class="class-group__rows">
+      {%- for lid in group.lessons -%}
+        {%- assign lesson = site.data.lessons | where: "id", lid | first -%}
+        {%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+        {%- assign is_extra_here = false -%}
+        {%- if lesson.extra contains page.grade -%}{%- assign is_extra_here = true -%}{%- endif -%}
+        <a class="lesson-row" href="{{ lesson.url | relative_url }}">
+          <span class="lesson-row__title">
+            <span class="badge" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{{ subject.label }}</span>
+            {{ lesson.title }}
+          </span>
+          {%- if is_extra_here -%}
+          <span class="badge badge--level-extra">Додатково</span>
+          {%- else -%}
+          <span class="badge badge--level-base">Основне</span>
+          {%- endif -%}
+        </a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    {%- if group.resources and group.resources.size > 0 -%}
+    <div class="class-group__resources">
+      {%- for rid in group.resources -%}
+        {%- assign r = site.data.resources | where: "id", rid | first -%}
+        {%- include resource-card.html resource=r -%}
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    {%- if group.lessons.size == 0 and group.resources.size == 0 -%}
+    <p class="class-group__empty">Матеріали до цієї теми готуються.</p>
+    {%- endif -%}
+  </div>
+  {%- endfor -%}
+
+  <nav class="class-nav" aria-label="Навігація між класами">
+    {%- assign prev_grade = page.grade | minus: 1 -%}
+    {%- assign next_grade = page.grade | plus: 1 -%}
+    {%- if prev_grade >= 6 -%}
+    <a class="lesson-nav__btn lesson-nav__btn--prev" href="{{ '/classes/' | append: prev_grade | append: '/' | relative_url }}">
+      {% include icon.html name="chevron-left" %}{{ prev_grade }} клас
+    </a>
+    {%- endif -%}
+    {%- if next_grade <= 11 -%}
+    <a class="lesson-nav__btn lesson-nav__btn--next" href="{{ '/classes/' | append: next_grade | append: '/' | relative_url }}">
+      {{ next_grade }} клас{% include icon.html name="chevron-right" %}
+    </a>
+    {%- endif -%}
+  </nav>
+</article>

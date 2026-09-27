@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Manrope:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; font-family: 'Manrope', system-ui, sans-serif; background: #FFFBF3; color: #23222B; }
+    a { color: inherit; text-decoration: none; }
+    a.card-link:hover { background: #F2F1EA; }
+    a.mat-link:hover { background: #F2F1EA; }
+    h1, h2, h3 { font-family: 'Baloo 2', system-ui, sans-serif; margin: 0; }
+    button.tab-btn { border: none; cursor: pointer; font-family: 'Manrope', sans-serif; }
+    button.chip-btn { border: none; cursor: pointer; font-family: 'Manrope', sans-serif; }
+  </style>
+</helmet>
+<div style="width: 1440px; box-sizing: border-box; padding: 64px; display: flex; flex-direction: column; gap: 36px; background: #FFFBF3;">
+
+  <div style="background: #FFE9A8; border-radius: 28px; padding: 48px 56px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; gap: 16px;">
+      <div style="width: 56px; height: 56px; border-radius: 16px; background: #23222B; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFE9A8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+      </div>
+      <div style="font-family: 'Baloo 2', sans-serif; font-weight: 800; font-size: 20px; letter-spacing: 0.5px;">КОД.УРОКИ</div>
+    </div>
+    <h1 style="font-size: 50px; font-weight: 800; line-height: 1.12; max-width: 920px;">Приклади коду та навчальні завдання</h1>
+    <p style="font-size: 19px; color: #514E5C; max-width: 760px; line-height: 1.55; font-weight: 500;">Python, Tkinter, SQL, HTML та Microsoft Office — покроково, з поясненнями, прикладами коду та задачами для самостійної роботи.</p>
+  </div>
+
+  <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+    <div style="padding: 10px 22px; border-radius: 999px; background: #EAF2FF; color: #2563EB; font-weight: 700; font-size: 15px;">Python</div>
+    <div style="padding: 10px 22px; border-radius: 999px; background: #E6FBF7; color: #0F9488; font-weight: 700; font-size: 15px;">Tkinter</div>
+    <div style="padding: 10px 22px; border-radius: 999px; background: #FFF6E5; color: #B4740B; font-weight: 700; font-size: 15px;">Office</div>
+    <div style="padding: 10px 22px; border-radius: 999px; background: #F3EEFF; color: #7C3AED; font-weight: 700; font-size: 15px;">SQL</div>
+    <div style="padding: 10px 22px; border-radius: 999px; background: #FFEEF1; color: #E11D48; font-weight: 700; font-size: 15px;">HTML</div>
+  </div>
+
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="display: inline-flex; background: #F2F1EA; border-radius: 999px; padding: 6px; gap: 4px;">
+      <button class="tab-btn" onClick="{{setTopicsView}}" style="padding: 12px 26px; border-radius: 999px; font-weight: 700; font-size: 15px; background: {{topicsTabBg}}; color: {{topicsTabColor}};">За темами</button>
+      <button class="tab-btn" onClick="{{setClassesView}}" style="padding: 12px 26px; border-radius: 999px; font-weight: 700; font-size: 15px; background: {{classesTabBg}}; color: {{classesTabColor}};">За класами</button>
+    </div>
+    <div style="font-size: 14px; color: #A6A2B3; font-weight: 600;">{{viewHint}}</div>
+  </div>
+
+  <sc-if value="{{isTopicsView}}" hint-placeholder-val="{{true}}">
+  <div style="display: flex; flex-direction: column; gap: 32px;">
+
+  <div style="display: flex; gap: 32px; align-items: flex-start;">
+
+    <div style="width: 416px; background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: #EAF2FF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3c-1.5 0-2 1-2 2.5v3c0 1-.5 1.5-2 1.5 1.5 0 2 .5 2 1.5v3c0 1.5.5 2.5 2 2.5"></path><path d="M16 3c1.5 0 2 1 2 2.5v3c0 1 .5 1.5 2 1.5-1.5 0-2 .5-2 1.5v3c0 1.5-.5 2.5-2 2.5"></path></svg>
+        </div>
+        <div>
+          <h2 style="font-size: 22px; font-weight: 700;">Python</h2>
+          <div style="font-size: 13px; color: #8B87A0; font-weight: 600;">7 тем</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Прості приклади програм</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–8 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Лінійні алгоритми</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–8 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Умовні оператори</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–9 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Цикли</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–9 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Списки</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">8–9 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Debug — налагодження</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">8–9 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #FFF3D6; color: #B4740B; white-space: nowrap;">Додатково</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Додаткові задачі</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">9–11 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #FFF3D6; color: #B4740B; white-space: nowrap;">Додатково</span></span></a>
+      </div>
+    </div>
+
+    <div style="width: 416px; background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: #E6FBF7; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><line x1="3" y1="9.5" x2="21" y2="9.5"></line><circle cx="6.2" cy="7.2" r="0.6" fill="#14B8A6" stroke="none"></circle><circle cx="8.4" cy="7.2" r="0.6" fill="#14B8A6" stroke="none"></circle></svg>
+        </div>
+        <div>
+          <h2 style="font-size: 22px; font-weight: 700;">Tkinter</h2>
+          <div style="font-size: 13px; color: #8B87A0; font-weight: 600;">3 теми</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Messagebox — вікно повідомлення</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">9–10 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Entry — текстове поле</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">9–10 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Canvas — геометричні фігури</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">10–11 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #FFF3D6; color: #B4740B; white-space: nowrap;">Додатково</span></span></a>
+      </div>
+    </div>
+
+    <div style="width: 416px; background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: #FFF6E5; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><polyline points="14 3 14 8 19 8"></polyline><line x1="8" y1="13" x2="16" y2="13"></line><line x1="8" y1="17" x2="16" y2="17"></line></svg>
+        </div>
+        <div>
+          <h2 style="font-size: 22px; font-weight: 700;">Microsoft Office</h2>
+          <div style="font-size: 13px; color: #8B87A0; font-weight: 600;">2 теми</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Excel</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–8 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Word</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">7–8 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display: flex; gap: 32px; align-items: flex-start;">
+
+    <div style="width: 416px; background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: #F3EEFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"></ellipse><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"></path><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"></path></svg>
+        </div>
+        <div>
+          <h2 style="font-size: 22px; font-weight: 700;">SQL</h2>
+          <div style="font-size: 13px; color: #8B87A0; font-weight: 600;">2 теми</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Основи та опис завдань</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">10–11 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #E6F9E9; color: #1D9A4A; white-space: nowrap;">База</span></span></a>
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Завдання на вибірку (SELECT)</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">10–11 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #FFF3D6; color: #B4740B; white-space: nowrap;">Додатково</span></span></a>
+      </div>
+    </div>
+
+    <div style="width: 416px; background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 14px;">
+        <div style="width: 48px; height: 48px; border-radius: 14px; background: #FFEEF1; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F43F5E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="14" y1="4" x2="10" y2="20"></line></svg>
+        </div>
+        <div>
+          <h2 style="font-size: 22px; font-weight: 700;">HTML</h2>
+          <div style="font-size: 13px; color: #8B87A0; font-weight: 600;">1 тема</div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;"><span>Проєкт: створення сайту</span><span style="display: flex; align-items: center; gap: 6px;"><span style="font-size: 10px; font-weight: 700; color: #A6A2B3; white-space: nowrap;">9–10 кл.</span><span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: #FFF3D6; color: #B4740B; white-space: nowrap;">Додатково</span></span></a>
+      </div>
+    </div>
+
+    <div style="width: 416px; border: 2px dashed #D8D4C8; border-radius: 24px; padding: 32px; display: flex; flex-direction: column; gap: 16px; justify-content: center;">
+      <h2 style="font-size: 20px; font-weight: 700; color: #8B87A0;">Плануються нові розділи</h2>
+      <p style="font-size: 14px; color: #A6A2B3; line-height: 1.6; font-style: italic;">[Наприклад: робота з базами даних у Python, JavaScript, ООП] — місце для розширення карти сайту.</p>
+    </div>
+
+  </div>
+
+  </div>
+  </sc-if>
+
+  <sc-if value="{{isClassesView}}" hint-placeholder-val="{{false}}">
+  <div style="display: flex; flex-direction: column; gap: 28px;">
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <sc-for list="{{classChips}}" as="item" hint-placeholder-count="5">
+        <button class="chip-btn" onClick="{{item.pick}}" style="padding: 12px 24px; border-radius: 999px; font-weight: 800; font-size: 16px; background: {{item.bg}}; color: {{item.fg}};">{{item.label}}</button>
+      </sc-for>
+    </div>
+
+    <div style="background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 10px;">
+      <div style="font-size: 14px; color: #8B87A0; font-weight: 700; margin-bottom: 6px;">{{classResultsLabel}}</div>
+      <sc-for list="{{filteredLessons}}" as="item" hint-placeholder-count="4">
+        <a href="#" class="card-link" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-radius: 12px; background: #FAFAF7; font-size: 15px; font-weight: 600;">
+          <span style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 11px; font-weight: 700; padding: 4px 12px; border-radius: 999px; background: {{item.subjectBg}}; color: {{item.subjectColor}}; white-space: nowrap;">{{item.subjectLabel}}</span>
+            <span>{{item.title}}</span>
+          </span>
+          <span style="font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: {{item.levelBg}}; color: {{item.levelColor}}; white-space: nowrap;">{{item.level}}</span>
+        </a>
+      </sc-for>
+      <sc-if value="{{noResults}}" hint-placeholder-val="{{false}}">
+        <div style="padding: 24px 0; color: #A6A2B3; font-size: 15px; font-style: italic;">Для цього класу поки що немає позначених тем.</div>
+      </sc-if>
+    </div>
+
+  </div>
+  </sc-if>
+
+  <div style="background: #ffffff; border-radius: 24px; padding: 32px; box-shadow: 0 2px 14px rgba(35,34,43,0.07); display: flex; flex-direction: column; gap: 18px;">
+    <div>
+      <h2 style="font-size: 22px; font-weight: 700;">Додаткові матеріали</h2>
+      <div style="font-size: 13px; color: #8B87A0; font-weight: 600; margin-top: 2px;">Електронні книжки, файли для завантаження та корисні посилання</div>
+    </div>
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+      <sc-for list="{{materials}}" as="item" hint-placeholder-count="3">
+        <a href="{{item.href}}" class="mat-link" style="width: 380px; display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 16px; background: #FAFAF7;">
+          <div style="width: 44px; height: 44px; border-radius: 12px; background: {{item.badgeBg}}; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <sc-if value="{{item.isBook}}" hint-placeholder-val="{{true}}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{item.iconStroke}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            </sc-if>
+            <sc-if value="{{item.isFile}}" hint-placeholder-val="{{false}}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{item.iconStroke}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><polyline points="14 3 14 8 19 8"></polyline><path d="M12 12v6"></path><polyline points="9.5 15.5 12 18 14.5 15.5"></polyline></svg>
+            </sc-if>
+            <sc-if value="{{item.isLink}}" hint-placeholder-val="{{false}}">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{item.iconStroke}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5"></path><path d="M14 10a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"></path></svg>
+            </sc-if>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 4px; min-width: 0;">
+            <div style="font-size: 14px; font-weight: 700; line-height: 1.3;">{{item.title}}</div>
+            <div style="font-size: 12px; color: #A6A2B3; font-weight: 600;">{{item.subtitle}}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+</div>
+</x-dc>
+<script data-dc-script data-props='{}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { view: 'topics', selectedClass: 8 };
+  }
+
+  renderVals() {
+    const subjectMeta = {
+      python:  { label: 'Python',  bg: '#EAF2FF', color: '#2563EB' },
+      tkinter: { label: 'Tkinter', bg: '#E6FBF7', color: '#0F9488' },
+      office:  { label: 'Office',  bg: '#FFF6E5', color: '#B4740B' },
+      sql:     { label: 'SQL',     bg: '#F3EEFF', color: '#7C3AED' },
+      html:    { label: 'HTML',    bg: '#FFEEF1', color: '#E11D48' }
+    };
+    const levelMeta = {
+      base:  { label: 'База',       bg: '#E6F9E9', color: '#1D9A4A' },
+      extra: { label: 'Додатково',  bg: '#FFF3D6', color: '#B4740B' }
+    };
+
+    const raw = [
+      { subject: 'python', title: 'Прості приклади програм', level: 'base', classes: [7,8] },
+      { subject: 'python', title: 'Лінійні алгоритми', level: 'base', classes: [7,8] },
+      { subject: 'python', title: 'Умовні оператори', level: 'base', classes: [7,8,9] },
+      { subject: 'python', title: 'Цикли', level: 'base', classes: [7,8,9] },
+      { subject: 'python', title: 'Списки', level: 'base', classes: [8,9] },
+      { subject: 'python', title: 'Debug — налагодження', level: 'extra', classes: [8,9] },
+      { subject: 'python', title: 'Додаткові задачі', level: 'extra', classes: [9,10,11] },
+      { subject: 'tkinter', title: 'Messagebox — вікно повідомлення', level: 'base', classes: [9,10] },
+      { subject: 'tkinter', title: 'Entry — текстове поле', level: 'base', classes: [9,10] },
+      { subject: 'tkinter', title: 'Canvas — геометричні фігури', level: 'extra', classes: [10,11] },
+      { subject: 'office', title: 'Excel', level: 'base', classes: [7,8] },
+      { subject: 'office', title: 'Word', level: 'base', classes: [7,8] },
+      { subject: 'sql', title: 'Основи та опис завдань', level: 'base', classes: [10,11] },
+      { subject: 'sql', title: 'Завдання на вибірку (SELECT)', level: 'extra', classes: [10,11] },
+      { subject: 'html', title: 'Проєкт: створення сайту', level: 'extra', classes: [9,10] }
+    ];
+
+    const allLessons = raw.map((l) => ({
+      title: l.title,
+      classes: l.classes,
+      subjectLabel: subjectMeta[l.subject].label,
+      subjectBg: subjectMeta[l.subject].bg,
+      subjectColor: subjectMeta[l.subject].color,
+      level: levelMeta[l.level].label,
+      levelBg: levelMeta[l.level].bg,
+      levelColor: levelMeta[l.level].color
+    }));
+
+    const view = this.state.view;
+    const selectedClass = this.state.selectedClass;
+
+    const classChips = [7, 8, 9, 10, 11].map((c) => {
+      const active = c === selectedClass;
+      return {
+        label: c + ' клас',
+        bg: active ? '#23222B' : '#F2F1EA',
+        fg: active ? '#FFE9A8' : '#514E5C',
+        pick: () => this.setState({ selectedClass: c })
+      };
+    });
+
+    const filteredLessons = allLessons.filter((l) => l.classes.includes(selectedClass));
+
+    const materials = [
+      {
+        title: '[Назва електронного підручника].pdf',
+        subtitle: 'Електронна книга',
+        href: '#',
+        isBook: true, isFile: false, isLink: false,
+        badgeBg: '#FFF1E0', iconStroke: '#C2703D'
+      },
+      {
+        title: '[Назва файлу із завданнями].docx',
+        subtitle: 'Файл для завантаження',
+        href: '#',
+        isBook: false, isFile: true, isLink: false,
+        badgeBg: '#E9F5FF', iconStroke: '#1D7FBF'
+      },
+      {
+        title: '[Назва зовнішнього ресурсу]',
+        subtitle: 'Посилання на сторінку',
+        href: '#',
+        isBook: false, isFile: false, isLink: true,
+        badgeBg: '#F1EFFF', iconStroke: '#6D5BD0'
+      }
+    ];
+
+    return {
+      isTopicsView: view === 'topics',
+      isClassesView: view === 'classes',
+      setTopicsView: () => this.setState({ view: 'topics' }),
+      setClassesView: () => this.setState({ view: 'classes' }),
+      topicsTabBg: view === 'topics' ? '#23222B' : 'transparent',
+      topicsTabColor: view === 'topics' ? '#FFFBF3' : '#514E5C',
+      classesTabBg: view === 'classes' ? '#23222B' : 'transparent',
+      classesTabColor: view === 'classes' ? '#FFFBF3' : '#514E5C',
+      viewHint: view === 'topics' ? 'Розділи згруповано за предметами' : 'Оберіть клас — теми можуть повторюватись у кількох класах',
+      classChips: classChips,
+      classResultsLabel: selectedClass + ' клас · ' + filteredLessons.length + (filteredLessons.length === 1 ? ' тема' : ' тем'),
+      filteredLessons: filteredLessons,
+      noResults: filteredLessons.length === 0,
+      materials: materials
+    };
+  }
+}
+</script>
+</body>
+</html>

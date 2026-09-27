@@ -1,0 +1,130 @@
+# ---------- Python ----------
+- id: python-examples
+  title: "Прості приклади програм"
+  url: /python-examples.html
+  subject: python
+  grades: [7, 8, 11]
+  extra: [8, 11]
+
+- id: line
+  title: "Лінійні алгоритми"
+  url: /line.html
+  subject: python
+  grades: [7]
+  extra: []
+
+- id: if-else
+  title: "Умовні оператори"
+  url: /if-else.html
+  subject: python
+  grades: [7, 8, 9]
+  extra: [8, 9]
+
+- id: loop
+  title: "Цикли"
+  url: /loop.html
+  subject: python
+  grades: [7, 8, 9]
+  extra: [8, 9]
+
+- id: list
+  title: "Списки"
+  url: /list.html
+  subject: python
+  grades: [8]
+  extra: []
+
+- id: debug
+  title: "Debug — налагодження"
+  url: /debug.html
+  subject: python
+  grades: [7, 9, 11]
+  extra: [7, 9]
+
+- id: python-plus
+  title: "Додаткові задачі"
+  url: /python-plus.html
+  subject: python
+  grades: [8, 9, 11]
+  extra: [8, 9, 11]
+
+# ---------- Tkinter ----------
+- id: messagebox
+  title: "Messagebox — вікно повідомлення"
+  url: /messagebox.html
+  subject: tkinter
+  grades: [9, 11]
+  extra: []
+
+- id: entry
+  title: "Entry — текстове поле"
+  url: /entry.html
+  subject: tkinter
+  grades: [9, 11]
+  extra: []
+
+- id: canvas
+  title: "Canvas — геометричні фігури"
+  url: /canvas.html
+  subject: tkinter
+  grades: [9, 11]
+  extra: []
+
+# ---------- Microsoft Office ----------
+- id: excel-formulas
+  title: "Excel: формули й функції MIN, MAX"
+  url: /excel/formulas.html
+  subject: office
+  grades: [7, 8, 10]
+  extra: [10]
+
+- id: excel-cell-address
+  title: "Excel: абсолютні, відносні й мішані посилання"
+  url: /excel/cell-address.html
+  subject: office
+  grades: [7, 8]
+  extra: [8]
+
+- id: excel-diagram
+  title: "Excel: діаграми"
+  url: /excel/diagram.html
+  subject: office
+  grades: [8, 10]
+  extra: []
+
+- id: excel-filter
+  title: "Excel: сортування й автофільтри"
+  url: /excel/filter.html
+  subject: office
+  grades: [9, 10]
+  extra: [10]
+
+- id: word
+  title: "Word: структура документа"
+  url: /word-1.html
+  subject: office
+  grades: [7, 8, 11]
+  extra: [11]
+
+# ---------- Бази даних ----------
+- id: sql-about
+  title: "SQL: основи та опис завдань"
+  url: /sql/about-sql.html
+  subject: db
+  grades: [9, 10, 11]
+  extra: [9]
+
+- id: sql-select
+  title: "Завдання на вибірку (SELECT)"
+  url: /sql/tasks-w3schools.html
+  subject: db
+  grades: [9, 10, 11]
+  extra: [9]
+
+# ---------- Веб ----------
+- id: html-project
+  title: "Проєкт: створення сайту"
+  url: /html/project.html
+  subject: web
+  grades: [9, 10]
+  extra: [9]
