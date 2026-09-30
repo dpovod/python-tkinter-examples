@@ -14,3 +14,10 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+# Шаблони й приклад для проєкту «Створення сайту» — статичні файли для завантаження,
+# у sitemap їм не місце
+defaults:
+  - scope:
+      path: "html/project"
+    values:
+      sitemap: false

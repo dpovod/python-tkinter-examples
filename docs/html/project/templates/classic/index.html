@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Щоб сайт нормально виглядав на телефоні -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Головна — Назва сайту</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Шапка: однакова на всіх сторінках -->
+    <header class="site-header">
+      <a class="logo" href="index.html">Назва сайту</a>
+      <!-- Меню: змініть назви пунктів на свої.
+           class="active" — у пункту поточної сторінки -->
+      <nav class="menu">
+        <a class="active" href="index.html">Головна</a>
+        <a href="about.html">Про тему</a>
+        <a href="gallery.html">Галерея</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <!-- На кожній сторінці лише один заголовок h1 -->
+      <h1>Заголовок головної сторінки</h1>
+
+      <img class="wide" src="images/photo-1.svg" alt="Опишіть, що зображено на картинці" />
+
+      <p>
+        Тут напишіть вступ: про що ваш сайт і чому ця тема вам цікава.
+        Два–три речення, щоб гість одразу зрозумів, куди потрапив.
+      </p>
+
+      <h2>Підзаголовок розділу</h2>
+      <p>
+        Тут розкажіть головне. Пишіть короткими абзацами.
+        Кожен новий абзац — новий тег &lt;p&gt;.
+      </p>
+
+      <h2>Що є на сайті</h2>
+      <ul>
+        <li><a href="about.html">Про тему</a> — докладна розповідь.</li>
+        <li><a href="gallery.html">Галерея</a> — фото й підписи до них.</li>
+      </ul>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Ім'я Прізвище, клас</p>
+    </footer>
+  </body>
+</html>

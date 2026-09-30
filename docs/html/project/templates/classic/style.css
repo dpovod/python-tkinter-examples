@@ -1,0 +1,159 @@
+/* ===== Шаблон «Класичний»: меню зверху ===== */
+
+/* Кольори сайту — змініть тут, і вони зміняться всюди */
+:root {
+  --main-color: #2563eb;   /* основний колір: шапка, посилання */
+  --bg-color: #f4f6fb;     /* фон сторінки */
+  --text-color: #1f2937;   /* колір тексту */
+  --card-color: #ffffff;   /* фон блоків */
+}
+
+/* Уся сторінка */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Шапка з назвою та меню */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 24px;
+  background: var(--main-color);
+}
+
+.logo {
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Меню */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu a {
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Пункт меню поточної сторінки */
+.menu a.active {
+  background: white;
+  color: var(--main-color);
+}
+
+/* Основний вміст по центру */
+.container {
+  max-width: 900px;
+  margin: 24px auto;
+  padding: 24px;
+  background: var(--card-color);
+  border-radius: 12px;
+}
+
+h1,
+h2 {
+  color: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+/* Картинки не виходять за межі блоку */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Велика картинка на всю ширину */
+img.wide {
+  display: block;
+  width: 100%;
+}
+
+/* Картинка праворуч від тексту */
+img.side {
+  float: right;
+  width: 40%;
+  margin: 0 0 12px 20px;
+}
+
+/* Таблиця */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  text-align: left;
+}
+
+th {
+  background: var(--bg-color);
+}
+
+/* Галерея: сітка, яка сама підлаштовується під ширину екрана */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  padding-top: 6px;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Підвал */
+.site-footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 15px;
+}
+
+/* ===== Для телефонів (екран вужчий за 600px) ===== */
+@media (max-width: 600px) {
+  .container {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  img.side {
+    float: none;
+    width: 100%;
+    margin: 0 0 12px;
+  }
+}

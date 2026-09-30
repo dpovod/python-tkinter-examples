@@ -1,0 +1,188 @@
+/* ===== Шаблон «Лендинг»: великий банер і картки ===== */
+
+/* Кольори сайту — змініть тут, і вони зміняться всюди */
+:root {
+  --main-color: #e11d48;    /* основний колір: кнопки, посилання */
+  --second-color: #f97316;  /* другий колір для переходу в банері */
+  --bg-color: #fff7f5;      /* фон сторінки */
+  --text-color: #1f2937;    /* колір тексту */
+}
+
+/* Уся сторінка */
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Шапка: біла, «прилипає» до верху під час прокручування */
+.site-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 24px;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  color: var(--main-color);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Меню */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.menu a {
+  padding: 4px 0;
+  color: var(--text-color);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.menu a:hover,
+.menu a.active {
+  border-bottom-color: var(--main-color);
+}
+
+/* Банер на головній.
+   Замість кольорового переходу можна поставити своє фото:
+   background: url("images/banner.jpg") center / cover; */
+.hero {
+  padding: 80px 24px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, var(--main-color), var(--second-color));
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 48px;
+  line-height: 1.2;
+}
+
+/* Кнопка — це звичайне посилання, оформлене стилями */
+.button {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 12px 28px;
+  border-radius: 30px;
+  background: white;
+  color: var(--main-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--bg-color);
+}
+
+/* Смуга із заголовком на інших сторінках */
+.page-title {
+  padding: 40px 24px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(135deg, var(--main-color), var(--second-color));
+}
+
+.page-title h1 {
+  margin: 0;
+}
+
+/* Основний вміст по центру */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+h2 {
+  color: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+/* Картинки не виходять за межі блоку */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+img.wide {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* Сітка карток: скільки влізе в рядок, стільки й буде */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Одна картка */
+.card {
+  margin: 0;
+  overflow: hidden;   /* щоб картинка не вилазила за закруглені кути */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 8 / 5;  /* усі картинки однакової форми */
+  object-fit: cover;    /* картинка заповнює місце, не розтягуючись */
+}
+
+.card-text {
+  padding: 16px;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+}
+
+.card p {
+  margin: 0 0 8px;
+}
+
+/* Підвал */
+.site-footer {
+  padding: 24px;
+  text-align: center;
+  font-size: 15px;
+  background: white;
+}
+
+/* ===== Для телефонів (екран вужчий за 600px) ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 48px 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 24px 16px;
+  }
+}

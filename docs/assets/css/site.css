@@ -1107,3 +1107,231 @@ details.solution[open] summary {
   gap: 20px;
   flex-wrap: wrap;
 }
+
+/* ============ Сторінка "Проєкт: створення сайту" ============ */
+
+.project h2 {
+  font-size: 28px;
+  font-weight: 800;
+  margin: 48px 0 16px;
+  scroll-margin-top: 16px;
+}
+
+.project h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 28px 0 10px;
+}
+
+.project li {
+  margin-bottom: 4px;
+}
+
+.project kbd {
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.project .code-block {
+  margin-bottom: 20px;
+}
+
+/* Зміст сторінки: ряд «пігулок»-якорів */
+.project-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.project-toc a {
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.project-toc a:hover {
+  background: var(--row-hover);
+}
+
+/* Сітка карток: теми, шаблони, правила, чекліст */
+.project-grid,
+.template-grid,
+.rules-grid,
+.checklist-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.project-grid {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.template-grid {
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+  gap: 24px;
+}
+
+.rules-grid,
+.checklist-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+}
+
+.project-theme,
+.template-card,
+.rules-grid section,
+.checklist-grid section {
+  padding: 20px;
+  border-radius: var(--radius-row);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.project .project-theme h3,
+.project .template-card h3,
+.project .rules-grid h3,
+.project .checklist-grid h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.project-theme ul,
+.rules-grid ul,
+.checklist-grid ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 15px;
+}
+
+.project-theme p {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+/* Картка шаблону */
+.template-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.template-card img {
+  display: block;
+  width: 100%;
+  margin-bottom: 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.template-card p {
+  font-size: 15px;
+  color: var(--text-2);
+}
+
+.template-card .btn-row {
+  margin-top: auto;
+}
+
+/* Кнопки-посилання */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0 16px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-row);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--row-hover);
+}
+
+.btn--primary {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--bg);
+}
+
+.btn--primary:hover {
+  background: var(--text-2);
+}
+
+/* Скріншоти прикладу */
+.shot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.shot-grid a {
+  display: block;
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.shot-grid img {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.shot-grid a:hover span {
+  text-decoration: underline;
+}
+
+/* Кроки плану роботи */
+.project-steps li {
+  margin-bottom: 8px;
+}
+
+/* Перевір себе: запитання «очима відвідувача» */
+.visitor-check li {
+  margin-bottom: 8px;
+}
+
+/* Перевір себе */
+.self-check {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.self-check__item {
+  padding: 16px 20px;
+  border-radius: var(--radius-row);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.self-check__item p {
+  margin-bottom: 8px;
+}
+
+.self-check__item > p:last-child,
+.self-check__item details p {
+  margin-bottom: 0;
+}

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Щоб сайт нормально виглядав на телефоні -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Головна — Назва сайту</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="index.html">Назва сайту</a>
+      <!-- Меню: змініть назви пунктів на свої.
+           class="active" — у пункту поточної сторінки -->
+      <nav class="menu">
+        <a class="active" href="index.html">Головна</a>
+        <a href="about.html">Про тему</a>
+        <a href="gallery.html">Галерея</a>
+      </nav>
+    </header>
+
+    <!-- Банер: великий заголовок і кнопка -->
+    <section class="hero">
+      <h1>Великий заголовок сайту</h1>
+      <p>Одне речення, яке пояснює, про що сайт.</p>
+      <a class="button" href="about.html">Дізнатися більше</a>
+    </section>
+
+    <main class="container">
+      <section>
+        <h2>Розділи сайту</h2>
+        <!-- Картки: скопіюйте блок <article>, щоб додати ще одну -->
+        <div class="cards">
+          <article class="card">
+            <img src="images/photo-1.svg" alt="Опис картинки 1" />
+            <div class="card-text">
+              <h3>Про тему</h3>
+              <p>Коротко: два речення про цей розділ.</p>
+              <a href="about.html">Детальніше →</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="images/photo-2.svg" alt="Опис картинки 2" />
+            <div class="card-text">
+              <h3>Галерея</h3>
+              <p>Коротко: два речення про цей розділ.</p>
+              <a href="gallery.html">Детальніше →</a>
+            </div>
+          </article>
+          <article class="card">
+            <img src="images/photo-3.svg" alt="Опис картинки 3" />
+            <div class="card-text">
+              <h3>Ще один розділ</h3>
+              <p>Коротко: два речення про цей розділ.</p>
+              <a href="about.html">Детальніше →</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Чому це цікаво</h2>
+        <p>
+          Тут напишіть кілька речень. Можна розбити текст
+          на короткі абзаци.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Ім'я Прізвище, клас</p>
+    </footer>
+  </body>
+</html>
