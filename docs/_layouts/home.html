@@ -22,6 +22,7 @@ layout: default
   <div class="view-hint" id="view-hint">Розділи згруповано за предметами</div>
 </div>
 
+{%- assign topic_limit = site.home_topic_limit | default: 5 -%}
 <section id="topics" class="view-panel is-active" role="tabpanel" aria-labelledby="tab-topics">
   <h2 class="view-panel-heading">За темами</h2>
   <div class="subject-grid">
@@ -35,31 +36,23 @@ layout: default
         <p>Матеріали з'являться протягом року</p>
       </div>
       {%- else -%}
+      {%- assign topic_url = '/topics/' | append: subject.id | append: '/' | relative_url -%}
       <div class="subject-card" id="subject-{{ subject.id }}">
         <div class="subject-card__header">
           <div class="subject-card__tile" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{% include icon.html name=subject.icon %}</div>
           <div>
-            <h2>{{ subject.label }}</h2>
+            <h2><a class="subject-card__link" href="{{ topic_url }}">{{ subject.label }}</a></h2>
             <div class="subject-card__count">{{ subject_lessons.size }} {% include plural-tem.html count=subject_lessons.size %}</div>
           </div>
         </div>
         <div class="subject-card__rows">
-          {%- for lesson in subject_lessons -%}
-            {%- assign is_all_extra = false -%}
-            {%- if lesson.extra.size >= lesson.grades.size -%}{%- assign is_all_extra = true -%}{%- endif -%}
-            <a class="lesson-row" href="{{ lesson.url | relative_url }}">
-              <span class="lesson-row__title">{{ lesson.title }}</span>
-              <span class="lesson-row__meta">
-                <span class="grade-range">{% include grade-range.html grades=lesson.grades %}</span>
-                {%- if is_all_extra -%}
-                <span class="badge badge--level-extra">Додатково</span>
-                {%- else -%}
-                <span class="badge badge--level-base">Основне</span>
-                {%- endif -%}
-              </span>
-            </a>
+          {%- for lesson in subject_lessons limit: topic_limit -%}
+            {%- include lesson-row.html lesson=lesson -%}
           {%- endfor -%}
         </div>
+        {%- if subject_lessons.size > topic_limit %}
+        <a class="lesson-nav__btn lesson-nav__btn--next subject-card__more" href="{{ topic_url }}">Усі матеріали теми ({{ subject_lessons.size }}){% include icon.html name="chevron-right" dim=16 %}</a>
+        {%- endif %}
       </div>
       {%- endif -%}
     {%- endfor -%}

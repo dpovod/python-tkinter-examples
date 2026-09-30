@@ -1,0 +1,19 @@
+{%- comment -%}
+  Рядок уроку в картці теми (головна, сторінка теми): назва, діапазон
+  класів і рівень. «Додатково» — лише якщо урок додатковий для всіх класів.
+  {% include lesson-row.html lesson=lesson %}
+{%- endcomment -%}
+{%- assign lr = include.lesson -%}
+{%- assign is_all_extra = false -%}
+{%- if lr.extra.size >= lr.grades.size -%}{%- assign is_all_extra = true -%}{%- endif -%}
+<a class="lesson-row" href="{{ lr.url | relative_url }}">
+  <span class="lesson-row__title">{{ lr.title }}</span>
+  <span class="lesson-row__meta">
+    <span class="grade-range">{% include grade-range.html grades=lr.grades %}</span>
+    {%- if is_all_extra -%}
+    <span class="badge badge--level-extra">Додатково</span>
+    {%- else -%}
+    <span class="badge badge--level-base">Основне</span>
+    {%- endif -%}
+  </span>
+</a>

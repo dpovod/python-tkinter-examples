@@ -1,0 +1,38 @@
+---
+layout: default
+---
+{%- comment -%}
+  Сторінка теми: усі уроки предмета з _data/lessons.yml.
+  Front matter сторінки: subject (id із subjects.yml).
+{%- endcomment -%}
+{%- assign subject = site.data.subjects | where: "id", page.subject | first -%}
+{%- assign subject_lessons = site.data.lessons | where: "subject", page.subject -%}
+<article>
+  <nav class="breadcrumbs" aria-label="Навігаційний шлях">
+    <ol>
+      <li><a href="{{ '/' | relative_url }}">Головна</a></li>
+      <li aria-current="page">{{ page.title }}</li>
+    </ol>
+  </nav>
+
+  <div class="page-header topic-header">
+    <div class="subject-card__tile" style="background: {{ subject.bg }}; color: {{ subject.fg }};">{% include icon.html name=subject.icon %}</div>
+    <div class="page-header__text">
+      <h1>{{ page.title }}</h1>
+      <div class="subject-card__count">{{ subject_lessons.size }} {% include plural-tem.html count=subject_lessons.size %}</div>
+      {%- if page.description %}
+      <p class="page-header__description">{{ page.description }}</p>
+      {%- endif %}
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="subject-card__rows">
+      {%- for lesson in subject_lessons -%}
+        {%- include lesson-row.html lesson=lesson -%}
+      {%- endfor -%}
+    </div>
+  </div>
+
+  {{ content }}
+</article>

@@ -1,13 +1,4 @@
 # ---------- Підручники ----------
-- id: imzo-library
-  title: "Електронна бібліотека ІМЗО: підручники"
-  type: link
-  group: textbooks
-  url: "https://lib.imzo.gov.ua/"
-  note: "Офіційні електронні версії підручників"
-  grades: [6, 7, 8, 9, 10, 11]
-  featured: true
-
 - id: textbook-6
   title: "Підручник для 6 класу"   # TODO: автори
   type: book
@@ -19,21 +10,45 @@
   title: "Підручник для 7 класу"   # TODO: автори
   type: book
   group: textbooks
-  url: TODO
+  url: "https://znayshov.com/FR/33506/Informatika_7kl_Morze_nush_2024.pdf"
+  grades: [7]
+
+- id: textbook-7-files
+  title: "Електронна складова підручника для 7 класу"
+  type: link
+  group: textbooks
+  url: "https://qr.orioncentr.com.ua/EKTFh"
+  note: "Файли для виконання завдань з підручника"
   grades: [7]
 
 - id: textbook-8
   title: "Підручник для 8 класу"   # TODO: автори (ймовірно Морзе Н. В., Барна О. В., 2025)
   type: book
   group: textbooks
-  url: TODO
+  url: "https://drive.google.com/file/d/1EFkyl58UIPDfqqORQgOABMKmF_maIwuL/view"
+  grades: [8]
+
+- id: textbook-8-files
+  title: "Електронна складова підручника для 8 класу"
+  type: link
+  group: textbooks
+  url: "https://qr.orioncentr.com.ua/zVBrW"
+  note: "Файли для виконання завдань з підручника"
   grades: [8]
 
 - id: textbook-9
   title: "Н. Морзе, О. Барна. Інформатика-9"
   type: book
   group: textbooks
-  url: TODO
+  url: "https://drive.google.com/file/d/1y7f12wMI9HT6IWfNfdzCXFOuWpHQyPNG/view"
+  grades: [9]
+
+- id: textbook-9-files
+  title: "Електронна складова підручника для 9 класу"
+  type: link
+  group: textbooks
+  url: "https://qr.orioncentr.com.ua/xX7Rw"
+  note: "Файли для виконання завдань з підручника"
   grades: [9]
 
 - id: textbook-10

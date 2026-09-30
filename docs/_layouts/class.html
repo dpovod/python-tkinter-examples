@@ -21,9 +21,19 @@ layout: default
   {%- if ktp.textbook -%}
     {%- assign textbook = site.data.resources | where: "id", ktp.textbook | first -%}
   {%- endif -%}
-  {%- if textbook and textbook.url != "TODO" -%}
+  {%- assign textbook_files = nil -%}
+  {%- if ktp.textbook_files -%}
+    {%- assign textbook_files = site.data.resources | where: "id", ktp.textbook_files | first -%}
+  {%- endif -%}
+  {%- assign show_textbook = false -%}
+  {%- if textbook and textbook.url != "TODO" -%}{%- assign show_textbook = true -%}{%- endif -%}
+  {%- if textbook_files and textbook_files.url != "TODO" -%}{%- assign show_textbook = true -%}{%- endif -%}
+  {%- if show_textbook -%}
   <div class="card" style="margin-bottom: 32px;">
-    {% include resource-card.html resource=textbook %}
+    <div class="resource-grid">
+      {%- include resource-card.html resource=textbook -%}
+      {%- include resource-card.html resource=textbook_files -%}
+    </div>
   </div>
   {%- endif -%}
 

@@ -17,7 +17,7 @@
   <ol>
     <li><a href="{{ '/' | relative_url }}">Головна</a></li>
     {%- if subject %}
-    <li><a href="{{ '/' | relative_url }}#subject-{{ subject.id }}" style="color: {{ subject.fg }};">{{ subject.label }}</a></li>
+    <li><a href="{{ '/topics/' | append: subject.id | append: '/' | relative_url }}" style="color: {{ subject.fg }};">{{ subject.label }}</a></li>
     {%- endif %}
     <li aria-current="page">{{ page.title }}</li>
   </ol>

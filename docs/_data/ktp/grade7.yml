@@ -3,6 +3,7 @@ title: "7 клас"
 hours: "35 годин (1 на тиждень)"
 note: "Модельна програма «Інформатика. 7–9 класи» (авт. Морзе Н. В., Барна О. В.)"
 textbook: textbook-7
+textbook_files: textbook-7-files
 groups:
   - title: "Тема 1. Комунікація та взаємодія"
     semester: 1
