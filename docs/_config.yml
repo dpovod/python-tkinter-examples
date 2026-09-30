@@ -5,6 +5,8 @@ url: "https://dpovod.github.io"
 baseurl: "/python-tkinter-examples"
 markdown: kramdown
 highlighter: rouge
+# Скільки уроків показувати в картці теми на головній; решта — на сторінці теми
+home_topic_limit: 5
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

@@ -3,6 +3,7 @@ title: "8 клас"
 hours: "70 годин (2 на тиждень)"
 note: "Модельна програма «Інформатика. 7–9 класи» (авт. Морзе Н. В., Барна О. В.)"
 textbook: textbook-8
+textbook_files: textbook-8-files
 groups:
   - title: "Тема 1. Цифрова безпека"
     semester: 1

@@ -815,6 +815,27 @@ details.solution[open] summary {
   min-width: 0;
 }
 
+/* Заголовок картки веде на сторінку теми */
+.subject-card__link {
+  text-decoration: none;
+}
+
+.subject-card__link:hover {
+  text-decoration: underline;
+}
+
+/* «Усі матеріали теми (N)», коли уроків більше за home_topic_limit */
+.subject-card__more {
+  align-self: flex-start;
+}
+
+/* Сторінка теми: плитка й заголовок в один рядок */
+.topic-header {
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  gap: 16px;
+}
+
 /* Картка "Розділ готується" */
 .subject-card--planned {
   border: 2px dashed var(--dashed);

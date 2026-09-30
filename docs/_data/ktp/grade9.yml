@@ -3,6 +3,7 @@ title: "9 клас"
 hours: "52 уроки"
 note: "Пілотний клас НУШ. Підручник «Інформатика-9» (авт. Н. Морзе, О. Барна). Кожен модуль завершується проєктом."
 textbook: textbook-9
+textbook_files: textbook-9-files
 groups:
   - title: "Проєкт «Моя майбутня професія»"
     lessons_range: "Уроки 1–2"
