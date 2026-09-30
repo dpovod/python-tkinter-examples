@@ -1,0 +1,174 @@
+/* ===== Шаблон «Бічне меню»: меню зліва, вміст справа ===== */
+
+/* Кольори сайту — змініть тут, і вони зміняться всюди */
+:root {
+  --main-color: #15803d;   /* основний колір: бічна панель, заголовки */
+  --light-color: #dcfce7;  /* світлий відтінок основного кольору */
+  --bg-color: #ffffff;     /* фон сторінки */
+  --text-color: #1f2937;   /* колір тексту */
+}
+
+/* Уся сторінка */
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Дві колонки: бічна панель 240px і вміст на решту ширини */
+.page {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+
+/* Бічна панель */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background: var(--main-color);
+  color: white;
+}
+
+.logo {
+  color: white;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Меню: пункти один під одним */
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu a {
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Пункт меню поточної сторінки */
+.menu a.active {
+  background: white;
+  color: var(--main-color);
+  font-weight: bold;
+}
+
+/* Підпис унизу бічної панелі */
+.sidebar-footer {
+  margin-top: auto;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* Вміст сторінки */
+.content {
+  max-width: 820px;
+  padding: 32px 40px;
+}
+
+h1,
+h2 {
+  color: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+/* Виділений блок-підказка */
+.note {
+  padding: 14px 18px;
+  border-left: 6px solid var(--main-color);
+  background: var(--light-color);
+  border-radius: 6px;
+}
+
+/* Картинки не виходять за межі блоку */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* Велика картинка на всю ширину */
+img.wide {
+  display: block;
+  width: 100%;
+}
+
+/* Таблиця */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #d1d5db;
+  text-align: left;
+}
+
+th {
+  background: var(--light-color);
+}
+
+/* Галерея: сітка, яка сама підлаштовується під ширину екрана */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  padding-top: 6px;
+  font-size: 15px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ===== Для телефонів (екран вужчий за 700px) ===== */
+@media (max-width: 700px) {
+  /* Одна колонка: панель стає шапкою зверху */
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    gap: 12px;
+    padding: 16px;
+  }
+
+  /* Пункти меню стають в рядок */
+  .menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .content {
+    padding: 16px;
+  }
+}

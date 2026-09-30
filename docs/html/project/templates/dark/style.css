@@ -1,0 +1,170 @@
+/* ===== Шаблон «Темний» =====
+   HTML-файли такі самі, як у шаблоні «Класичний».
+   Різниця лише тут, у CSS: весь вигляд сайту задає style.css. */
+
+/* Кольори сайту — змініть тут, і вони зміняться всюди */
+:root {
+  --main-color: #38bdf8;   /* акцент: заголовки, посилання */
+  --bg-color: #0f172a;     /* фон сторінки */
+  --text-color: #e2e8f0;   /* колір тексту */
+  --card-color: #1e293b;   /* фон блоків */
+  --line-color: #334155;   /* рамки й лінії */
+}
+
+/* Уся сторінка */
+body {
+  margin: 0;
+  font-family: Verdana, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  background: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Шапка з назвою та меню */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 24px;
+  border-bottom: 2px solid var(--line-color);
+}
+
+.logo {
+  color: var(--main-color);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* Меню */
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu a {
+  padding: 8px 14px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  border-color: var(--main-color);
+}
+
+/* Пункт меню поточної сторінки */
+.menu a.active {
+  background: var(--main-color);
+  color: var(--bg-color);
+}
+
+/* Основний вміст по центру */
+.container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 28px;
+  background: var(--card-color);
+  border: 1px solid var(--line-color);
+  border-radius: 16px;
+}
+
+h1,
+h2 {
+  color: var(--main-color);
+}
+
+a {
+  color: var(--main-color);
+}
+
+/* Картинки не виходять за межі блоку */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Велика картинка на всю ширину */
+img.wide {
+  display: block;
+  width: 100%;
+}
+
+/* Картинка праворуч від тексту */
+img.side {
+  float: right;
+  width: 40%;
+  margin: 0 0 12px 20px;
+}
+
+/* Таблиця */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 12px;
+  border: 1px solid var(--line-color);
+  text-align: left;
+}
+
+th {
+  color: var(--main-color);
+}
+
+/* Галерея: сітка, яка сама підлаштовується під ширину екрана */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+  padding: 8px;
+  background: var(--bg-color);
+  border-radius: 14px;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+}
+
+figcaption {
+  padding-top: 6px;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* Підвал */
+.site-footer {
+  padding: 16px;
+  text-align: center;
+  font-size: 15px;
+  color: #94a3b8;
+}
+
+/* ===== Для телефонів (екран вужчий за 600px) ===== */
+@media (max-width: 600px) {
+  .container {
+    margin: 12px;
+    padding: 16px;
+  }
+
+  img.side {
+    float: none;
+    width: 100%;
+    margin: 0 0 12px;
+  }
+}

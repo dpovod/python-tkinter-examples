@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e0e7ff"/>
+  <circle cx="675" cy="140" r="54" fill="#4f46e5" opacity="0.85"/>
+  <path d="M0 400 L200 230 L355 400 Z" fill="#a5b4fc"/>
+  <path d="M220 400 L430 190 L720 400 Z" fill="#4f46e5" opacity="0.55"/>
+  <rect y="400" width="800" height="100" fill="#a5b4fc"/>
+  <text x="400" y="465" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#4f46e5" text-anchor="middle">Фото 5</text>
+</svg>

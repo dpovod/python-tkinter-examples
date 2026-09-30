@@ -4,314 +4,424 @@ title: "Проєкт: створення сайту"
 lesson: html-project
 description: "Проєктне завдання: створити багатосторінковий сайт на HTML і CSS за обраною темою."
 ---
-<p>Ваше завдання — створити <strong>повноцінний сайт</strong>, а не презентацію.</p>
-<p>Ви можете обрати тему нижче та використати готову структуру.</p>
+{%- assign p = '/html/project/' | relative_url -%}
+{%- assign z = '/files/html-project/' | relative_url -%}
+<div class="project">
 
-<h2>Оберіть тему сайту</h2>
+<p>Ваше завдання — створити <strong>повноцінний сайт</strong>, а не презентацію: кілька сторінок, пов'язаних меню, із власним текстом, зображеннями й оформленням у CSS.</p>
 
-<h3>🎮 Сайт про гру</h3>
-<ul>
-  <li>Головна (опис гри)</li>
-  <li>Персонажі</li>
-  <li>Геймплей</li>
-  <li>Галерея</li>
-</ul>
+<p class="callout">Мінімум: 3–5 сторінок · меню на кожній сторінці · текст і зображення · власний файл <code>style.css</code></p>
 
-<h3>🎬 Сайт про фільм або серіал</h3>
-<ul>
-  <li>Головна (сюжет)</li>
-  <li>Герої</li>
-  <li>Цікаві факти</li>
-  <li>Трейлер</li>
-</ul>
+<nav class="project-toc" aria-label="На цій сторінці">
+  <a href="#topic">Тема</a>
+  <a href="#templates">Шаблони</a>
+  <a href="#example">Готовий приклад</a>
+  <a href="#folder">Папка проєкту</a>
+  <a href="#plan">План роботи</a>
+  <a href="#rules">Правила</a>
+  <a href="#checklist">Чекліст</a>
+  <a href="#self-check">Перевір себе</a>
+</nav>
 
-<h3>🌍 Подорож / країна</h3>
-<ul>
-  <li>Головна</li>
-  <li>Цікаві місця</li>
-  <li>Культура / їжа</li>
-  <li>Галерея</li>
-</ul>
+<h2 id="topic">1. Оберіть тему</h2>
+<p>Для кожної теми є готова структура: які сторінки зробити і що на них розмістити. Можна обрати свою тему, але структура має бути схожа.</p>
 
-<h3>🍔 Сайт кафе</h3>
-<ul>
-  <li>Головна</li>
-  <li>Меню</li>
-  <li>Про нас</li>
-  <li>Контакти</li>
-</ul>
-
-<h3>🎧 Музичний виконавець</h3>
-<ul>
-  <li>Головна (біографія)</li>
-  <li>Альбоми</li>
-  <li>Популярні пісні</li>
-  <li>Відео</li>
-</ul>
-
-<h3>🚗 Улюблений автомобіль</h3>
-<ul>
-  <li>Головна</li>
-  <li>Характеристики</li>
-  <li>Плюси / мінуси</li>
-  <li>Галерея</li>
-</ul>
-
-<h3>🎮 ТОП-5 ігор</h3>
-<ul>
-  <li>Головна</li>
-  <li>Гра 1</li>
-  <li>Гра 2</li>
-  <li>Гра 3</li>
-  <li>Гра 4</li>
-  <li>Гра 5</li>
-</ul>
-
-<h2>Складніший варіант</h2>
-
-<h3>💻 Інтернет-магазин</h3>
-<ul>
-  <li>Головна</li>
-  <li>
-    Каталог
+<div class="project-grid">
+  <section class="project-theme">
+    <h3>🎮 Сайт про гру</h3>
     <ul>
-      <li>Категорія 1</li>
-      <li>Категорія 2</li>
+      <li><strong>Головна</strong> — назва, жанр, коротко про гру</li>
+      <li><strong>Персонажі</strong> — 3–5 героїв із картинками</li>
+      <li><strong>Геймплей</strong> — як грати, режими, поради</li>
+      <li><strong>Галерея</strong> — скріншоти з підписами</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🎬 Фільм або серіал</h3>
+    <ul>
+      <li><strong>Головна</strong> — сюжет без спойлерів, рік, жанр</li>
+      <li><strong>Герої</strong> — головні персонажі та актори</li>
+      <li><strong>Цікаві факти</strong> — як знімали, нагороди</li>
+      <li><strong>Трейлер</strong> — відео та ваш відгук</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🌍 Подорож / країна</h3>
+    <ul>
+      <li><strong>Головна</strong> — де це, чим відоме</li>
+      <li><strong>Цікаві місця</strong> — 3–5 місць із фото</li>
+      <li><strong>Культура / їжа</strong> — традиції, страви</li>
+      <li><strong>Галерея</strong> — фото з підписами</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🍔 Сайт кафе</h3>
+    <ul>
+      <li><strong>Головна</strong> — назва, чим особливе</li>
+      <li><strong>Меню</strong> — таблиця страв і цін</li>
+      <li><strong>Про нас</strong> — історія, команда</li>
+      <li><strong>Контакти</strong> — адреса, години роботи</li>
+    </ul>
+    <p><a href="#example">Готовий приклад такого сайту ↓</a></p>
+  </section>
+
+  <section class="project-theme">
+    <h3>🎧 Музичний виконавець</h3>
+    <ul>
+      <li><strong>Головна</strong> — біографія</li>
+      <li><strong>Альбоми</strong> — назви, роки, обкладинки</li>
+      <li><strong>Популярні пісні</strong> — список або таблиця</li>
+      <li><strong>Відео</strong> — кліп і кілька слів про нього</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🚗 Улюблений автомобіль</h3>
+    <ul>
+      <li><strong>Головна</strong> — модель, виробник, фото</li>
+      <li><strong>Характеристики</strong> — таблиця</li>
+      <li><strong>Плюси / мінуси</strong> — два списки</li>
+      <li><strong>Галерея</strong> — фото з різних боків</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🏆 ТОП-5 ігор</h3>
+    <ul>
+      <li><strong>Головна</strong> — рейтинг із посиланнями на кожну гру</li>
+      <li><strong>5 сторінок</strong> — по одній на кожну гру: опис, фото, чим подобається</li>
+    </ul>
+    <p>У меню пишіть назви ігор, а не «Гра 1».</p>
+  </section>
+
+  <section class="project-theme">
+    <h3>⚽ Вид спорту або команда</h3>
+    <ul>
+      <li><strong>Головна</strong> — про вид спорту чи команду</li>
+      <li><strong>Правила</strong> — як грати, коротко</li>
+      <li><strong>Відомі спортсмени</strong> — картки з фото</li>
+      <li><strong>Досягнення</strong> — таблиця перемог</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>📚 Улюблена книга</h3>
+    <ul>
+      <li><strong>Головна</strong> — назва, автор, про що книга</li>
+      <li><strong>Герої</strong> — головні персонажі</li>
+      <li><strong>Цитати</strong> — улюблені уривки</li>
+      <li><strong>Про автора</strong> — коротка біографія</li>
+    </ul>
+  </section>
+
+  <section class="project-theme">
+    <h3>🐾 Тварини</h3>
+    <ul>
+      <li><strong>Головна</strong> — про яку тварину чи породу сайт</li>
+      <li><strong>Види / породи</strong> — картки з фото</li>
+      <li><strong>Догляд</strong> — що їсть, як доглядати</li>
+      <li><strong>Галерея</strong> — фото з підписами</li>
+    </ul>
+  </section>
+</div>
+
+<h3>Складніший варіант: 💻 інтернет-магазин</h3>
+<ul>
+  <li><strong>Головна</strong> — банер і популярні товари</li>
+  <li><strong>Каталог</strong> — перелік категорій із посиланнями
+    <ul>
+      <li><strong>Категорія 1</strong>, <strong>Категорія 2</strong> — окремі сторінки з картками товарів (фото, назва, ціна)</li>
     </ul>
   </li>
-  <li>Про нас</li>
-  <li>Контакти</li>
+  <li><strong>Про нас</strong></li>
+  <li><strong>Контакти</strong></li>
 </ul>
 
-<p><strong>Можна обрати свою тему, але структура має бути схожа.</strong></p>
+<h2 id="templates">2. Оберіть шаблон</h2>
+<p>Шаблон — готова основа сайту: 3 пов'язані сторінки, меню, стилі й картинки-заглушки. Завантажте архів, розпакуйте його і змініть усе під свою тему: тексти, картинки, назви сторінок, кольори. Можна також почати з нуля.</p>
 
-<h2>План роботи</h2>
+<div class="template-grid">
+  <article class="template-card">
+    <img src="{{ p }}screenshots/template-classic.jpg" alt="Шаблон «Класичний»: синя шапка з меню зверху, під нею білий блок із заголовком і великою картинкою" width="800" height="500" loading="lazy" />
+    <h3>Класичний</h3>
+    <p>Меню зверху, вміст по центру. Найпростіший для початку.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ z }}template-classic.zip" download>Завантажити .zip</a>
+      <a class="btn" href="{{ p }}templates/classic/index.html" target="_blank" rel="noopener">Переглянути<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>
+    </div>
+  </article>
+
+  <article class="template-card">
+    <img src="{{ p }}screenshots/template-sidebar.jpg" alt="Шаблон «Бічне меню»: зелена панель із меню ліворуч, вміст праворуч" width="800" height="500" loading="lazy" />
+    <h3>Бічне меню</h3>
+    <p>Меню в колонці зліва. На телефоні панель переїжджає наверх.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ z }}template-sidebar.zip" download>Завантажити .zip</a>
+      <a class="btn" href="{{ p }}templates/sidebar/index.html" target="_blank" rel="noopener">Переглянути<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>
+    </div>
+  </article>
+
+  <article class="template-card">
+    <img src="{{ p }}screenshots/template-landing.jpg" alt="Шаблон «Лендинг»: великий яскравий банер із кнопкою, під ним картки з картинками" width="800" height="500" loading="lazy" />
+    <h3>Лендинг</h3>
+    <p>Великий банер із кнопкою та сітка карток. Для яскравого сайту.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ z }}template-landing.zip" download>Завантажити .zip</a>
+      <a class="btn" href="{{ p }}templates/landing/index.html" target="_blank" rel="noopener">Переглянути<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>
+    </div>
+  </article>
+
+  <article class="template-card">
+    <img src="{{ p }}screenshots/template-dark.jpg" alt="Шаблон «Темний»: темно-синій фон, блакитні заголовки й меню" width="800" height="500" loading="lazy" />
+    <h3>Темний</h3>
+    <p>Той самий HTML, що й у «Класичному», але інший <code>style.css</code>. Розпакуйте обидва архіви й порівняйте файли стилів: увесь вигляд сайту задає CSS.</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="{{ z }}template-dark.zip" download>Завантажити .zip</a>
+      <a class="btn" href="{{ p }}templates/dark/index.html" target="_blank" rel="noopener">Переглянути<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>
+    </div>
+  </article>
+</div>
+
+<h3>Як працювати з шаблоном</h3>
 <ol>
-  <li>Оберіть тему сайту</li>
-  <li>Продумайте структуру</li>
-  <li>Знайдіть текст і зображення</li>
-  <li>Створіть HTML-сторінки</li>
-  <li>Зробіть меню на кожній сторінці</li>
-  <li>Перевірте, чи всі сторінки пов’язані</li>
-  <li>Додайте стилі (CSS)</li>
+  <li>Завантажте архів і розпакуйте його (правою кнопкою миші → «Видобути все»).</li>
+  <li>Відкрийте <code>index.html</code> у браузері, щоб побачити сайт.</li>
+  <li>Відкрийте ту саму папку в редакторі коду і змінюйте файли. Після кожної зміни зберігайте файл і оновлюйте сторінку в браузері (<kbd>F5</kbd>).</li>
+  <li>У коді є коментарі <code>&lt;!-- … --&gt;</code> і <code>/* … */</code>: вони підказують, що де змінити.</li>
 </ol>
 
-<h2>Чекліст</h2>
+<h2 id="example">3. Готовий приклад: кав'ярня «Каштан»</h2>
+<p>Повністю готовий сайт на тему «Сайт кафе»: 4 сторінки, меню, таблиці, картки, адаптація під телефон. Кав'ярня вигадана. Подивіться, як він влаштований, але свій сайт робіть на власну тему.</p>
+
+<div class="shot-grid">
+  <a href="{{ p }}example-cafe/index.html" target="_blank" rel="noopener">
+    <img src="{{ p }}screenshots/cafe-index.jpg" alt="" width="800" height="500" loading="lazy" />
+    <span>Головна<span class="visually-hidden"> (відкриється в новій вкладці)</span></span>
+  </a>
+  <a href="{{ p }}example-cafe/menu.html" target="_blank" rel="noopener">
+    <img src="{{ p }}screenshots/cafe-menu.jpg" alt="" width="800" height="500" loading="lazy" />
+    <span>Меню<span class="visually-hidden"> (відкриється в новій вкладці)</span></span>
+  </a>
+  <a href="{{ p }}example-cafe/about.html" target="_blank" rel="noopener">
+    <img src="{{ p }}screenshots/cafe-about.jpg" alt="" width="800" height="500" loading="lazy" />
+    <span>Про нас<span class="visually-hidden"> (відкриється в новій вкладці)</span></span>
+  </a>
+  <a href="{{ p }}example-cafe/contacts.html" target="_blank" rel="noopener">
+    <img src="{{ p }}screenshots/cafe-contacts.jpg" alt="" width="800" height="500" loading="lazy" />
+    <span>Контакти<span class="visually-hidden"> (відкриється в новій вкладці)</span></span>
+  </a>
+</div>
+
+<div class="btn-row">
+  <a class="btn btn--primary" href="{{ z }}example-cafe.zip" download>Завантажити приклад (.zip)</a>
+  <a class="btn" href="{{ p }}example-cafe/index.html" target="_blank" rel="noopener">Відкрити сайт<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>
+</div>
+
+<h3>На що звернути увагу в коді</h3>
 <ul>
-  <li>✅ У мене є 3–5 сторінок</li>
-  <li>✅ Кожна сторінка має назву (не "Сторінка 1")</li>
-  <li>✅ Є меню на кожній сторінці</li>
-  <li>✅ Всі сторінки пов’язані між собою</li>
-  <li>✅ Є текст і зображення</li>
-  <li>✅ З головної сторінки можна перейти всюди</li>
+  <li>Шапка з меню однакова на всіх сторінках. Змінюється лише клас <code>active</code>: він стоїть у пункті поточної сторінки.</li>
+  <li>Усі сторінки підключають один файл <code>style.css</code>, тому оформлення скрізь однакове.</li>
+  <li>Меню кав'ярні (<code>menu.html</code>) зроблено таблицями <code>&lt;table&gt;</code>, а страви на головній — картками в сітці.</li>
+  <li>У кожної сторінки свій <code>&lt;title&gt;</code> і один заголовок <code>&lt;h1&gt;</code>.</li>
+  <li>У кожної картинки є <code>alt</code> з описом.</li>
+  <li>Наприкінці <code>style.css</code> є блок <code>@media</code>: це правила лише для вузьких екранів (телефонів).</li>
 </ul>
 
-<h2>Правила</h2>
+<h2 id="folder">4. Папка проєкту</h2>
+<p>Увесь сайт — це одна папка. Усередині лежать HTML-сторінки, файл стилів і папка з картинками:</p>
+<div class="code-block">
+{% highlight text %}
+my-site/
+├── index.html   ← головна
+├── characters.html
+├── gameplay.html
+├── gallery.html
+├── style.css    ← стилі
+└── images/
+    ├── logo.png
+    └── hero-1.jpg
+{% endhighlight %}
+</div>
+
 <ul>
-  <li>❌ Не можна робити "Сторінка 1 / 2 / 3"</li>
-  <li>❌ Не можна робити сайт без меню</li>
-  <li>❌ Не можна робити сторінки без тексту</li>
-  <li>❌ Сторінки повинні бути пов’язані між собою</li>
+  <li>Назви файлів і папок — <strong>латиницею, малими літерами, без пробілів</strong>. Замість пробілу — дефіс: <code>top-games.html</code>, <code>hero-1.jpg</code>.</li>
+  <li>Головна сторінка завжди називається <code>index.html</code>.</li>
+  <li>Картинки зберігайте в папку <code>images</code> і вставляйте за відносним шляхом: <code>&lt;img src="images/hero-1.jpg" alt="…"&gt;</code>. Не вставляйте картинки за посиланням з інших сайтів: вони можуть зникнути.</li>
+  <li>Шлях має точно збігатися з назвою файлу, разом із великими й малими літерами та розширенням: <code>Photo.JPG</code> і <code>photo.jpg</code> — різні файли.</li>
 </ul>
 
-<h2>Базовий HTML-шаблон</h2>
-<div class="card card--example">
-  <div class="code-block">
+<p>Меню на кожній сторінці — це просто посилання на інші файли з цієї ж папки:</p>
+<div class="code-block">
 {% highlight html %}
-<!doctype html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta lang="ua" />
-    <title>Мій сайт</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <nav>
-      <a href="index.html">Головна</a>
-      <a href="events.html">Події</a>
-      <a href="contacts.html">Контакти</a>
-    </nav>
-    <div class="container">
-      <h1>Заголовок сторінки</h1>
-      <p>
-        Ever can rejects has, rejects teachings because pursue man pursue
-        advantage those take because master fault do. In no&nbsp;&mdash;
-        laborious a, will avoids find one expound will occasionally and, us
-        fault itself, encounter painful encounter has there human pursue example
-        because but.
-      </p>
-      <p>
-        How system trivial, account, again circumstances itself extremely know
-        toil because occur happiness truth loves: fault has actual mistaken who
-        praising.
-      </p>
-      <p>
-        The except right: with, explorer pursues pursue, truth in is
-        which&nbsp;&mdash; ever give pursue: painful desires rationally pursues
-        has desires you teachings not example.
-      </p>
-    </div>
-    <div class="container">
-      <h1>Галерея</h1>
-      <p>Нижче показано приклад фотогалереї...</p>
-    </div>
-    <div class="container">
-      <img src="https://picsum.photos/400/200" />
-      <img src="https://picsum.photos/400/201" />
-    </div>
-    <div class="container"><img src="https://picsum.photos/400/202" /></div>
-    <div class="container">
-      <img src="https://picsum.photos/400/203" />
-      <img src="https://picsum.photos/400/204" />
-      <img src="https://picsum.photos/400/205" />
-    </div>
-    <div class="container">
-      <h1>Список товарів</h1>
-      <div class="cards">
-        <div class="card">
-          <img src="https://picsum.photos/400/300" />
-          <h3>Product 1</h3>
-          <p>Короткий опис товару...</p>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/301" />
-          <h3>Product 2</h3>
-          <p>Короткий опис товару...</p>
-        </div>
-        <div class="card">
-          <img src="https://picsum.photos/400/302" />
-          <h3>Product 3</h3>
-          <p>Короткий опис товару...</p>
-        </div>
-      </div>
-    </div>
-  </body>
-</html>
+<nav class="menu">
+  <a class="active" href="index.html">Головна</a>
+  <a href="characters.html">Персонажі</a>
+  <a href="gameplay.html">Геймплей</a>
+  <a href="gallery.html">Галерея</a>
+</nav>
 {% endhighlight %}
+</div>
+
+<h2 id="plan">5. План роботи</h2>
+<ol class="project-steps">
+  <li>Оберіть тему і запишіть список сторінок (3–5) з назвами.</li>
+  <li>Створіть папку проєкту, а в ній — папку <code>images</code>. Або завантажте шаблон.</li>
+  <li>Зробіть повністю одну сторінку, <code>index.html</code>: шапку з меню, заголовок, текст, підвал. Підключіть <code>style.css</code>.</li>
+  <li>Скопіюйте її для інших сторінок і змініть у копіях <code>&lt;title&gt;</code>, <code>&lt;h1&gt;</code> і вміст.</li>
+  <li>Перевірте меню на кожній сторінці: всі посилання ведуть на правильні файли, клас <code>active</code> стоїть у потрібному пункті.</li>
+  <li>Наповніть сторінки: текст, зображення в папці <code>images</code> з описами в <code>alt</code>.</li>
+  <li>Оформіть сайт у <code>style.css</code>: кольори, шрифти, відступи, картки.</li>
+  <li>Перевірте сайт у браузері: пройдіть по всіх пунктах меню на всіх сторінках.</li>
+  <li>Перевірте, як сайт виглядає на телефоні: у браузері натисніть <kbd>F12</kbd>, потім <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> (режим пристрою).</li>
+  <li>Пройдіть <a href="#checklist">чекліст</a> і <a href="#self-check">перевірте себе</a>: подивіться на сайт очима іншої людини й виправте все, що заважає.</li>
+</ol>
+
+<h2 id="rules">6. Правила</h2>
+<div class="rules-grid">
+  <section>
+    <h3>✅ Треба</h3>
+    <ul>
+      <li>Змістовні назви сторінок і пунктів меню</li>
+      <li>Однакове меню на кожній сторінці</li>
+      <li>Усі сторінки пов'язані між собою</li>
+      <li>Текст на кожній сторінці</li>
+      <li>Один файл <code>style.css</code> для всіх сторінок</li>
+    </ul>
+  </section>
+  <section>
+    <h3>❌ Не можна</h3>
+    <ul>
+      <li>Сторінки «Сторінка 1 / 2 / 3»</li>
+      <li>Сайт без меню</li>
+      <li>Сторінки без тексту</li>
+      <li>Здавати шаблон без змін або з текстом-заглушкою</li>
+    </ul>
+  </section>
+</div>
+
+<h2 id="checklist">7. Чекліст</h2>
+<p>Перед тим як показати сайт, пройдіть по кожному пункту.</p>
+<div class="checklist-grid">
+  <section>
+    <h3>Структура</h3>
+    <ul>
+      <li>У мене 3–5 сторінок</li>
+      <li>Головна сторінка називається <code>index.html</code></li>
+      <li>Назви файлів — латиницею, без пробілів</li>
+      <li>Усі картинки лежать у папці <code>images</code></li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Меню й посилання</h3>
+    <ul>
+      <li>Меню є на кожній сторінці</li>
+      <li>Пункти меню мають змістовні назви (не «Сторінка 1»)</li>
+      <li>З головної можна перейти на будь-яку сторінку і повернутися</li>
+      <li>Жодне посилання не веде «в нікуди»</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Вміст</h3>
+    <ul>
+      <li>На кожній сторінці є заголовок <code>&lt;h1&gt;</code> і текст</li>
+      <li>У кожної сторінки свій <code>&lt;title&gt;</code></li>
+      <li>Є зображення, і в кожного є <code>alt</code></li>
+      <li>Не залишилось тексту-заглушки з шаблону</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Оформлення й техніка</h3>
+    <ul>
+      <li><code>style.css</code> підключено до всіх сторінок</li>
+      <li>Текст легко читати: він контрастний до фону</li>
+      <li>На телефоні нічого не вилазить за край екрана</li>
+      <li>Є <code>&lt;html lang="uk"&gt;</code>, <code>&lt;meta charset="UTF-8"&gt;</code> і <code>viewport</code></li>
+    </ul>
+  </section>
+</div>
+
+<h2 id="self-check">8. Перевір себе</h2>
+
+<h3>Подивіться на сайт очима іншої людини</h3>
+<p>Уявіть, що ви вперше бачите цей сайт і нічого не знаєте про тему. Відкрийте головну сторінку й чесно дайте відповідь на кожне запитання.</p>
+<ol class="visitor-check">
+  <li>Чи зрозуміло за кілька секунд, про що сайт?</li>
+  <li>Чи зрозуміло з назв пунктів меню, що буде на кожній сторінці?</li>
+  <li>Чи видно, на якій сторінці ви зараз: у меню виділено пункт, є заголовок?</li>
+  <li>Пройдіть по сайту лише через меню. Чи вдалося потрапити на всі сторінки й повернутися на головну?</li>
+  <li>Чи легко читати текст: не надто дрібний, не зливається з фоном, розбитий на абзаци й підзаголовки?</li>
+  <li>Чи стосується кожна картинка теми? Чи не розтягнуті й не сплющені картинки?</li>
+  <li>Чи схожі всі сторінки на частини одного сайту: однакові меню, кольори, шрифти?</li>
+  <li>Чи немає одруків і забутих заглушок на кшталт «Тут напишіть…»?</li>
+  <li>Зменште вікно браузера або ввімкніть режим телефону (<kbd>F12</kbd>, <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd>). Чи все ще зручно?</li>
+</ol>
+<p class="callout">Покажіть сайт однокласнику й попросіть знайти щось конкретне, наприклад «ціну капучино» чи «хто головний герой». Не підказуйте. Якщо він шукає довго — подумайте, що змінити в меню чи на сторінках.</p>
+
+<h3>Запитання</h3>
+<p>Спробуйте відповісти самі, а потім відкрийте відповідь.</p>
+
+<div class="self-check">
+  <div class="self-check__item">
+    <p><strong>1.</strong> Ви перейменували <code>about.html</code> на <code>history.html</code>. Що ще треба змінити?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>Посилання в меню на <strong>усіх</strong> сторінках. Інакше пункт меню вестиме на файл, якого вже немає, і браузер покаже помилку.</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>2.</strong> Замість картинки видно лише її опис або значок зламаного зображення. Що перевірити?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>Чи лежить файл у папці <code>images</code> і чи шлях у <code>src</code> точно збігається з назвою файлу, разом із великими й малими літерами та розширенням (<code>.jpg</code>, <code>.png</code>).</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>3.</strong> Як змінити колір меню одразу на всіх сторінках?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>У файлі <code>style.css</code>: він підключений до всіх сторінок, тому одна зміна діє скрізь.</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>4.</strong> Навіщо картинкам атрибут <code>alt</code>?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>Текст з <code>alt</code> показується, якщо картинка не завантажилась. Його читають уголос програми для незрячих людей і враховують пошукові системи.</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>5.</strong> Чому головна сторінка має називатися саме <code>index.html</code>?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>Коли сайт розміщують в інтернеті й відкривають його адресу без назви файлу, сервер показує саме <code>index.html</code>. Так будь-хто одразу розуміє, з якої сторінки починати.</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>6.</strong> Що буде на телефоні, якщо забути <code>&lt;meta name="viewport" …&gt;</code>?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p>Телефон покаже сторінку як зменшену копію сайту для комп'ютера: дрібний текст, який доведеться збільшувати пальцями. Правила <code>@media</code> для вузьких екранів теж можуть не спрацювати.</p>
+    </details>
+  </div>
+
+  <div class="self-check__item">
+    <p><strong>7.</strong> Чим відрізняються <code>&lt;title&gt;</code> і <code>&lt;h1&gt;</code>?</p>
+    <details class="solution">
+      <summary>Відповідь</summary>
+      <p><code>&lt;title&gt;</code> — назва у вкладці браузера та в закладках, на самій сторінці її не видно. <code>&lt;h1&gt;</code> — головний заголовок, який видно на сторінці.</p>
+    </details>
   </div>
 </div>
 
-<h2>Базовий CSS</h2>
-<div class="card card--example">
-  <div class="code-block">
-{% highlight css %}
-/* Базові налаштування */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f5f5f5;
-    color: #333;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* Контейнер */
-.container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background: white;
-    overflow: hidden;
-}
-
-.container:has(> img) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.container:has(> img) img {
-    width: calc(33.333% - 7px);
-    height: 200px;
-    object-fit: cover;
-}
-
-.container:has(> img:only-child) img {
-    width: 100%;
-    height: auto;
-    max-height: 500px;
-}
-
-.container:has(> img:nth-child(2):last-child) img {
-    width: calc(50% - 5px);
-    height: 200px;
-}
-
-/* Заголовки */
-h1,
-h2,
-h3 {
-    color: #222;
-}
-
-/* Меню */
-nav {
-    background-color: #333;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
-nav a {
-    color: white;
-    margin-right: 15px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-/* Зображення */
-img {
-    display: block;
-    border-radius: 8px;
-}
-
-/* Списки */
-ul {
-    padding-left: 20px;
-}
-
-/* Картки (можна використати) */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    /* важливо для картинки */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
-
-.card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-    /* магія */
-}
-
-.card h3 {
-    margin: 10px 15px 5px;
-}
-
-.card p {
-    margin: 0 15px 15px;
-    color: #555;
-}
-{% endhighlight %}
-  </div>
 </div>
-
-<h2>Перевір себе</h2>
-<p>Якщо інша людина зайде на твій сайт — вона зрозуміє, куди натискати?</p>

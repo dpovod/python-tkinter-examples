@@ -17,3 +17,4 @@
 - `cd docs && bundle exec jekyll build` — без помилок і попереджень Liquid.
 - `python3 scripts/validate_data.py` — після появи даних (фаза 2).
 - Перегляд змінених сторінок на ширині 360 і 1440 px.
+- Після змін у `docs/html/project/templates/` чи `example-cafe/` — `scripts/build_project_assets.sh` (перезбирає zip і скріншоти).

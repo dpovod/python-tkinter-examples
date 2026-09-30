@@ -1,0 +1,301 @@
+/* ===== Кав'ярня «Каштан» — стилі для всіх сторінок ===== */
+
+/* Кольори сайту */
+:root {
+  --brown: #6b3f22;        /* основний: шапка, заголовки */
+  --caramel: #c08457;      /* акцент: кнопки, ціни */
+  --cream: #fbf5ee;        /* фон сторінки */
+  --light: #f3e3cf;        /* світлі блоки */
+  --text: #2b1d14;         /* колір тексту */
+}
+
+/* Уся сторінка */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  background: var(--cream);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, serif;
+  color: var(--brown);
+  line-height: 1.2;
+}
+
+a {
+  color: var(--brown);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ----- Шапка й меню ----- */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 24px;
+  background: var(--brown);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.menu a {
+  padding: 8px 14px;
+  border-radius: 20px;
+  color: white;
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Пункт меню поточної сторінки */
+.menu a.active {
+  background: var(--light);
+  color: var(--brown);
+}
+
+/* ----- Банер на головній: текст ліворуч, картинка праворуч ----- */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  padding: 48px 24px;
+  background: var(--light);
+}
+
+.hero-text {
+  max-width: 460px;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 44px;
+}
+
+.hero-image {
+  width: 400px;
+  border-radius: 24px;
+}
+
+/* Кнопка — звичайне посилання з оформленням */
+.button {
+  display: inline-block;
+  padding: 12px 26px;
+  border-radius: 30px;
+  background: var(--brown);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--caramel);
+}
+
+/* ----- Основний вміст ----- */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Велика картинка на всю ширину */
+img.wide {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+
+/* Переваги: список без крапок, пункти в ряд */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.features li {
+  padding: 16px 20px;
+  border-left: 6px solid var(--caramel);
+  border-radius: 8px;
+  background: white;
+}
+
+.features strong {
+  display: block;
+  color: var(--brown);
+}
+
+/* ----- Картки ----- */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  overflow: hidden;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 14px rgba(107, 63, 34, 0.12);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card-text {
+  padding: 4px 16px 16px;
+}
+
+.card h3 {
+  margin: 12px 0 4px;
+}
+
+.card p {
+  margin: 0 0 8px;
+}
+
+.price {
+  color: var(--caramel);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ----- Меню кав'ярні: картинка + таблиця ----- */
+.menu-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding: 20px;
+  border-radius: 16px;
+  background: white;
+}
+
+.menu-section img {
+  width: 220px;
+  border-radius: 12px;
+}
+
+/* Блок із таблицею займає все місце, що лишилося */
+.menu-section div {
+  flex: 1;
+  min-width: 260px;
+}
+
+.menu-section h2 {
+  margin-top: 0;
+}
+
+/* ----- Таблиці ----- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--light);
+  text-align: left;
+}
+
+th {
+  color: var(--brown);
+}
+
+/* Остання колонка (ціна) — праворуч */
+td:last-child,
+th:last-child {
+  text-align: right;
+}
+
+/* ----- Контакти: дві колонки ----- */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+.note {
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--light);
+}
+
+/* ----- Підвал ----- */
+.site-footer {
+  padding: 20px 24px;
+  text-align: center;
+  background: var(--brown);
+  color: white;
+}
+
+.site-footer a {
+  color: var(--light);
+}
+
+.site-footer p {
+  margin: 4px 0;
+}
+
+.small {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ===== Для телефонів (екран вужчий за 600px) ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 32px 16px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .container {
+    padding: 16px;
+  }
+
+  .menu-section img {
+    width: 100%;
+  }
+
+  .menu-section div {
+    min-width: 0;
+  }
+}
