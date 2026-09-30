@@ -7,7 +7,7 @@
   grades: [6]
 
 - id: textbook-7
-  title: "Підручник для 7 класу"   # TODO: автори
+  title: "Н. Морзе, О. Барна. Інформатика-7 (2024)"
   type: book
   group: textbooks
   url: "https://drive.google.com/file/d/1RmLhs8R1MOeIVg1HPoBJ6ZPbAJVhnwSU/view"
