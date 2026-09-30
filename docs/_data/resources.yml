@@ -39,7 +39,7 @@
   grades: [8]
 
 - id: textbook-9
-  title: "Н. Морзе, О. Барна. Інформатика-9"
+  title: "Н. Морзе, О. Барна. Інформатика-9 (2026)"
   type: book
   group: textbooks
   url: "https://drive.google.com/file/d/1y7f12wMI9HT6IWfNfdzCXFOuWpHQyPNG/view"
