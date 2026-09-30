@@ -23,7 +23,7 @@
   grades: [7]
 
 - id: textbook-8
-  title: "Підручник для 8 класу"   # TODO: автори (ймовірно Морзе Н. В., Барна О. В., 2025)
+  title: "Н. Морзе, О. Барна. Інформатика-8 (2025)"
   type: book
   group: textbooks
   url: "https://drive.google.com/file/d/1EFkyl58UIPDfqqORQgOABMKmF_maIwuL/view"
