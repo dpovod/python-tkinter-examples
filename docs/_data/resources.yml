@@ -10,7 +10,8 @@
   title: "Підручник для 7 класу"   # TODO: автори
   type: book
   group: textbooks
-  url: "https://znayshov.com/FR/33506/Informatika_7kl_Morze_nush_2024.pdf"
+  url: "https://drive.google.com/file/d/1RmLhs8R1MOeIVg1HPoBJ6ZPbAJVhnwSU/view"
+  note: "PDF"
   grades: [7]
 
 - id: textbook-7-files
@@ -26,6 +27,7 @@
   type: book
   group: textbooks
   url: "https://drive.google.com/file/d/1EFkyl58UIPDfqqORQgOABMKmF_maIwuL/view"
+  note: "PDF"
   grades: [8]
 
 - id: textbook-8-files
@@ -41,6 +43,7 @@
   type: book
   group: textbooks
   url: "https://drive.google.com/file/d/1y7f12wMI9HT6IWfNfdzCXFOuWpHQyPNG/view"
+  note: "PDF"
   grades: [9]
 
 - id: textbook-9-files
