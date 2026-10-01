@@ -28,11 +28,19 @@ layout: default
   {%- assign show_textbook = false -%}
   {%- if textbook and textbook.url != "TODO" -%}{%- assign show_textbook = true -%}{%- endif -%}
   {%- if textbook_files and textbook_files.url != "TODO" -%}{%- assign show_textbook = true -%}{%- endif -%}
+  {%- for tid in ktp.textbooks -%}
+    {%- assign tb = site.data.resources | where: "id", tid | first -%}
+    {%- if tb and tb.url != "TODO" -%}{%- assign show_textbook = true -%}{%- endif -%}
+  {%- endfor -%}
   {%- if show_textbook -%}
   <div class="card" style="margin-bottom: 32px;">
     <div class="resource-grid">
       {%- include resource-card.html resource=textbook -%}
       {%- include resource-card.html resource=textbook_files -%}
+      {%- for tid in ktp.textbooks -%}
+        {%- assign tb = site.data.resources | where: "id", tid | first -%}
+        {%- include resource-card.html resource=tb -%}
+      {%- endfor -%}
     </div>
   </div>
   {%- endif -%}

@@ -2,7 +2,7 @@ grade: 11
 title: "11 клас"
 hours: "11-Б — 51 година (1,5 на тиждень)"
 note: "Навчальна програма з інформатики (рівень стандарту) для 10–11 класів"
-textbook: textbook-11
+textbooks: [textbook-10, textbook-10-ryvkind, textbook-10-bondarenko]
 groups:
   - title: "Тема 1. Програмування. Створення програм з графічним інтерфейсом"
     semester: 1
