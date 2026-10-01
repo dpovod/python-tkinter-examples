@@ -83,6 +83,10 @@ def main():
         if textbook_files and textbook_files not in resource_ids:
             errors.append(f"{fname}: textbook_files '{textbook_files}' відсутній у resources.yml")
 
+        for tid in ktp.get("textbooks", []):
+            if tid not in resource_ids:
+                errors.append(f"{fname}: textbooks '{tid}' відсутній у resources.yml")
+
         for group in ktp.get("groups", []):
             for lid in group.get("lessons", []):
                 if lid not in lesson_ids:
