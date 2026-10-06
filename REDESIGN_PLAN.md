@@ -223,7 +223,7 @@ groups:
   title: "Phishing Quiz від Google"
   type: link                # book | file | link
   group: security           # textbooks | security | practice | files
-  url: "https://phishingquiz.withgoogle.com/"
+  url: "https://phishingquiz.withgoogle.com?hl=uk"
   note: "Англійською. 8 листів із поясненнями після кожної відповіді."
   grades: [6, 7, 8, 9]
   featured: true            # показувати в блоці «Додаткові матеріали» на головній
@@ -995,7 +995,7 @@ groups:
   title: "Phishing Quiz від Google"
   type: link
   group: security
-  url: "https://phishingquiz.withgoogle.com/"
+  url: "https://phishingquiz.withgoogle.com?hl=uk"
   note: "Англійською. 8 листів із поясненнями після кожної відповіді."
   grades: [6, 7, 8, 9]
   featured: true
