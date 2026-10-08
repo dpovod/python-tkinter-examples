@@ -24,7 +24,7 @@
   fg: "#BE123C"
   icon: code
 - id: info
-  label: "Інформація й кодування"
+  label: "Інформація та кодування"
   bg: "#E8F7FF"
   fg: "#0369A1"
   icon: code
