@@ -1,0 +1,234 @@
+/* Інтерактив «Двійкова система». Усі правила під .bin, щоб не зачепити решту сайту. */
+.bin {
+  --bin-accent: #2D54D1;
+  --bin-accent-ink: #FFFFFF;
+  --bin-accent-tint: #E4EAFB;
+  --bin-faint: #A3AAC0;
+  --bin-amber: #C57A0A;
+  --bin-amber-tint: #FBE9C8;
+  --bin-amber-ink: #6B3F00;
+  display: grid;
+  gap: 16px;
+  margin-block: 24px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bin .nojs { margin: 0; color: var(--text-2) }
+.js .bin .nojs { display: none }
+.no-js .bin .app { display: none }
+.bin .app { display: grid; gap: 16px }
+
+/* board: 2×2 панелі (двійкове, десяткове, обидві розгорнуті форми) зі знаками «=»; кнопки під ними */
+.bin .board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px minmax(0, 1fr);
+  grid-template-rows: auto 44px auto;
+  grid-template-areas: "b e1 d" "v1 . v2" "bx e2 dx";
+  align-items: stretch;
+}
+.bin #pb { grid-area: b }
+.bin #pd { grid-area: d }
+.bin #pbx { grid-area: bx }
+.bin #pdx { grid-area: dx }
+.bin #e1 { grid-area: e1 }
+.bin #e2 { grid-area: e2 }
+.bin #v1 { grid-area: v1 }
+.bin #v2 { grid-area: v2 }
+.bin .panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-row);
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 200px;
+}
+.bin .ph {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 14px 0;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bin .ph span:last-child {
+  font-family: var(--font-mono);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.bin .pbody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px 18px;
+  min-width: 0;
+  overflow: hidden;
+  text-align: center;
+}
+.bin .eq {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bin .eq span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--bin-accent-tint);
+  color: var(--bin-accent);
+  font: 600 20px/1 var(--font-mono);
+}
+.bin .eq.pulse span { animation: bin-pulse .6s ease-out }
+@keyframes bin-pulse {
+  40% { transform: scale(1.25); background: var(--bin-accent); color: var(--bin-accent-ink) }
+}
+
+/* вирази */
+.bin .fit {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.25;
+}
+.bin .br { display: none }
+.bin .fit.two .br { display: block; height: 0.15em }
+.bin .num { font-weight: 500 }
+.bin .num sub,
+.bin .sum sub {
+  font-size: 0.38em;
+  color: var(--muted);
+  margin-left: 0.1em;
+}
+.bin .exp { font-weight: 400 }
+.bin .sum { color: var(--muted) }
+.bin .sum b { color: var(--text); font-weight: 600 }
+.bin .dg,
+.bin .tm,
+.bin .pr {
+  display: inline-block;
+  border-radius: 0.15em;
+}
+.bin .tm { white-space: nowrap }
+.bin .tm .dg { font-weight: 600 }
+.bin .tm sup { font-size: 0.6em }
+.bin .pl { color: var(--bin-faint); padding-inline: 0.25em }
+.bin .z,
+.bin .z .dg { color: var(--bin-faint) }
+.bin .hl {
+  background: var(--bin-accent-tint);
+  color: var(--bin-accent);
+  box-shadow: 0 0 0 0.12em var(--bin-accent-tint);
+}
+.bin .hl .dg,
+.bin .hl sup { color: var(--bin-accent) }
+
+.bin .new { animation: bin-enter .55s cubic-bezier(.2, .8, .3, 1.2), bin-hot 1.6s ease-out }
+.bin .up { animation: bin-up .35s ease-out, bin-hot 1.6s ease-out }
+.bin .dn { animation: bin-dn .35s ease-out, bin-hot 1.6s ease-out }
+@keyframes bin-enter { from { opacity: 0; transform: translateX(-0.6em) scale(0.3) } }
+@keyframes bin-up { from { opacity: 0; transform: translateY(0.6em) } }
+@keyframes bin-dn { from { opacity: 0; transform: translateY(-0.6em) } }
+@keyframes bin-hot {
+  from { background: var(--bin-amber-tint); color: var(--bin-amber-ink); box-shadow: 0 0 0 0.12em var(--bin-amber-tint) }
+}
+
+/* керування */
+.bin .ctl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+.bin .bn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 52px;
+  min-width: 88px;
+  padding: 0 20px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+  font: 500 20px var(--font-mono);
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.bin .bn:hover:not(:disabled) { border-color: var(--muted) }
+.bin .bn--pri {
+  background: var(--bin-accent);
+  border-color: var(--bin-accent);
+  color: var(--bin-accent-ink);
+}
+.bin .bn--sm { height: 40px; min-width: 0; font: 15px var(--font-body) }
+.bin .bn:disabled { opacity: 0.4; cursor: default }
+.bin .bn:focus-visible {
+  outline: 3px solid var(--text);
+  outline-offset: 2px;
+}
+.bin .calc {
+  padding: 14px 16px 16px;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px 28px;
+  align-items: center;
+  min-height: 0;
+}
+.bin .calc .ph { grid-column: 1 / -1; padding: 0 }
+.bin .col {
+  display: grid;
+  justify-content: start;
+  font: 500 24px/1.35 var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+.bin .col:empty { display: none }
+.bin .col span { text-align: center }
+.bin .col .cy {
+  font-size: 0.6em;
+  min-height: 1.4em;
+  line-height: 1.4;
+  color: var(--bin-amber);
+  font-weight: 600;
+  align-self: end;
+}
+.bin .col .sg { color: var(--muted); padding-right: 0.25em }
+.bin .col .bs { font-size: 0.5em; color: var(--muted); align-self: end; padding-left: 0.15em }
+.bin .col .rs { border-top: 2px solid var(--text); padding-top: 0.1em; margin-top: 0.15em }
+.bin .col .rs.sg,
+.bin .col .rs.bs { border-top-color: transparent }
+.bin .col .ch { background: var(--bin-amber-tint); color: var(--bin-amber-ink); border-radius: 4px }
+.bin .col .lz { color: var(--bin-faint) }
+.bin #note { margin: 0; max-width: 62ch; color: var(--text) }
+.bin #note sup,
+.bin #note sub { font-size: 0.75em }
+.bin #note .hint { color: var(--muted) }
+.bin .kbd { text-align: center; font-size: 12px; color: var(--muted) }
+
+@media (max-width: 720px) {
+  .bin .board {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+    grid-template-areas: "b" "v1" "bx" "e2" "dx" "v2" "d";
+  }
+  .bin #e1 { display: none }
+  .bin .eq { height: 40px }
+  .bin .panel { min-height: 140px }
+  .bin .calc { grid-template-columns: minmax(0, 1fr) }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bin *, .bin *::before, .bin *::after { animation: none !important; transition: none !important }
+}

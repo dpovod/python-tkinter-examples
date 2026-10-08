@@ -70,6 +70,14 @@
   grades: [9, 11]
   extra: []
 
+# ---------- Інформація й кодування ----------
+- id: binary
+  title: "Двійкова система"
+  url: /binary.html
+  subject: info
+  grades: [7]
+  extra: []
+
 # ---------- Microsoft Office ----------
 - id: excel-formulas
   title: "Excel: формули й функції MIN, MAX"
