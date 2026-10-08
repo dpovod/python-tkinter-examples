@@ -407,7 +407,7 @@ groups:
    ```
    Додай у корінь `.gitignore`: `docs/_site/`, `docs/.jekyll-cache/`, `docs/vendor/`, `docs/.bundle/`.
 3. Створи `docs/_config.yml` (3.2).
-4. Збери сайт: `cd docs && bundle install && bundle exec jekyll serve`. Сайт має відкриватися за `http://localhost:4000/python-tkinter-examples/`.
+4. Збери сайт: `scripts/jekyll.sh install && scripts/jekyll.sh serve` (скрипт бере Ruby 3.1; прямий `bundle exec jekyll serve` на цій машині не працює). Сайт має відкриватися за `http://localhost:4000/python-tkinter-examples/`.
 5. Склади інвентар: список усіх URL, розміри сторінок, знайдені дефекти (порівняй із розділом 7).
 
 **Готово, коли:** збірка без помилок; усі поточні сторінки відкриваються локально й виглядають як раніше; звіт з інвентарем.

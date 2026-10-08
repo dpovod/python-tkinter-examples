@@ -21,7 +21,7 @@
 
 ## Перевірки перед комітом
 
-- `cd docs && bundle exec jekyll build` — без помилок і попереджень Liquid.
+- `scripts/jekyll.sh build` — без помилок і попереджень Liquid. Скрипт сам бере потрібний Ruby 3.1; прямий виклик `bundle exec jekyll build` на цій машині не працює (типовий Ruby занадто новий).
 - `python3 scripts/validate_data.py` — після появи даних (фаза 2).
 - Перегляд змінених сторінок на ширині 360 і 1440 px.
 - Після змін у `docs/html/project/templates/` чи `example-cafe/` — `scripts/build_project_assets.sh` (перезбирає zip і скріншоти).

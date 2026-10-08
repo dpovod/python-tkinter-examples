@@ -23,6 +23,11 @@
   bg: "#FFEEF1"
   fg: "#BE123C"
   icon: code
+- id: info
+  label: "Інформація та кодування"
+  bg: "#E8F7FF"
+  fg: "#0369A1"
+  icon: code
 - id: security
   label: "Кібербезпека й медіаграмотність"
   bg: "#EEF1F5"

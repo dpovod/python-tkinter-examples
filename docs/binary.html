@@ -1,0 +1,60 @@
+---
+layout: lesson
+title: "Двійкова система"
+heading: "Двійкова система"
+lesson: binary
+description: "Чотири записи одного й того самого числа. Натискайте +1 і дивіться, як росте двійкове число, коли з'являється новий розряд і як змінюється розгорнута форма. Наведіть на цифру, щоб побачити її доданок."
+---
+<link rel="stylesheet" href="{{ '/assets/css/binary.css' | relative_url }}">
+
+<div class="bin">
+  <p class="nojs">Цей інтерактив потребує JavaScript. Увімкніть його в налаштуваннях браузера, щоб побачити, як змінюється двійкове число.</p>
+
+  <div class="app">
+    <div class="board" id="board">
+      <section class="panel" id="pb" aria-label="Двійкове число">
+        <div class="ph"><span>Двійкове число</span><span>основа 2</span></div>
+        <div class="pbody"><span class="fit num" id="nb" data-base="76"></span></div>
+      </section>
+      <div class="eq" id="e1" aria-hidden="true"><span>=</span></div>
+      <section class="panel" id="pd" aria-label="Десяткове число">
+        <div class="ph"><span>Десяткове число</span><span>основа 10</span></div>
+        <div class="pbody"><span class="fit num" id="nd" data-base="76"></span></div>
+      </section>
+
+      <div class="eq" id="v1" aria-hidden="true"><span>=</span></div>
+      <div class="eq" id="v2" aria-hidden="true"><span>=</span></div>
+
+      <section class="panel" id="pbx" aria-label="Розгорнута форма двійкового числа">
+        <div class="ph"><span>Розгорнута форма</span><span>степені 2</span></div>
+        <div class="pbody">
+          <span class="fit exp" id="xb" data-base="40"></span>
+          <span class="fit sum" id="sb" data-base="24"></span>
+        </div>
+      </section>
+      <div class="eq" id="e2" aria-hidden="true"><span>=</span></div>
+      <section class="panel" id="pdx" aria-label="Розгорнута форма десяткового числа">
+        <div class="ph"><span>Розгорнута форма</span><span>степені 10</span></div>
+        <div class="pbody">
+          <span class="fit exp" id="xd" data-base="40"></span>
+          <span class="fit sum" id="sd" data-base="24"></span>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel calc" aria-label="Що сталося у двійковій системі">
+      <div class="ph"><span>Як це рахується у двійковій системі</span><span>стовпчиком</span></div>
+      <div class="col" id="col" aria-hidden="true"></div>
+      <p id="note" aria-live="polite"></p>
+    </section>
+
+    <div class="ctl">
+      <button id="dn" class="bn" type="button" aria-label="Відняти 1">−1</button>
+      <button id="up" class="bn bn--pri" type="button" aria-label="Додати 1">+1</button>
+      <button id="reset" class="bn bn--sm" type="button">Почати з 0</button>
+    </div>
+    <div class="kbd">Утримуйте кнопку, щоб рахувати швидко. Клавіші ↑ і ↓ теж працюють.</div>
+  </div>
+</div>
+
+<script src="{{ '/assets/js/binary.js' | relative_url }}" defer></script>
