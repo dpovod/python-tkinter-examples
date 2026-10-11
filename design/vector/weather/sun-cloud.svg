@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <g id="sun" transform="translate(185 140)">
+      <g fill="none">
+        <line x1="0" y1="-68" x2="0" y2="-98"/>
+        <line x1="-68" y1="0" x2="-98" y2="0"/>
+        <line x1="68" y1="0" x2="98" y2="0"/>
+        <line x1="-48" y1="-48" x2="-70" y2="-70"/>
+        <line x1="48" y1="-48" x2="70" y2="-70"/>
+        <line x1="-48" y1="48" x2="-70" y2="70"/>
+      </g>
+      <circle r="48" fill="#FFC93C"/>
+    </g>
+    <path id="cloud" transform="translate(40 30)" fill="#E2E8F0" d="M175 250 A35 35 0 0 1 165 181 A50 50 0 0 1 258 160 A40 40 0 0 1 320 200 A30 30 0 0 1 305 250 Z"/>
+  </g>
+</svg>

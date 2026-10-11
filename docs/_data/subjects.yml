@@ -40,8 +40,6 @@
   bg: "#FCEBFB"
   fg: "#A21CAF"
   icon: image
-  planned: true
-  grades: [8, 9, 11]
 - id: grade6
   label: "Презентації та ігрові проєкти"
   bg: "#FFEFE6"

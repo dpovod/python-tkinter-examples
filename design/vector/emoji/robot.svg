@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="240" y1="86" x2="240" y2="52" fill="none"/>
+    <circle cx="240" cy="40" r="13" fill="#EF4444"/>
+    <rect id="ear-left" x="124" y="136" width="28" height="50" rx="8" fill="#94A3B8"/>
+    <rect id="ear-right" x="328" y="136" width="28" height="50" rx="8" fill="#94A3B8"/>
+    <rect id="head" x="146" y="86" width="188" height="148" rx="30" fill="#CBD5E1"/>
+    <circle cx="198" cy="145" r="26" fill="#3B82F6"/>
+    <circle cx="282" cy="145" r="26" fill="#3B82F6"/>
+    <circle cx="206" cy="137" r="7" fill="#FFFFFF" stroke="none"/>
+    <circle cx="290" cy="137" r="7" fill="#FFFFFF" stroke="none"/>
+    <rect id="mouth" x="196" y="192" width="88" height="28" rx="8" fill="#23222B"/>
+    <g id="teeth" fill="none" stroke="#FFFFFF" stroke-width="4">
+      <line x1="218" y1="192" x2="218" y2="220"/>
+      <line x1="240" y1="192" x2="240" y2="220"/>
+      <line x1="262" y1="192" x2="262" y2="220"/>
+    </g>
+    <rect id="neck" x="216" y="234" width="48" height="22" fill="#94A3B8"/>
+    <rect id="body" x="164" y="256" width="152" height="78" rx="22" fill="#CBD5E1"/>
+    <circle cx="208" cy="295" r="11" fill="#EF4444"/>
+    <circle cx="240" cy="295" r="11" fill="#FFC93C"/>
+    <circle cx="272" cy="295" r="11" fill="#22C55E"/>
+  </g>
+</svg>

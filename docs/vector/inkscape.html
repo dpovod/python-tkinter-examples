@@ -1,0 +1,139 @@
+---
+layout: lesson
+title: "Прийоми в Inkscape"
+lesson: vector-inkscape
+description: "Коротка пам'ятка з малюнками: інтерфейс, фігури, виділення, Контур, вузли, вирівнювання, групування й збереження. Підійде тим, хто вперше відкрив Inkscape."
+---
+<link rel="stylesheet" href="{{ '/assets/css/vector.css' | relative_url }}">
+
+<div class="vmemo">
+  <nav aria-label="Зміст пам'ятки">
+    <ul class="vmemo-toc">
+      {%- for item in site.data.vector.skills %}
+      <li><a href="#{{ item[1].anchor }}">{{ item[1].title }}</a></li>
+      {%- endfor %}
+      <li><a href="#example-marker">Приклад: мітка для карти</a></li>
+      <li><a href="#sources">Джерела</a></li>
+    </ul>
+  </nav>
+
+  <section class="card" id="interface">
+    <h2>Інтерфейс</h2>
+    <p>Посередині розташоване <strong>полотно</strong>, на якому ти малюєш. Ліворуч <strong>панель інструментів</strong>: стрілка-«Селектор» (<kbd>S</kbd>), фігури, інструмент вузлів (<kbd>N</kbd>). Над полотном є <strong>панель параметрів інструмента</strong>, на ній змінюються налаштування вибраного інструмента. Унизу <strong>рядок стану</strong> підказує, що виділено й що робить інструмент. Справа відкривається панель «Заповнення та штрих» (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd>, у меню «Об'єкт»; у старіших версіях — «Заливка й контур»).</p>
+    <p>Так виглядають значки інструментів у Inkscape, якими ти користуватимешся найчастіше:</p>
+    <ul class="vtools">
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/tool-pointer.svg' | relative_url }}" alt="" width="32" height="32"><span>Селектор <kbd>S</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/tool-node-editor.svg' | relative_url }}" alt="" width="32" height="32"><span>Вузли <kbd>N</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/draw-rectangle.svg' | relative_url }}" alt="" width="32" height="32"><span>Прямокутник <kbd>R</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/draw-ellipse.svg' | relative_url }}" alt="" width="32" height="32"><span>Еліпс <kbd>E</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/draw-polygon-star.svg' | relative_url }}" alt="" width="32" height="32"><span>Зірка й багатокутник</span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/zoom.svg' | relative_url }}" alt="" width="32" height="32"><span>Масштаб</span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/dialog-fill-and-stroke.svg' | relative_url }}" alt="" width="32" height="32"><span>Заповнення та штрих <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>F</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/dialog-align-and-distribute.svg' | relative_url }}" alt="" width="32" height="32"><span>Вирівняти і розподілити <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd></span></li>
+    </ul>
+    <p>Масштаб змінюють клавішами <kbd>+</kbd> і <kbd>−</kbd> або колесом миші з <kbd>Ctrl</kbd>. Скасувати дію — <kbd>Ctrl</kbd>+<kbd>Z</kbd>, повернути — <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>Z</kbd>.</p>
+  </section>
+
+  <section class="card" id="shapes">
+    <h2>Фігури, заливка й контур</h2>
+    <p>Обери інструмент «Прямокутник» (<kbd>R</kbd>), «Еліпс» (<kbd>E</kbd>) або «Зірка й багатокутник» і потягни мишею по полотну. З клавішею <kbd>Ctrl</kbd> вийде квадрат чи коло, з <kbd>Shift</kbd> фігура малюватиметься від центру. У виділеної фігури з'являються білі маніпулятори, за які її можна змінювати: у прямокутника — округлення кутів, у зірки — довжину променів.</p>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/shape-tools.svg' | relative_url }}" alt="Приклади фігур, які створюють інструменти: еліпси, зірки та спіралі" loading="lazy">
+    </figure>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/rounded-rect.svg' | relative_url }}" alt="Чотири прямокутники: перші два з круглими округленими кутами, інші два з еліптичними" loading="lazy">
+      <figcaption>Кути прямокутника можна округлити, потягнувши за маніпулятор у верхньому правому куті.</figcaption>
+    </figure>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/star-polygon.svg' | relative_url }}" alt="Зірка й правильний багатокутник жовтого кольору" loading="lazy">
+      <figcaption>Інструмент «Зірка» створює і зірки, і багатокутники. Кількість кутів задають на панелі параметрів.</figcaption>
+    </figure>
+    <p>Щоб змінити колір заливки, виділи фігуру й клацни на колір у палітрі внизу. Колір контуру змінюють на вкладці «Колір штриха», а товщину — на вкладці «Стиль штриха» панелі «Заповнення та штрих».</p>
+  </section>
+
+  <section class="card" id="select">
+    <h2>Виділення кількох об'єктів</h2>
+    <p>Клацай на об'єктах інструментом «Селектор», утримуючи <kbd>Shift</kbd>. Або обведи їх рамкою, потягнувши мишею з порожнього місця. Повторне клацання на виділеному об'єкті з <kbd>Shift</kbd> виключає його з вибору. Клавіша <kbd>Esc</kbd> знімає виділення, а <kbd>Ctrl</kbd>+<kbd>A</kbd> виділяє все.</p>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/select.svg' | relative_url }}" alt="Квадрат, еліпс і зірка: три об'єкти, які можна виділити разом" loading="lazy">
+    </figure>
+    <p>Якщо потрібний об'єкт лежить під іншим, клацни на ньому з <kbd>Alt</kbd>. Кожне наступне клацання в тому самому місці вибирає об'єкт нижче.</p>
+  </section>
+
+  <section class="card" id="path-ops">
+    <h2>Контур: Об'єднання, Різниця, Перетин</h2>
+    <p>Виділи дві фігури й відкрий меню <strong>Контур</strong>. <strong>Об'єднання</strong> (<kbd>Ctrl</kbd>+<kbd>+</kbd>) склеює фігури в одну; у деяких версіях ця команда називається «Сума». <strong>Різниця</strong> (<kbd>Ctrl</kbd>+<kbd>−</kbd>) вирізає верхню фігуру з нижньої. <strong>Перетин</strong> (<kbd>Ctrl</kbd>+<kbd>*</kbd>) залишає тільки спільну частину. Результат отримує колір нижньої фігури. Якщо вийшло не так, натисни <kbd>Ctrl</kbd>+<kbd>Z</kbd> і поміняй фігури місцями.</p>
+    <ul class="vtools">
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/path-union.svg' | relative_url }}" alt="" width="32" height="32"><span>Об'єднання</span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/path-difference.svg' | relative_url }}" alt="" width="32" height="32"><span>Різниця</span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/path-intersection.svg' | relative_url }}" alt="" width="32" height="32"><span>Перетин</span></li>
+    </ul>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/boolean-ops.svg' | relative_url }}" alt="Дві початкові фігури, синій прямокутник і червоне коло, та результати команд: Об'єднання, Різниця, Перетин, Виключне АБО, Ділення, Розрізати контур" loading="lazy">
+    </figure>
+  </section>
+
+  <section class="card" id="nodes">
+    <h2>Редагування вузлів</h2>
+    <p>Лінія складається з вузлів — це крапки на контурі. Обери інструмент «Вузли» (<kbd>N</kbd>) і клацни на контурі, щоб побачити вузли. Їх можна перетягувати разом із маніпуляторами. Подвійне клацання на контурі додає вузол, а клавіша <kbd>Del</kbd> видаляє виділений вузол. Значок інструмента: <img class="vtool__icon vtool__icon--inline" src="{{ '/assets/img/vector/tools/tool-node-editor.svg' | relative_url }}" alt="Інструмент «Вузли»: стрілка з вузлом" width="28" height="28">.</p>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/path-nodes.svg' | relative_url }}" alt="Дві плавні криві лінії, вузли яких можна редагувати" loading="lazy">
+    </figure>
+    <p>Фігура на кшталт кола чи прямокутника спершу має стати контуром: «Контур» → «Об'єкт у контур» (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>C</kbd>). Після цього вона втрачає особливості фігури, наприклад, не можна змінити округлення кутів, але її вузли редагуються вільно.</p>
+  </section>
+
+  <section class="card" id="align-grid">
+    <h2>Вирівнювання, сітка й прив'язка</h2>
+    <p>Виділи кілька об'єктів і відкрий «Об'єкт» → «Вирівняти і розподілити» (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd>). Кнопки на панелі вирівнюють об'єкти по центру чи краях і розставляють їх з однаковими проміжками. Наведи мишу на кнопку, щоб прочитати підказку.</p>
+    <p>Сітка вмикається клавішею <kbd>#</kbd>, а її крок задають у діалозі «Властивості документа» (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>D</kbd>; у старіших версіях — «Параметри документа»). Увімкни ще й <strong>прив'язку</strong> (клавіша <kbd>%</kbd>), і фігури самі притягуватимуться до ліній сітки та одна до одної.</p>
+  </section>
+
+  <section class="card" id="duplicate-group">
+    <h2>Дублювання й групування</h2>
+    <p>Щоб зробити копію, виділи об'єкт і натисни <kbd>Ctrl</kbd>+<kbd>D</kbd>. Копія лежить рівно поверх оригіналу, тож її треба відразу відсунути мишею або стрілками. Щоб кілька об'єктів поводилися як один, виділи їх і натисни <kbd>Ctrl</kbd>+<kbd>G</kbd> («Об'єкт» → «Згрупувати»). Розгрупувати можна клавішами <kbd>Ctrl</kbd>+<kbd>U</kbd>. Щоб змінити один об'єкт усередині групи, клацни на ньому з <kbd>Ctrl</kbd>.</p>
+    <ul class="vtools">
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/object-group.svg' | relative_url }}" alt="" width="32" height="32"><span>Згрупувати <kbd>Ctrl</kbd>+<kbd>G</kbd></span></li>
+      <li><img class="vtool__icon" src="{{ '/assets/img/vector/tools/object-ungroup.svg' | relative_url }}" alt="" width="32" height="32"><span>Розгрупувати <kbd>Ctrl</kbd>+<kbd>U</kbd></span></li>
+    </ul>
+  </section>
+
+  <section class="card" id="z-order">
+    <h2>Порядок накладання</h2>
+    <p>Новий об'єкт завжди лягає поверх попередніх. Щоб змінити порядок, виділи об'єкт і скористайся меню «Об'єкт»: «Підняти на передній план» (<kbd>Home</kbd>), «Опустити на задній план» (<kbd>End</kbd>), «Підняти» (<kbd>Page&nbsp;Up</kbd>), «Опустити» (<kbd>Page&nbsp;Down</kbd>). Клавіша <kbd>Tab</kbd> по черзі виділяє об'єкти знизу вгору.</p>
+    <figure class="vfig">
+      <img src="{{ '/assets/img/vector/tutorial/z-order.svg' | relative_url }}" alt="Ряд помаранчевих еліпсів, що частково перекривають один одного" loading="lazy">
+    </figure>
+  </section>
+
+  <section class="card" id="save">
+    <h2>Збереження</h2>
+    <p>Обери «Файл» → «Зберегти як» (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>S</kbd>) і збережи роботу у папку «Векторна графіка». Формат лишай стандартний, «Inkscape SVG». Дай файлу зрозумілу назву й час від часу натискай <kbd>Ctrl</kbd>+<kbd>S</kbd>. Збережений малюнок знадобиться на уроках анімації.</p>
+  </section>
+
+  <section class="card" id="example-marker">
+    <h2>Приклад: мітка для карти</h2>
+    <p>Розглянемо мітку, яку можна використати для будь-якого місця. Спробуй повторити ці кроки самостійно:</p>
+    <ol>
+      <li>Намалюй коло (<kbd>E</kbd>), а нижче від нього трикутник, так щоб вістря дивилося вниз. Трикутник дасть інструмент «Зірка й багатокутник» із трьома кутами.</li>
+      <li>Виділи обидві фігури (<kbd>Shift</kbd>) і виконай «Контур» → «Об'єднання». Вийшла крапля, знак місця призначення.</li>
+      <li>Зафарбуй краплю у свій колір.</li>
+      <li>Всередині намалюй менше чорне коло й вирівняй його по центру краплі (<kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>A</kbd>).</li>
+      <li>Щоб мітка виглядала охайніше, перетвори краплю на контур, обери інструмент «Вузли» (<kbd>N</kbd>) і трохи підправ нижній вузол.</li>
+      <li>Згрупуй усі частини (<kbd>Ctrl</kbd>+<kbd>G</kbd>) і збережи у папку «Векторна графіка».</li>
+    </ol>
+    <p>Тепер мітку можна доповнити власним символом школи, кафе чи парку. Перейди до <a href="{{ '/vector/marks.html' | relative_url }}">набору «Мітки для карти»</a>.</p>
+  </section>
+
+  <section class="card" id="sources">
+    <h2>Джерела</h2>
+    <p>Текст пам'ятки скорочено й адаптовано з офіційних навчальних посібників Inkscape. Малюнки та значки інструментів взято з них і з самої програми. Докладніше про програму:</p>
+    <ul>
+      <li><a href="https://inkscape.org/uk/doc/tutorials/basic/tutorial-basic.html" target="_blank" rel="noopener">Початковий рівень<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>. Автори: Bulia Byak, Jonathan Leighton, Ralf Stephan, Bryce Harrington, Alexandre Prokoudine, Colin Marquardt, Josh Andler, Nicolas Dufour, Gellért Gyuris, Maren Hachmann; переклад: Nazarii Ritter.</li>
+      <li><a href="https://inkscape.org/uk/doc/tutorials/shapes/tutorial-shapes.html" target="_blank" rel="noopener">Фігури<span class="visually-hidden"> (відкриється в новій вкладці)</span></a></li>
+      <li><a href="https://inkscape.org/uk/doc/tutorials/advanced/tutorial-advanced.html" target="_blank" rel="noopener">Досвідчений рівень<span class="visually-hidden"> (відкриється в новій вкладці)</span></a></li>
+    </ul>
+    <p>Inkscape — вільне програмне забезпечення під ліцензією <a href="https://www.gnu.org/licenses/gpl-2.0.html" target="_blank" rel="noopener">GPL<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>. Назви команд подано за Inkscape 1.4 українською.</p>
+  </section>
+
+  <p class="vtrack-back"><a href="{{ '/vector.html' | relative_url }}">До розділу «Векторна графіка»</a></p>
+</div>

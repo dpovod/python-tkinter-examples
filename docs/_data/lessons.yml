@@ -78,6 +78,63 @@
   grades: [7]
   extra: []
 
+# ---------- Графіка й мультимедіа ----------
+- id: vector
+  title: "Векторна графіка: з чого почати"
+  url: /vector.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-inkscape
+  title: "Пам'ятка: прийоми в Inkscape"
+  url: /vector/inkscape.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-marks
+  title: "Inkscape: мітки для карти"
+  url: /vector/marks.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-emoji
+  title: "Inkscape: емодзі та персонажі"
+  url: /vector/emoji.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-logos
+  title: "Inkscape: значки брендів"
+  url: /vector/logos.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-weather
+  title: "Inkscape: значки погоди"
+  url: /vector/weather.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-icons
+  title: "Inkscape: іконки застосунку"
+  url: /vector/icons.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
+- id: vector-animation
+  title: "Анімація: ідеї та приклад"
+  url: /vector/animation.html
+  subject: graphics
+  grades: [7, 11]
+  extra: [11]
+
 # ---------- Microsoft Office ----------
 - id: excel-formulas
   title: "Excel: формули й функції MIN, MAX"

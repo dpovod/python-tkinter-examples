@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="pin" fill="#EF4444" d="M240 320 C190 255 165 212 165 155 A75 75 0 0 1 315 155 C315 212 290 255 240 320 Z"/>
+    <circle id="dot" cx="240" cy="155" r="32" fill="#23222B"/>
+  </g>
+</svg>

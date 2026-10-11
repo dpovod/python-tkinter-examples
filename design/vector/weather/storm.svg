@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="cloud" transform="translate(0 -30)" fill="#64748B" d="M175 250 A35 35 0 0 1 165 181 A50 50 0 0 1 258 160 A40 40 0 0 1 320 200 A30 30 0 0 1 305 250 Z"/>
+    <path id="bolt" fill="#FFC93C" d="M262 212 L218 280 L246 280 L232 335 L292 258 L262 258 L284 212 Z"/>
+  </g>
+</svg>

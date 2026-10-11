@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="badge" cx="240" cy="180" r="130" fill="#EF4444"/>
+    <circle id="disc" cx="240" cy="180" r="92" fill="#FFFFFF" stroke-width="5"/>
+    <path id="cross" fill="#EF4444" stroke-width="5" transform="translate(240 180) scale(1.6) translate(-240 -155)" d="M230 126 H250 V145 H269 V165 H250 V184 H230 V165 H211 V145 H230 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Смуга з 3 унікальних кадрів моргання смайлика: 1 очі відкриті, 2 півзакриті, 3 закриті.
+     Кадри 480x360 стоять підряд. Послідовність анімації: 1, 2, 3, 2, 1 (кадр 2 використано двічі).
+     На сайті смуга працює і як окремі кадри, і як анімація (CSS). -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1440" height="360" viewBox="0 0 1440 360">
+  <defs>
+    <g id="face" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="240" cy="180" r="130" fill="#FFC93C"/>
+      <path d="M168 212 Q240 292 312 212" fill="none"/>
+    </g>
+  </defs>
+  <rect width="1440" height="360" fill="#FFFFFF"/>
+
+  <g id="frame-1">
+    <use xlink:href="#face"/>
+    <g fill="#23222B">
+      <ellipse cx="195" cy="150" rx="13" ry="20"/>
+      <ellipse cx="285" cy="150" rx="13" ry="20"/>
+    </g>
+  </g>
+  <g id="frame-2" transform="translate(480 0)">
+    <use xlink:href="#face"/>
+    <g fill="#23222B">
+      <ellipse cx="195" cy="156" rx="13" ry="10"/>
+      <ellipse cx="285" cy="156" rx="13" ry="10"/>
+    </g>
+  </g>
+  <g id="frame-3" transform="translate(960 0)">
+    <use xlink:href="#face"/>
+    <g fill="none" stroke="#23222B" stroke-width="6" stroke-linecap="round">
+      <path d="M180 160 H210"/>
+      <path d="M270 160 H300"/>
+    </g>
+  </g>
+</svg>

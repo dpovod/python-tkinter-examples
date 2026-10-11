@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="badge" cx="240" cy="180" r="130" fill="#EC4899"/>
+    <circle id="disc" cx="240" cy="180" r="92" fill="#FFFFFF" stroke-width="5"/>
+    <g id="symbol" stroke-width="5" transform="translate(240 180) scale(1.6) translate(-240 -154)">
+      <rect x="216" y="152" width="48" height="28" fill="#FDE68A"/>
+      <path d="M210 152 L216 128 H264 L270 152 Z" fill="#EF4444"/>
+      <line x1="232" y1="128" x2="230" y2="152" stroke="#FFFFFF"/>
+      <line x1="248" y1="128" x2="250" y2="152" stroke="#FFFFFF"/>
+      <rect x="233" y="162" width="14" height="18" fill="#3B82F6"/>
+    </g>
+  </g>
+</svg>

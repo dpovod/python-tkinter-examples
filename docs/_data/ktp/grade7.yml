@@ -28,8 +28,8 @@ groups:
   - title: "Тема 5. Цифрова творчість"
     semester: 2
     topics: ["Текстовий процесор: шаблони, стилі, пошук і заміна", "Символи й формули", "Структура сайту, ергономіка, етапи створення"]
-    lessons: [word]
-    resources: [word-structure-pdf]
+    lessons: [word, vector, vector-inkscape, vector-marks, vector-emoji, vector-logos, vector-weather, vector-icons, vector-animation]
+    resources: [word-structure-pdf, inkscape]
   - title: "Тема 6. Вирішення проблем. Програмування"
     semester: 2
     topics: ["Мова й середовище програмування, змінні", "Присвоювання, модулі", "Графічні примітиви, текстові величини", "Налагодження, порівняння", "Розгалуження", "Цикли"]
