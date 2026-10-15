@@ -1097,6 +1097,23 @@ details.solution[open] summary {
   margin-bottom: 16px;
 }
 
+.resources-poster {
+  margin: 24px 0 0;
+  max-width: 640px;
+}
+
+.resources-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.resources-poster figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
 .resource-card.is-hidden-by-filter {
   display: none;
 }

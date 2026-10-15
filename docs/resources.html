@@ -36,6 +36,14 @@ description: "Підручники, тренажери з кібербезпек
           {%- include resource-card.html resource=r -%}
         {%- endfor -%}
       </div>
+      {%- if group_id == "security" -%}
+      <figure class="resources-poster">
+        <a href="https://stopfraud.gov.ua/" target="_blank" rel="noopener">
+          <img src="{{ '/assets/img/security/stopfraud-poster.jpg' | relative_url }}" width="1600" height="1131" loading="lazy" alt="Плакат Кіберполіції: «Захистись від шахраїв разом із нами». QR-код і посилання на stopfraud.gov.ua">
+        </a>
+        <figcaption>Плакат Кіберполіції. Сайт для повідомлень про шахрайство: <a href="https://stopfraud.gov.ua/" target="_blank" rel="noopener">stopfraud.gov.ua</a></figcaption>
+      </figure>
+      {%- endif -%}
     </section>
     {%- endif -%}
   {%- endfor -%}
