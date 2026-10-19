@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <g id="moon" transform="translate(40 20) scale(0.8)" stroke-width="7.5">
+      <path fill="#FFC93C" d="M300 113 A90 90 0 1 0 309 238 A75 75 0 0 1 300 113 Z"/>
+    </g>
+    <g id="stars" fill="#FFC93C" stroke-width="3">
+      <path d="M345 90 l4 -11 l4 11 l11 4 l-11 4 l-4 11 l-4 -11 l-11 -4 Z"/>
+      <path d="M95 60 l3 -9 l3 9 l9 3 l-9 3 l-3 9 l-3 -9 l-9 -3 Z"/>
+    </g>
+    <path id="cloud" transform="translate(40 30)" fill="#E2E8F0" d="M175 250 A35 35 0 0 1 165 181 A50 50 0 0 1 258 160 A40 40 0 0 1 320 200 A30 30 0 0 1 305 250 Z"/>
+  </g>
+</svg>

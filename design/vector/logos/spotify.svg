@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Зелене коло й три чорні вигнуті смуги, що звужуються донизу -->
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="disc" cx="240" cy="180" r="130" fill="#1DB954" stroke="#23222B" stroke-width="6"/>
+    <g id="waves" fill="none" stroke="#23222B">
+      <path d="M152 138 Q248 108 338 150" stroke-width="28"/>
+      <path d="M164 190 Q248 166 324 198" stroke-width="22"/>
+      <path d="M176 236 Q248 218 310 240" stroke-width="16"/>
+    </g>
+  </g>
+</svg>

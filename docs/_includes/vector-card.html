@@ -1,0 +1,52 @@
+{%- comment -%}
+  Картка набору «Векторна графіка»: зразок (растр), назва, складність,
+  й необов'язкова підказка.
+  {% include vector-card.html card=card track=track.id n=forloop.index %}
+  Дані — _data/vector.yml (tracks[].cards[]). Зразок лежить у
+  assets/img/vector/<track>/<card.id>.png (збирається з design/vector/ скриптом
+  scripts/export_vector_images.sh); показується, коли в картці є alt.
+{%- endcomment -%}
+{%- assign vc = include.card -%}
+{%- assign skills_data = site.data.vector.skills -%}
+<div class="card card--task vcard" id="{{ vc.id }}">
+  <div class="card__header">
+    <span class="card__number">{{ include.n }}</span>
+    <h3>{{ vc.title }}</h3>
+    <span class="vcard__level">
+      <span aria-hidden="true">{% for i in (1..vc.level) %}★{% endfor %}</span>
+      <span class="visually-hidden">Складність: {{ vc.level }} з 3</span>
+    </span>
+  </div>
+  {%- if vc.alt %}
+  <figure class="vcard__sample">
+    <img src="{{ '/assets/img/vector/' | append: include.track | append: '/' | append: vc.id | append: '.png' | relative_url }}" width="480" height="360" alt="{{ vc.alt | escape }}" loading="lazy">
+    {%- if vc.caption %}
+    <figcaption>{{ vc.caption }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+  <details class="vcard__hint">
+    <summary>Підказка, як намалювати</summary>
+    <dl class="vcard__facts">
+      <div>
+        <dt>З яких фігур</dt>
+        <dd>{{ vc.shapes }}</dd>
+      </div>
+      <div>
+        <dt>Потрібні прийоми</dt>
+        <dd>
+          {%- for sid in vc.skills -%}
+            {%- assign sk = skills_data[sid] -%}
+            <a href="{{ '/vector/inkscape.html' | relative_url }}#{{ sk.anchor }}" target="_blank" rel="noopener">{{ sk.title }}<span class="visually-hidden"> (відкриється в новій вкладці)</span></a>{% unless forloop.last %}, {% endunless %}
+          {%- endfor -%}
+        </dd>
+      </div>
+      {%- if vc.sample and vc.sample != "TODO" %}
+      <div>
+        <dt>Офіційний зразок</dt>
+        <dd><a href="{{ vc.sample }}" target="_blank" rel="noopener">Переглянути<span class="visually-hidden"> (відкриється в новій вкладці)</span></a></dd>
+      </div>
+      {%- endif %}
+    </dl>
+  </details>
+</div>

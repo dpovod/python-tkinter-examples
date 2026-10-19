@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="cloud" transform="translate(0 -30)" fill="#94A3B8" d="M175 250 A35 35 0 0 1 165 181 A50 50 0 0 1 258 160 A40 40 0 0 1 320 200 A30 30 0 0 1 305 250 Z"/>
+    <g id="drops" fill="none" stroke="#3B82F6" stroke-width="10">
+      <line x1="195" y1="245" x2="183" y2="280"/>
+      <line x1="235" y1="245" x2="223" y2="280"/>
+      <line x1="275" y1="245" x2="263" y2="280"/>
+      <line x1="315" y1="245" x2="303" y2="280"/>
+      <line x1="215" y1="295" x2="203" y2="330"/>
+      <line x1="255" y1="295" x2="243" y2="330"/>
+      <line x1="295" y1="295" x2="283" y2="330"/>
+    </g>
+  </g>
+</svg>

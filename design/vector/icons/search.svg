@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <g id="handle" fill="none">
+      <line x1="272" y1="232" x2="340" y2="300" stroke-width="40"/>
+      <line x1="272" y1="232" x2="340" y2="300" stroke="#FB923C" stroke-width="28"/>
+    </g>
+    <circle id="lens" cx="218" cy="168" r="82" fill="#BFDBFE"/>
+    <path id="shine" d="M168 150 A52 52 0 0 1 204 118" fill="none" stroke="#FFFFFF" stroke-width="10"/>
+  </g>
+</svg>

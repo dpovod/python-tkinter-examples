@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="badge" cx="240" cy="180" r="130" fill="#0EA5E9"/>
+    <circle id="disc" cx="240" cy="180" r="92" fill="#FFFFFF" stroke-width="5"/>
+    <g id="book" stroke-width="5" transform="translate(240 180) scale(1.6) translate(-240 -155)">
+      <path d="M240 134 Q224 126 208 130 V176 Q224 172 240 180 Z" fill="#FDE68A"/>
+      <path d="M240 134 Q256 126 272 130 V176 Q256 172 240 180 Z" fill="#FDE68A"/>
+    </g>
+  </g>
+</svg>
