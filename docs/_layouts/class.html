@@ -117,6 +117,21 @@ layout: default
   </div>
   {%- endfor -%}
 
+  {%- assign practicals = site.data.practicals | where: "grade", page.grade -%}
+  {%- if practicals.size > 0 -%}
+  <div class="card class-group">
+    <div class="class-group__header">
+      <h2>Практичні роботи</h2>
+    </div>
+    <div class="class-group__resources">
+      {%- for p in practicals -%}
+        {%- include resource-card.html resource=p -%}
+      {%- endfor -%}
+    </div>
+    <p><a href="{{ '/practical/' | relative_url }}">Усі практичні роботи</a></p>
+  </div>
+  {%- endif -%}
+
   <nav class="class-nav" aria-label="Навігація між класами">
     {%- assign prev_grade = page.grade | minus: 1 -%}
     {%- assign next_grade = page.grade | plus: 1 -%}

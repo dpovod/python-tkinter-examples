@@ -1,0 +1,8 @@
+# Практичні роботи (PDF). Порядок у файлі = порядок на сторінці /practical/ у межах класу.
+# Поля: id, title, grade (число), url (шлях від кореня сайту), note.
+- id: practical-11-modules
+  title: "Python: модульність, функції, бібліотеки та модулі"
+  grade: 11
+  type: file
+  url: /files/practical-11-modules.pdf
+  note: "Практична робота, PDF"
