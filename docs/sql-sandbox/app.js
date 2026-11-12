@@ -177,18 +177,19 @@
   // Виконує текст (можливо, кілька запитів). Повертає { ok, blocks }.
   function execute(text) {
     var blocks = [];
-    var isTemplate = norm(text) === norm(TEMPLATE_SQL);
     var count = 0;
     var stmt = null;
     var current = '';
+    var entries = [];
+    var iter = null;
 
     try {
-      var iter = db.iterateStatements(text);
+      iter = db.iterateStatements(text);
       for (stmt of iter) {
-        current = norm(stmt.getSQL ? stmt.getSQL() : '');
+        current = (stmt.getSQL ? stmt.getSQL() : '').trim();
         count++;
         var columns = stmt.getColumnNames();
-        var block = resultBlock(isTemplate ? null : current);
+        var block = resultBlock(current);
         if (columns.length) {
           var rows = [];
           var total = 0;
@@ -210,27 +211,25 @@
           }
         }
         blocks.push(block);
+        entries.push({ sql: current, ok: true });
         stmt = null;
         current = '';
       }
     } catch (e) {
       if (stmt) { try { stmt.free(); } catch (_) { /* вже звільнено */ } }
-      var errBlock = renderError(e && e.message ? e.message : String(e), isTemplate ? text.trim() : current);
+      // Якщо запит не вдалося навіть розібрати, беремо решту тексту з місця помилки.
+      var failed = current || (iter && iter.getRemainingSQL ? iter.getRemainingSQL() : '').trim();
+      var errBlock = renderError(e && e.message ? e.message : String(e), failed);
       // Для кількох запитів показуємо те, що встигло виконатися, і помилку.
-      if (isTemplate) blocks = [];
+      entries.push({ sql: failed || text.trim(), ok: false });
       blocks.push(errBlock);
-      return { ok: false, blocks: blocks };
+      return { ok: false, blocks: blocks, entries: entries };
     }
 
     if (!count) {
-      return { ok: false, blocks: [renderMessage('Запит порожній. Введіть SQL-код')], empty: true };
+      return { ok: false, blocks: [renderMessage('Запит порожній. Введіть SQL-код')], entries: [] };
     }
-    if (isTemplate) {
-      var one = resultBlock(text.trim());
-      one.appendChild(make('p', 'res-ok', '✓ Запит виконано'));
-      blocks = [one];
-    }
-    return { ok: true, blocks: blocks };
+    return { ok: true, blocks: blocks, entries: entries };
   }
 
   function renderMessage(text) {
@@ -250,7 +249,7 @@
     var outcome = execute(text);
     showBlocks(outcome.blocks);
     renderSchema();
-    if (!outcome.empty) addHistory(text, outcome.ok);
+    addHistory(outcome.entries);
   }
 
   // ---------- Історія ----------
@@ -271,8 +270,11 @@
     try { localStorage.setItem(HISTORY_KEY, JSON.stringify(history)); } catch (e) { /* сховище недоступне */ }
   }
 
-  function addHistory(sql, ok) {
-    history.push({ sql: sql, ok: ok, time: Date.now() });
+  // Кожен запит — окремий запис в історії
+  function addHistory(entries) {
+    if (!entries.length) return;
+    var now = Date.now();
+    entries.forEach(function (e) { history.push({ sql: e.sql, ok: e.ok, time: now }); });
     if (history.length > HISTORY_LIMIT) history = history.slice(-HISTORY_LIMIT);
     saveHistory();
     renderHistory();
