@@ -1,0 +1,199 @@
+/* SQL-пісочниця. Токени беруться з assets/css/site.css; усі правила під .sbx,
+   щоб не зачепити решту сайту. Картки, кнопки й заголовки — штатні (.card, .btn). */
+
+.sbx {
+  --sbx-ok: var(--level-base-fg);
+  --sbx-err-bg: #FDECEC;
+  --sbx-err-border: #E8A3A3;
+  --sbx-err-text: #8F1D1D;
+  --sbx-accent: var(--hero);
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  overflow-wrap: anywhere;
+}
+
+.sbx-main { min-width: 0; }
+.sbx .card { min-width: 0; }
+.sbx h2 { font-size: 20px; font-weight: 700; }
+.sbx-schema { position: sticky; top: 16px; }
+
+.sbx-muted, .sbx .muted { color: var(--muted); }
+.sbx-hint { color: var(--muted); font-size: 14px; }
+.sbx-spacer { flex: 1 1 auto; }
+
+/* Кнопки (штатна .btn сайту розрахована на посилання) */
+.sbx button.btn {
+  font-family: inherit;
+  line-height: 1.3;
+  min-height: 44px;
+  cursor: pointer;
+}
+.sbx button.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.sbx .sbx-btn-danger { border-color: #B91C1C; background: #B91C1C; color: #fff; }
+.sbx .sbx-btn-danger:hover { background: #991B1B; }
+
+.sbx-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+
+.sbx-confirm {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  background: var(--level-extra-bg);
+  color: var(--level-extra-fg);
+  border-radius: var(--radius-row);
+}
+.sbx-confirm[hidden] { display: none; }
+
+/* Поле запиту: темний редактор, як блоки коду на сайті */
+.sbx textarea {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  font-family: var(--font-mono);
+  font-size: 16px; /* 16px — щоб iOS не наближав сторінку при фокусі */
+  line-height: 1.6;
+  color: var(--code-text);
+  background: var(--code-bg);
+  border: 2px solid var(--code-bg);
+  border-radius: var(--radius-code);
+  resize: vertical;
+  tab-size: 2;
+}
+.sbx textarea::placeholder { color: var(--rouge-comment); }
+.sbx textarea:focus-visible { outline: 3px solid var(--text); outline-offset: 2px; }
+
+/* Структура бази: кожна таблиця — окрема картка, як на схемі */
+.sbx .schema-table {
+  margin-bottom: 14px;
+  border: 2px solid var(--text);
+  border-radius: var(--radius-row);
+  overflow: hidden;
+  background: var(--surface);
+}
+.sbx .schema-table:last-child { margin-bottom: 0; }
+.sbx .table-name {
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--hero);
+  background: var(--text);
+}
+.sbx .columns { list-style: none; margin: 0; padding: 0; font-family: var(--font-mono); font-size: 14px; }
+.sbx .columns li { display: flex; align-items: center; gap: 8px; padding: 6px 14px; border-top: 1px solid var(--border); }
+.sbx .columns li:first-child { border-top: 0; }
+.sbx .col-name { font-weight: 700; }
+.sbx .col-type { margin-left: auto; color: var(--muted); font-size: 12px; }
+.sbx .pk {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--level-extra-fg);
+  background: var(--level-extra-bg);
+  border-radius: var(--radius-pill);
+  padding: 0 8px;
+}
+
+/* Результат */
+.sbx .res-block + .res-block { margin-top: 20px; padding-top: 20px; border-top: 2px dashed var(--dashed); }
+.sbx .res-label {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.sbx .res-label:first-child { margin-top: 0; }
+.sbx .res-query {
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  padding: 14px 18px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--code-text);
+  background: var(--code-bg);
+  border-left: 5px solid var(--sbx-accent);
+  border-radius: var(--radius-row);
+  white-space: pre-wrap;
+}
+.sbx .res-ok { color: var(--sbx-ok); font-weight: 700; margin: 0 0 10px; }
+.sbx .res-count { margin: 8px 0 0; color: var(--muted); font-size: 14px; }
+
+.sbx .table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-row);
+}
+.sbx table.result { border-collapse: collapse; width: 100%; font-size: 15px; }
+.sbx table.result th,
+.sbx table.result td {
+  padding: 8px 14px;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+.sbx table.result th { background: var(--code-inline-bg); font-weight: 700; }
+.sbx table.result tbody tr:nth-child(even) td { background: var(--row); }
+.sbx table.result tr:last-child td { border-bottom: 0; }
+.sbx .null { color: var(--muted); font-style: italic; }
+
+.sbx .error {
+  padding: 14px 18px;
+  color: var(--sbx-err-text);
+  background: var(--sbx-err-bg);
+  border: 1px solid var(--sbx-err-border);
+  border-radius: var(--radius-row);
+}
+.sbx .error p { color: inherit; }
+.sbx .error-hint { margin: 0 0 6px; font-weight: 700; }
+.sbx .error-text { margin: 0; font-family: var(--font-mono); font-size: 13px; white-space: pre-wrap; }
+
+/* Історія */
+.sbx-history { list-style: none; margin: 0; padding: 0; max-height: 340px; overflow-y: auto; }
+.sbx-history li { border-top: 1px solid var(--border); }
+.sbx-history li:first-child { border-top: 0; }
+.sbx-history button {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 6px;
+  font: inherit;
+  text-align: left;
+  color: inherit;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-row);
+  cursor: pointer;
+}
+.sbx-history button:hover { background: var(--row-hover); }
+.sbx .h-mark { flex: none; font-weight: 800; }
+.sbx .h-ok { color: var(--sbx-ok); }
+.sbx .h-err { color: #B91C1C; }
+.sbx .h-sql {
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .sbx { grid-template-columns: minmax(0, 1fr); }
+  .sbx-schema { position: static; }
+}
+
+@media (max-width: 640px) {
+  .sbx { gap: 16px; }
+  .sbx h2 { font-size: 18px; }
+}

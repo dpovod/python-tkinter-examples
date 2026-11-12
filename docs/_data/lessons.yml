@@ -129,6 +129,13 @@
   grades: [9, 10, 11]
   extra: [9]
 
+- id: sql-sandbox
+  title: "SQL-пісочниця"
+  url: /sql-sandbox/
+  subject: db
+  grades: [10]
+  extra: []
+
 # ---------- Веб ----------
 - id: html-project
   title: "Проєкт: створення сайту"
