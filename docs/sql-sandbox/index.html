@@ -3,7 +3,7 @@ layout: lesson
 title: "SQL-пісочниця"
 lesson: sql-sandbox
 permalink: /sql-sandbox/
-description: "База працює у вашому браузері. Після перезавантаження сторінки вона стає порожньою"
+description: "База зберігається у цьому браузері"
 ---
 <link rel="stylesheet" href="{{ '/sql-sandbox/style.css' | relative_url }}">
 
@@ -11,57 +11,79 @@ description: "База працює у вашому браузері. Після
   <p class="callout">Для SQL-пісочниці потрібен JavaScript. Увімкніть його в налаштуваннях браузера.</p>
 </noscript>
 
-<div class="sbx">
-  <aside class="card sbx-schema" aria-labelledby="schema-title">
-    <h2 id="schema-title">Структура бази</h2>
-    <div id="schema"></div>
-  </aside>
+<div class="sbx" id="sbx">
+  <div class="sbx-window">
 
-  <div class="sbx-main">
-    <section class="card" aria-labelledby="query-title">
-      <h2 id="query-title">Запит</h2>
+    <div class="sbx-body">
+      <aside class="sbx-side" aria-labelledby="side-title">
+        <div class="sbx-side-head">
+          <h2 id="side-title">База</h2>
+          <button type="button" id="base-more" class="sbx-more" aria-haspopup="menu" aria-expanded="false" aria-label="Меню бази">⋯</button>
+        </div>
+        <div id="schema" class="sbx-tree"></div>
+      </aside>
 
-      <div class="sbx-toolbar">
-        <button type="button" id="btn-template" class="btn">Вставити запит для створення тестової таблиці</button>
-      </div>
-      <div id="confirm-template" class="sbx-confirm" hidden>
-        <span>Замінити вміст поля?</span>
-        <button type="button" id="confirm-template-yes" class="btn">Так</button>
-        <button type="button" id="confirm-template-no" class="btn">Ні</button>
-      </div>
+      <div class="sbx-center">
+        <div class="sbx-editbar">
+          <button type="button" id="btn-run" class="btn btn--primary" disabled>▶ Виконати</button>
+          <span class="sbx-hint">Ctrl/Cmd+Enter — виконати</span>
+        </div>
 
-      <label for="query" class="visually-hidden">Текст SQL-запиту</label>
-      <textarea id="query" rows="9" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off"
-                placeholder="Введіть SQL-запит. Кілька запитів розділяйте крапкою з комою (;)"></textarea>
+        <div class="sbx-editor" id="editor">
+          <pre id="hl" class="sbx-layer" aria-hidden="true"></pre>
+          <label for="query" class="visually-hidden">Текст SQL-запиту</label>
+          <textarea id="query" class="sbx-layer" rows="9" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off"
+                    placeholder="Введіть SQL-запит. Кілька запитів розділяйте крапкою з комою (;)"></textarea>
+        </div>
 
-      <div class="sbx-toolbar">
-        <button type="button" id="btn-run" class="btn btn--primary" disabled>Виконати</button>
-        <span class="sbx-hint">Ctrl+Enter / Cmd+Enter</span>
-        <span class="sbx-spacer"></span>
-        <button type="button" id="btn-reset" class="btn">Очистити базу</button>
-      </div>
-      <div id="confirm-reset" class="sbx-confirm" hidden>
-        <span>Усі таблиці буде видалено.</span>
-        <button type="button" id="confirm-reset-yes" class="btn sbx-btn-danger">Так, очистити</button>
-        <button type="button" id="confirm-reset-no" class="btn">Скасувати</button>
-      </div>
-    </section>
+        <button type="button" id="btn-run-m" class="btn btn--primary sbx-run-m" disabled>▶ Виконати</button>
 
-    <section class="card" aria-labelledby="result-title">
-      <h2 id="result-title">Результат</h2>
-      <div id="result" aria-live="polite">
-        <p class="sbx-muted">Тут з'явиться результат запиту.</p>
-      </div>
-    </section>
+        <div class="sbx-resizer" id="resizer" role="separator" aria-orientation="horizontal" tabindex="0"
+             aria-label="Висота нижньої панелі (стрілки вгору і вниз)"></div>
 
-    <section class="card" aria-labelledby="history-title">
-      <h2 id="history-title">Історія запитів</h2>
-      <div class="sbx-toolbar">
-        <button type="button" id="btn-download" class="btn">Скачати мої запити (.txt)</button>
-        <button type="button" id="btn-clear-history" class="btn">Очистити історію</button>
+        <div class="sbx-bottom" id="bottom">
+          <div class="sbx-tabs" id="tabs" role="tablist" aria-label="Результати"></div>
+          <div class="sbx-panel" id="panel" role="tabpanel" tabindex="0" aria-live="polite"></div>
+        </div>
+
+        <div class="sbx-status" id="status">
+          <span id="st-msg" class="st-msg">Завантаження…</span>
+          <span id="st-cell" class="st-cell"></span>
+          <span class="sbx-spacer"></span>
+          <button type="button" id="btn-copy" class="btn sbx-b-small" disabled>Копіювати</button>
+          <button type="button" id="btn-csv" class="btn sbx-b-small" disabled>CSV</button>
+        </div>
       </div>
-      <ul id="history" class="sbx-history"></ul>
-    </section>
+    </div>
+
+    <dialog id="confirm-dlg" class="sbx-dlg sbx-dlg--small" role="alertdialog" aria-label="Підтвердження" aria-describedby="confirm-text">
+      <p id="confirm-text" class="sbx-confirm-text"></p>
+      <div class="sbx-dlg-actions">
+        <button type="button" id="confirm-no" class="btn">Скасувати</button>
+        <button type="button" id="confirm-yes" class="btn btn--primary">Так</button>
+      </div>
+    </dialog>
+
+    <dialog id="schema-dlg" class="sbx-dlg sbx-dlg--big" aria-labelledby="schema-dlg-title">
+      <div class="sbx-dlg-head">
+        <h2 id="schema-dlg-title">Схема бази</h2>
+        <div id="schema-bar" class="sbx-dg-bar"></div>
+        <button type="button" id="schema-close" class="btn">Закрити</button>
+      </div>
+      <div id="schema-body" class="sbx-dlg-body"></div>
+    </dialog>
+
+    <dialog id="params-dlg" class="sbx-dlg" aria-labelledby="params-title">
+      <form id="params-form" method="dialog">
+        <h2 id="params-title">Значення параметрів</h2>
+        <div id="params-fields"></div>
+        <div class="sbx-dlg-actions">
+          <button type="submit" class="btn btn--primary">Виконати</button>
+          <button type="button" id="params-cancel" class="btn">Скасувати</button>
+        </div>
+      </form>
+    </dialog>
+
   </div>
 </div>
 
