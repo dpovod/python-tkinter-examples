@@ -542,29 +542,56 @@
 }
 .sbx-dg-tip[hidden] { display: none; }
 
-/* Тимчасове повідомлення */
+/* Тимчасове повідомлення: у правому нижньому куті, над рядком стану */
 .sbx-toast {
   position: absolute;
-  top: 10px;
-  left: 50%;
+  right: 16px;
+  bottom: 72px;
   z-index: 5;
-  max-width: calc(100% - 24px);
-  padding: 8px 16px;
-  font-weight: 700;
-  color: var(--text);
-  background: var(--level-extra-bg);
-  border: 2px solid var(--text);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(360px, calc(100% - 32px));
+  padding: 10px 16px 10px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--text);
   border-radius: var(--radius-row);
+  box-shadow: 0 8px 24px rgba(35, 34, 43, 0.25);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translate(-50%, -8px);
+  transform: translateY(8px);
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 }
-.sbx-toast.is-show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
-.sbx-toast.is-hide { visibility: hidden; }
-@media (prefers-reduced-motion: no-preference) {
-  .sbx-toast { transition: opacity 0.6s ease, transform 0.3s ease, visibility 0s linear 0.6s; }
-  .sbx-toast.is-show { transition-delay: 0s; }
+.sbx-toast::before {
+  content: '✓';
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 13px;
+  line-height: 1;
+  color: #86EFAC;
+  background: rgba(134, 239, 172, 0.18);
+  border-radius: 50%;
+}
+.sbx-toast.is-show {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+}
+.sbx-toast.is-hide { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .sbx-toast, .sbx-toast.is-show { transform: none; }
+  .sbx-toast.is-show { transition: opacity 0.2s ease, visibility 0s; }
+}
+@media (max-width: 640px) {
+  .sbx-toast { left: 12px; right: 12px; bottom: 12px; max-width: none; }
 }
 
 /* Готові таблиці */
