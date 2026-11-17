@@ -62,6 +62,8 @@
 /* Ліва панель */
 .sbx-side {
   min-height: 0;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
   background: var(--row);
   border-right: 1px solid var(--border);
@@ -540,6 +542,75 @@
 }
 .sbx-dg-tip[hidden] { display: none; }
 
+/* Тимчасове повідомлення */
+.sbx-toast {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  z-index: 5;
+  max-width: calc(100% - 24px);
+  padding: 8px 16px;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--level-extra-bg);
+  border: 2px solid var(--text);
+  border-radius: var(--radius-row);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, -8px);
+}
+.sbx-toast.is-show { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.sbx-toast.is-hide { visibility: hidden; }
+@media (prefers-reduced-motion: no-preference) {
+  .sbx-toast { transition: opacity 0.6s ease, transform 0.3s ease, visibility 0s linear 0.6s; }
+  .sbx-toast.is-show { transition-delay: 0s; }
+}
+
+/* Готові таблиці */
+.sbx-tree { flex: 1 1 auto; }
+.sbx-ready-strip { flex: none; border-top: 1px solid var(--border); background: var(--row); }
+.sbx-ready-btn {
+  width: 100%;
+  min-height: 56px;   /* 56 + 1 border = висота рядка стану: лінії збігаються */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  font: inherit;
+  font-weight: 700;
+  color: var(--text);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.sbx-ready-btn:hover { background: var(--level-extra-bg); }
+.sbx-dlg--ready {
+  width: min(880px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  padding: 0;
+  overflow: hidden;
+}
+.sbx-dlg--ready[open] { display: flex; flex-direction: column; }
+.sbx-dlg--ready .sbx-spacer { flex: 1 1 auto; }
+.sbx-ready-body { overflow: auto; }
+.sbx-ready-search { max-width: 360px; }
+.sbx-ready-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.sbx-rcard { display: flex; flex-direction: column; gap: 8px; padding: 12px; background: var(--surface); border: 2px solid var(--text); border-radius: var(--radius-row); }
+.sbx-rcard-t { margin: 0; font-size: 17px; }
+.sbx-rschema { background: var(--row); border: 1px solid var(--border); border-radius: var(--radius-row); overflow: hidden; }
+.sbx-rschema-n { padding: 4px 10px; font-family: var(--font-mono); font-weight: 800; border-bottom: 1px solid var(--border); }
+.sbx-rschema-f { list-style: none; margin: 0; padding: 4px 0; }
+.sbx-rschema-f li { padding: 1px 10px; font-family: var(--font-mono); font-size: 14px; }
+.sbx-rschema-f li.is-pk { font-weight: 800; background: var(--level-extra-bg); }
+.sbx-rschema-f li.is-pk::before { content: '🔑 '; }
+.sbx-rcard-m, .sbx-rcard-s { margin: 0; font-size: 14px; }
+.sbx-rcard-m { color: var(--muted); }
+.sbx-rcard-s { font-weight: 700; }
+.sbx-rcard-s.is-in { color: var(--sbx-ok); }
+.sbx-rcard-s.is-out { color: var(--muted); }
+.sbx-rcard-a { margin-top: auto; }
+
 /* Телефон і вузький екран */
 @media (max-width: 900px) {
   .sbx-window { height: auto; border-radius: var(--radius-code); }
@@ -553,6 +624,8 @@
   .sbx-panel { max-height: none; overflow: visible; }
   .sbx .table-wrap { max-height: 60vh; }
   .sbx-dlg--big { width: calc(100vw - 16px); height: calc(100vh - 16px); border-radius: var(--radius-code); }
+  .sbx-dlg--ready { width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh; border-radius: 0; border-width: 0; }
+  .sbx-ready-grid { grid-template-columns: 1fr; }
 
   /* таблиці — чипи */
   .sbx-tables { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 12px 12px; }

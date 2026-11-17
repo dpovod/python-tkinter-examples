@@ -1,38 +1,7 @@
 (function () {
   'use strict';
 
-  // ====================================================================
-  // НАВЧАЛЬНА ТАБЛИЦЯ
-  // Цей SQL виконує пункт меню бази «Створити й заповнити» або
-  // лише вставляє в редактор пункт «Показати SQL у редакторі». Щоб змінити
-  // таблицю для іншої практичної, замініть текст нижче (решта коду
-  // підлаштується сама: назву таблиці береться з першого CREATE TABLE).
-  // ====================================================================
-  var TEMPLATE_SQL = [
-    "CREATE TABLE movies (",
-    "  id INTEGER PRIMARY KEY,",
-    "  title TEXT,",
-    "  type TEXT,",
-    "  genre TEXT,",
-    "  year INTEGER,",
-    "  rating REAL,",
-    "  country TEXT",
-    ");",
-    "INSERT INTO movies VALUES",
-    "(1, 'Інтерстеллар', 'Фільм', 'Фантастика', 2014, 8.7, 'США'),",
-    "(2, 'Дивні дива', 'Серіал', 'Фантастика', 2016, 8.7, 'США'),",
-    "(3, 'Мавка. Лісова пісня', 'Фільм', 'Мультфільм', 2023, 7.3, 'Україна'),",
-    "(4, 'Венздей', 'Серіал', 'Комедія', 2022, 8.1, 'США'),",
-    "(5, 'Спіймати Кайдаша', 'Серіал', 'Драма', 2020, 7.9, 'Україна'),",
-    "(6, 'Гра в кальмара', 'Серіал', 'Трилер', 2021, 8.0, 'Південна Корея'),",
-    "(7, 'Людина-павук: Через всесвіт', 'Фільм', 'Мультфільм', 2023, 8.5, 'США'),",
-    "(8, 'Дюна: Частина друга', 'Фільм', 'Фантастика', 2024, 8.5, 'США'),",
-    "(9, 'Шерлок', 'Серіал', 'Детектив', 2010, 9.1, 'Велика Британія'),",
-    "(10, 'Віднесені привидами', 'Фільм', 'Мультфільм', 2001, 8.6, 'Японія'),",
-    "(11, 'Мандалорець', 'Серіал', 'Фантастика', 2019, 8.6, 'США'),",
-    "(12, 'Довбуш', 'Фільм', 'Пригоди', 2023, 7.0, 'Україна');"
-  ].join("\n");
-  var TEMPLATE_TABLE = (/CREATE\s+TABLE\s+["`]?([\wЀ-ӿ]+)/i.exec(TEMPLATE_SQL) || [])[1] || 'movies';
+  var READY = Array.isArray(window.SQL_READY_TABLES) ? window.SQL_READY_TABLES : [];
 
   var KEY = {
     history: 'sql-sandbox-history',
@@ -65,11 +34,27 @@
     sdlg: $('schema-dlg'), sbar: $('schema-bar'), sbody: $('schema-body'), sclose: $('schema-close'),
     tabs: $('tabs'), panel: $('panel'), bottom: $('bottom'), resizer: $('resizer'),
     stMsg: $('st-msg'), stCell: $('st-cell'), copy: $('btn-copy'), csv: $('btn-csv'),
+    rdlg: $('ready-dlg'), ropen: $('ready-open'), rclose: $('ready-close'), rq: $('ready-q'), rgrid: $('ready-grid'),
     dlg: $('params-dlg'), dlgForm: $('params-form'), dlgFields: $('params-fields')
   };
   var mobile = window.matchMedia('(max-width: 900px)');
 
   // ---------- Допоміжне ----------
+
+  // Коротке повідомлення зверху вікна, саме зникає
+  var toastEl = null, toastTimer = null;
+  function toast(text) {
+    if (!toastEl) {
+      toastEl = make('div', 'sbx-toast');
+      toastEl.setAttribute('role', 'status');
+      root.querySelector('.sbx-window').appendChild(toastEl);
+    }
+    toastEl.textContent = text;
+    toastEl.classList.remove('is-hide');
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toastEl.classList.add('is-hide'); toastEl.classList.remove('is-show'); }, 3000);
+  }
 
   function make(tag, className, text) {
     var node = document.createElement(tag);
@@ -350,11 +335,7 @@
     el.tree.textContent = '';
     if (!info.length) {
       var empty = make('div', 'sbx-empty');
-      empty.appendChild(make('p', 'sbx-muted', 'База порожня. Створіть власну таблицю запитом або візьміть готову.'));
-      var make1 = make('button', 'btn btn--primary', 'Створити тестову таблицю');
-      make1.type = 'button';
-      make1.addEventListener('click', createTemplate);
-      empty.appendChild(make1);
+      empty.appendChild(make('p', 'sbx-muted', 'База порожня. Створіть таблицю запитом CREATE TABLE або відкрийте «Готові таблиці» внизу панелі.'));
       el.tree.appendChild(empty);
       return;
     }
@@ -540,10 +521,6 @@
   // Меню бази: показати схему, очистити базу
   function openBaseMenu(opener, point) {
     openMenu([
-      { heading: 'Тестова таблиця ' + TEMPLATE_TABLE },
-      { label: 'Створити й заповнити', sub: 'виконає CREATE TABLE + INSERT', icon: '▶', action: createTemplate },
-      { label: 'Показати SQL у редакторі', sub: 'без виконання', icon: '✎', action: function () { insertInEditor(TEMPLATE_SQL); } },
-      { sep: true },
       { label: 'Показати схему', sub: 'таблиці та зв\'язки між ними', action: openSchema },
       { sep: true },
       {
@@ -588,16 +565,124 @@
     }, true);
   }
 
-  // ---------- Тестова таблиця ----------
+  // ---------- Готові таблиці ----------
 
-  function createTemplate() {
-    if (tableExists(TEMPLATE_TABLE)) {
-      ask('Таблиця вже є. Почати спочатку?', function () {
-        runMenuSql('DROP TABLE ' + ident(TEMPLATE_TABLE) + ';\n' + TEMPLATE_SQL);
-      }, 'Так, почати спочатку', true);
-    } else {
-      runMenuSql(TEMPLATE_SQL);
+  var readyMeta = null;       // [{set, tables:[{name, cols, count}]}], рахується один раз
+  var NS_NAME = /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["`]?([\wЀ-ӿ]+)/gi;
+
+  function readyNames(sql) {
+    var out = [], m;
+    NS_NAME.lastIndex = 0;
+    while ((m = NS_NAME.exec(sql))) out.push(m[1]);
+    return out;
+  }
+
+  // Виконує sql набору в тимчасовій базі, щоб дізнатися поля й кількість записів
+  function computeReadyMeta() {
+    if (readyMeta) return readyMeta;
+    readyMeta = READY.map(function (set) {
+      var entry = { set: set, tables: [], names: readyNames(set.sql) };
+      var tmp = null;
+      try {
+        tmp = new SQL.Database();
+        tmp.exec(set.sql);
+        entry.names.forEach(function (name) {
+          var t = { name: name, cols: [], count: 0 };
+          var ti = tmp.exec('PRAGMA table_info(' + quoteIdent(name) + ')');
+          if (ti.length) ti[0].values.forEach(function (v) { t.cols.push({ name: v[1], pk: v[5] > 0 }); });
+          var c = tmp.exec('SELECT COUNT(*) FROM ' + quoteIdent(name));
+          t.count = c.length ? c[0].values[0][0] : 0;
+          entry.tables.push(t);
+        });
+      } catch (e) { /* набір із помилкою в sql: картка без схеми */ }
+      if (tmp) { try { tmp.close(); } catch (_) { /* вже закрито */ } }
+      return entry;
+    });
+    return readyMeta;
+  }
+
+  function readyPresent(entry) {
+    return entry.names.length > 0 && entry.names.every(tableExists);
+  }
+
+  function renderReady() {
+    var q = el.rq.value.trim().toLowerCase();
+    el.rgrid.textContent = '';
+    var shown = 0;
+    computeReadyMeta().forEach(function (entry) {
+      var hay = [entry.set.title].concat(entry.names).join(' ').toLowerCase();
+      if (q && hay.indexOf(q) < 0) return;
+      shown++;
+      var present = readyPresent(entry);
+      var card = make('article', 'sbx-rcard');
+      var h = make('h3', 'sbx-rcard-t', entry.set.title);
+      card.appendChild(h);
+      entry.tables.forEach(function (t) {
+        var schema = make('div', 'sbx-rschema');
+        schema.appendChild(make('div', 'sbx-rschema-n', t.name));
+        var ul = make('ul', 'sbx-rschema-f');
+        t.cols.forEach(function (c) {
+          var li = make('li', c.pk ? 'is-pk' : '', c.name);
+          if (c.pk) li.title = 'Первинний ключ';
+          ul.appendChild(li);
+        });
+        schema.appendChild(ul);
+        card.appendChild(schema);
+        card.appendChild(make('p', 'sbx-rcard-m', t.name + ' · ' + t.count + ' ' +
+          plural(t.count, ['запис', 'записи', 'записів']) + ' · ' + t.cols.length + ' ' +
+          plural(t.cols.length, ['поле', 'поля', 'полів'])));
+      });
+      card.appendChild(make('p', 'sbx-rcard-s ' + (present ? 'is-in' : 'is-out'), present ? '✓ є в базі' : 'немає в базі'));
+      var actions = make('div', 'sbx-dlg-actions sbx-rcard-a');
+      var main = make('button', 'btn btn--primary', present ? 'Створити заново' : 'Створити');
+      main.type = 'button';
+      main.addEventListener('click', function () { createReady(entry, present); });
+      var show = make('button', 'btn', 'Показати SQL');
+      show.type = 'button';
+      show.addEventListener('click', function () { showReadySql(entry); });
+      actions.appendChild(main);
+      actions.appendChild(show);
+      card.appendChild(actions);
+      el.rgrid.appendChild(card);
+    });
+    if (!shown) el.rgrid.appendChild(make('p', 'sbx-muted', q ? 'Нічого не знайдено.' : 'Готових таблиць поки немає.'));
+  }
+
+  function openReady() {
+    if (!SQL) return;
+    el.rq.value = '';
+    renderReady();
+    if (!el.rdlg.open) el.rdlg.showModal();
+  }
+  function closeReady() {
+    if (el.rdlg.open) el.rdlg.close();
+    el.ropen.focus();
+  }
+
+  function createReady(entry, exists) {
+    function go() {
+      var sql = entry.set.sql;
+      if (exists) {
+        var drops = entry.names.slice().reverse().map(function (n) { return 'DROP TABLE IF EXISTS ' + ident(n) + ';'; });
+        sql = drops.join('\n') + '\n' + sql;
+      }
+      closeReady();
+      if (entry.names.length) { ui.selected = entry.names[0]; ui.collapsed[ui.selected] = false; }
+      runMenuSql(sql, true);
     }
+    if (exists) {
+      var list = entry.names.join(', ');
+      ask((entry.names.length > 1 ? 'Таблиці ' : 'Таблицю ') + list +
+        ' буде видалено разом зі змінами. Продовжити?',
+        go, 'Так, створити заново', true);
+    } else go();
+  }
+
+  function showReadySql(entry) {
+    function go() { closeReady(); insertInEditor(entry.set.sql); }
+    if (el.query.value.trim()) {
+      ask('У редакторі вже є текст. SQL буде додано після нього. Продовжити?', go, 'Так, додати');
+    } else go();
   }
 
   // ---------- Виконання ----------
@@ -639,7 +724,7 @@
   function runOne(item) {
     var t0 = performance.now();
     var res = {
-      sql: item.sql, menu: !!item.menu, start: item.start, end: item.end,
+      sql: item.sql, menu: !!item.menu, ready: !!item.ready, start: item.start, end: item.end,
       paramsText: item.paramsText || '', ok: true, readOnly: isReadOnly(item.sql)
     };
     var stmt = null;
@@ -706,13 +791,13 @@
     else if (r.columns) line.detail = rowsText(r.total) + ', ' + fmtMs(r.ms);
     else if (r.modified !== null && r.modified !== undefined) line.detail = 'змінено рядків: ' + r.modified + ', ' + fmtMs(r.ms);
     else line.detail = 'виконано, ' + fmtMs(r.ms);
-    if (r.menu) line.sql += ' (з меню)';
+    if (r.menu) line.sql += r.ready ? ' (готова таблиця)' : ' (з меню)';
     return line;
   }
 
   // Запит з меню виконується тією самою функцією, що й запит учня
-  function runMenuSql(sql) {
-    var items = splitStatements(sql).map(function (s) { return { sql: s.sql, menu: true }; });
+  function runMenuSql(sql, ready) {
+    var items = splitStatements(sql).map(function (s) { return { sql: s.sql, menu: true, ready: !!ready }; });
     runItems(items);
   }
 
@@ -869,7 +954,7 @@
       return 'Немає такого поля. Перевірте назву або лапки навколо тексту';
     }
     if (m.indexOf('no such table') !== -1) return 'Немає такої таблиці. Можливо, її ще не створено';
-    if (m.indexOf('already exists') !== -1) return 'Таблиця вже існує. Щоб почати спочатку, відкрийте меню бази (⋯ біля заголовка «База») і виберіть «Очистити базу» або «Створити й заповнити»';
+    if (m.indexOf('already exists') !== -1) return 'Таблиця вже існує. Щоб почати спочатку, відкрийте меню бази (⋯ біля заголовка «База») і виберіть «Очистити базу»';
     if (m.indexOf('syntax error') !== -1) return 'Помилка в записі запиту: перевірте коми, лапки й крапку з комою';
     if (m.indexOf('unique constraint failed') !== -1) return 'Запис з таким ключем уже є';
     if (m.indexOf('foreign key constraint failed') !== -1) return 'У пов\'язаній таблиці немає запису з таким ключем';
@@ -915,9 +1000,17 @@
     return state.results[Number(state.active.slice(1))] || null;
   }
 
+  // Склад бази для рядка стану, поки немає результату запиту
+  function dbSummary() {
+    if (!db) return 'Завантаження…';
+    if (!info.length) return 'База порожня';
+    var rows = info.reduce(function (n, t) { return n + t.count; }, 0);
+    return 'Таблиць: ' + info.length + ' · ' + rows + ' ' + plural(rows, ['запис', 'записи', 'записів']);
+  }
+
   function updateStatus() {
     var r = activeResult();
-    var text = state.summary;
+    var text = state.summary === 'Готово' ? dbSummary() : state.summary;
     el.stCell.textContent = '';
     if (r) {
       if (!r.ok) text = '✗ Помилка · ' + fmtMs(r.ms);
@@ -967,7 +1060,7 @@
     var q = make('pre', 'sbx-res-q');
     q.innerHTML = highlightLines(r.sql).map(function (l) { return l; }).join('\n');
     head.appendChild(q);
-    if (r.menu) head.appendChild(make('span', 'sbx-badge', 'з меню'));
+    if (r.menu) head.appendChild(make('span', 'sbx-badge', r.ready ? 'готова таблиця' : 'з меню'));
     wrap.appendChild(head);
     if (r.paramsText) wrap.appendChild(make('p', 'sbx-params', 'Параметри: ' + r.paramsText));
 
@@ -1117,7 +1210,7 @@
   function addHistory(results) {
     var now = Date.now();
     results.forEach(function (r) {
-      history.push({ sql: r.sql.trim(), ok: r.ok, time: now, menu: r.menu, params: r.paramsText });
+      history.push({ sql: r.sql.trim(), ok: r.ok, time: now, menu: r.menu, ready: r.ready, params: r.paramsText });
     });
     if (history.length > HISTORY_LIMIT) history = history.slice(-HISTORY_LIMIT);
     saveHistory();
@@ -1153,7 +1246,7 @@
         mark.setAttribute('aria-label', item.ok ? 'виконано' : 'помилка');
         btn.appendChild(mark);
         btn.appendChild(make('span', 'h-sql', norm(item.sql) + (item.params ? '   [' + item.params + ']' : '')));
-        if (item.menu) btn.appendChild(make('span', 'sbx-badge', 'з меню'));
+        if (item.menu) btn.appendChild(make('span', 'sbx-badge', item.ready ? 'готова таблиця' : 'з меню'));
         btn.addEventListener('click', function () { insertInEditor(item.sql); });
         li.appendChild(btn);
         ul.appendChild(li);
@@ -1437,8 +1530,12 @@
     el.confirmYes.addEventListener('click', function () { var f = pendingYes; closeAsk(); if (f) f(); });
     el.confirmNo.addEventListener('click', closeAsk);
     el.sclose.addEventListener('click', closeSchema);
+    el.ropen.addEventListener('click', openReady);
+    el.rclose.addEventListener('click', closeReady);
+    el.rq.addEventListener('input', renderReady);
+    el.rdlg.addEventListener('close', function () { if (document.body.contains(el.ropen) && !document.querySelector('dialog[open]')) el.ropen.focus(); });
     // клік повз вікно (по затемненій розмитій підкладці) закриває схему і підтвердження
-    [el.sdlg, el.cdlg].forEach(function (d) {
+    [el.sdlg, el.cdlg, el.rdlg].forEach(function (d) {
       d.addEventListener('click', function (e) { if (e.target === d) d.close(); });
     });
 
@@ -1487,8 +1584,8 @@
         setForeignKeys();
         refreshInfo();
         el.run.disabled = el.runM.disabled = false;
-        state.summary = info.length ? 'Базу відновлено з браузера' : 'Готово';
         updateStatus();
+        if (info.length) toast('Базу відновлено з браузера');
         document.documentElement.setAttribute('data-ready', '1');
       })
       .catch(function (err) {

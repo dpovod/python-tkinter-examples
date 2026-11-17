@@ -21,6 +21,12 @@ description: "База зберігається у цьому браузері"
           <button type="button" id="base-more" class="sbx-more" aria-haspopup="menu" aria-expanded="false" aria-label="Меню бази">⋯</button>
         </div>
         <div id="schema" class="sbx-tree"></div>
+        <div class="sbx-ready-strip">
+          <button type="button" id="ready-open" class="sbx-ready-btn" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5V5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2a2 2 0 0 0 2 2h13"/></svg>
+            <span>Готові таблиці</span>
+          </button>
+        </div>
       </aside>
 
       <div class="sbx-center">
@@ -73,6 +79,22 @@ description: "База зберігається у цьому браузері"
       <div id="schema-body" class="sbx-dlg-body"></div>
     </dialog>
 
+    <dialog id="ready-dlg" class="sbx-dlg sbx-dlg--ready" aria-labelledby="ready-title">
+      <div class="sbx-dlg-head">
+        <h2 id="ready-title">Готові таблиці</h2>
+        <span class="sbx-spacer"></span>
+        <button type="button" id="ready-close" class="btn">Закрити</button>
+      </div>
+      <div class="sbx-dlg-body sbx-ready-body">
+        <p class="sbx-dg-note">Таблиці з даними для практичних. Створюються одним кліком, без пошуку запиту в ПР.</p>
+        <div class="sbx-field sbx-ready-search">
+          <label for="ready-q">Пошук за назвою</label>
+          <input id="ready-q" type="search" autocomplete="off">
+        </div>
+        <div id="ready-grid" class="sbx-ready-grid"></div>
+      </div>
+    </dialog>
+
     <dialog id="params-dlg" class="sbx-dlg" aria-labelledby="params-title">
       <form id="params-form" method="dialog">
         <h2 id="params-title">Значення параметрів</h2>
@@ -89,4 +111,5 @@ description: "База зберігається у цьому браузері"
 
 <script>window.SQL_VENDOR_PATH = '{{ "/sql-sandbox/vendor/" | relative_url }}';</script>
 <script src="{{ '/sql-sandbox/vendor/sql-wasm.js' | relative_url }}"></script>
+<script src="{{ '/sql-sandbox/ready-tables.js' | relative_url }}"></script>
 <script src="{{ '/sql-sandbox/app.js' | relative_url }}"></script>
