@@ -64,7 +64,7 @@
   min-height: 0;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow: hidden;
   background: var(--row);
   border-right: 1px solid var(--border);
 }
@@ -568,7 +568,7 @@
 }
 
 /* Готові таблиці */
-.sbx-tree { flex: 1 1 auto; }
+.sbx-tree { flex: 1 1 auto; min-height: 0; overflow: auto; }   /* гортається дерево, смуга «Готові таблиці» лишається внизу */
 .sbx-ready-strip { flex: none; border-top: 1px solid var(--border); background: var(--row); }
 .sbx-ready-btn {
   width: 100%;
@@ -618,6 +618,7 @@
   .sbx-editbar { display: none; }   /* на телефоні «Виконати» — на всю ширину під редактором */
   .sbx-run-m { display: block; width: 100%; margin: 0; border-radius: 0; }
   .sbx-side { overflow: visible; border-right: 0; border-bottom: 1px solid var(--border); }
+  .sbx-tree { overflow: visible; }
   .sbx-editor { flex: none; height: 240px; }
   .sbx-resizer { display: none; }
   .sbx-bottom { height: auto; }
