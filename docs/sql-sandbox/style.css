@@ -403,7 +403,10 @@
 .sbx .h-sql { flex: 1 1 auto; min-width: 0; font-family: var(--font-mono); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Меню */
-.sbx-menu-bg { position: fixed; inset: 0; z-index: 90; background: transparent; }
+.sbx-menu-bg { position: fixed; inset: 0; z-index: 90; background: transparent; touch-action: none; }
+.sbx-menu-grip { display: none; }
+/* Поки відкрите меню-лист, сторінка під ним не гортається */
+html.sbx-scroll-lock, html.sbx-scroll-lock body { overflow: hidden; overscroll-behavior: none; }
 .sbx-menu {
   position: fixed;
   z-index: 100;
@@ -411,6 +414,8 @@
   max-width: min(360px, calc(100vw - 16px));
   max-height: calc(100vh - 16px);
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 6px;
   background: var(--surface);
   border: 2px solid var(--text);
@@ -668,9 +673,30 @@
     left: 0 !important; right: 0; bottom: 0; top: auto !important;
     max-width: none;
     max-height: 80vh;
+    max-height: 80dvh;
     border-radius: var(--radius-card) var(--radius-card) 0 0;
     border-bottom: 0;
     padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  }
+  /* «ручка»: липне до верху, щоб лист можна було потягнути вниз і з прокрученого меню */
+  .sbx-menu-grip {
+    display: block;
+    position: sticky;
+    top: -6px;
+    z-index: 1;
+    height: 24px;
+    margin: -6px -6px 0;
+    background: var(--surface);
+    touch-action: none;
+  }
+  .sbx-menu-grip::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 9px;
+    width: 40px; height: 5px;
+    margin-left: -20px;
+    border-radius: 3px;
+    background: var(--muted);
   }
   .sbx-menu-bg { background: rgba(35, 34, 43, 0.4); }
 }
