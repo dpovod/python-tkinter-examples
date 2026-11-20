@@ -13,6 +13,8 @@
 }
 
 .sbx *, .sbx *::before, .sbx *::after { box-sizing: border-box; }
+/* Системна підсвітка дотику (iOS/Android) — прямокутник, що виходить за заокруглення; замість неї є :active */
+.sbx button, .sbx summary, .sbx [role="button"] { -webkit-tap-highlight-color: transparent; }
 .sbx :focus-visible { outline: 3px solid var(--sbx-focus); outline-offset: 2px; }
 .sbx-muted, .sbx .muted { color: var(--muted); }
 .sbx-pad { padding: 14px 16px; margin: 0; }
@@ -106,7 +108,8 @@
   border: 0;
   cursor: pointer;
 }
-.sbx-tname:hover, .sbx-more:hover { background: var(--row-hover); }
+.sbx-tname:hover, .sbx-more:hover,
+.sbx-tname:active, .sbx-more:active { background: var(--row-hover); }
 /* Кільце фокуса всередині рядка: не обрізається краєм панелі й не накладається на сусідні кнопки */
 .sbx-tname:focus-visible, .sbx-more:focus-visible {
   outline: 2px solid var(--text);
@@ -135,6 +138,7 @@
   color: var(--text);
   background: none;
   border: 0;
+  border-radius: var(--radius-row);
   cursor: pointer;
 }
 .sbx-fields li { display: flex; align-items: center; gap: 8px; padding: 5px 14px 5px 22px; font-family: var(--font-mono); font-size: 14px; }
@@ -403,7 +407,10 @@
 .sbx .h-sql { flex: 1 1 auto; min-width: 0; font-family: var(--font-mono); font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* Меню */
-.sbx-menu-bg { position: fixed; inset: 0; z-index: 90; background: transparent; }
+.sbx-menu-bg { position: fixed; inset: 0; z-index: 90; background: transparent; touch-action: none; }
+.sbx-menu-grip { display: none; }
+/* Поки відкрите меню-лист, сторінка під ним не гортається */
+html.sbx-scroll-lock, html.sbx-scroll-lock body { overflow: hidden; overscroll-behavior: none; }
 .sbx-menu {
   position: fixed;
   z-index: 100;
@@ -411,6 +418,8 @@
   max-width: min(360px, calc(100vw - 16px));
   max-height: calc(100vh - 16px);
   overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
   padding: 6px;
   background: var(--surface);
   border: 2px solid var(--text);
@@ -657,7 +666,7 @@
 
   /* таблиці — чипи */
   .sbx-tables { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 12px 12px; }
-  .sbx-table { background: var(--surface); border: 2px solid var(--text); border-radius: var(--radius-row); }
+  .sbx-table { background: var(--surface); border: 2px solid var(--text); border-radius: var(--radius-row); overflow: hidden; }   /* підсвітка «⋯» не виходить за заокруглення */
   .sbx-table.is-sel { flex: 1 1 100%; background: var(--level-extra-bg); }
   .sbx-table.is-sel > .sbx-trow { background: none; }
   .sbx-table:not(.is-sel) .sbx-fields { display: none; }
@@ -668,9 +677,30 @@
     left: 0 !important; right: 0; bottom: 0; top: auto !important;
     max-width: none;
     max-height: 80vh;
+    max-height: 80dvh;
     border-radius: var(--radius-card) var(--radius-card) 0 0;
     border-bottom: 0;
     padding-bottom: calc(6px + env(safe-area-inset-bottom));
+  }
+  /* «ручка»: липне до верху, щоб лист можна було потягнути вниз і з прокрученого меню */
+  .sbx-menu-grip {
+    display: block;
+    position: sticky;
+    top: -6px;
+    z-index: 1;
+    height: 24px;
+    margin: -6px -6px 0;
+    background: var(--surface);
+    touch-action: none;
+  }
+  .sbx-menu-grip::after {
+    content: "";
+    position: absolute;
+    left: 50%; top: 9px;
+    width: 40px; height: 5px;
+    margin-left: -20px;
+    border-radius: 3px;
+    background: var(--muted);
   }
   .sbx-menu-bg { background: rgba(35, 34, 43, 0.4); }
 }

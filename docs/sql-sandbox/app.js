@@ -400,6 +400,7 @@
     menuEl.remove();
     menuBg.remove();
     menuEl = menuBg = null;
+    document.documentElement.classList.remove('sbx-scroll-lock');
     if (menuOpener) menuOpener.setAttribute('aria-expanded', 'false');
     if (restoreFocus && menuOpener && document.body.contains(menuOpener)) menuOpener.focus();
     menuOpener = null;
@@ -414,6 +415,9 @@
     menuBg.addEventListener('pointerdown', function (e) { e.preventDefault(); closeMenu(true); });
     menuEl = make('div', 'sbx-menu');
     menuEl.setAttribute('role', 'menu');
+    var grip = make('div', 'sbx-menu-grip');   // «ручка» нижнього листа (лише на телефоні)
+    grip.setAttribute('aria-hidden', 'true');
+    menuEl.appendChild(grip);
     var buttons = [];
     items.forEach(function (it) {
       if (it.sep) { var s = make('div', 'sbx-menu-sep'); s.setAttribute('role', 'separator'); menuEl.appendChild(s); return; }
@@ -455,7 +459,54 @@
       menuEl.style.left = Math.max(8, x) + 'px';
       menuEl.style.top = Math.max(8, y) + 'px';
     }
+    if (mobile.matches) bindSheetGestures(menuEl, menuBg);
     if (buttons.length) buttons[0].focus();
+  }
+
+  // Нижній лист на телефоні: сторінка під ним не гортається, лист закривається свайпом вниз
+  function bindSheetGestures(sheet, bg) {
+    document.documentElement.classList.add('sbx-scroll-lock');
+    // старі iOS ігнорують overflow:hidden на body: гасимо жести по підкладці
+    bg.addEventListener('touchmove', function (e) { e.preventDefault(); }, { passive: false });
+
+    var startY = 0, dy = 0, dragging = false, tracking = false;
+    sheet.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) return;
+      startY = e.touches[0].clientY;
+      dy = 0;
+      dragging = false;
+      tracking = true;
+    }, { passive: true });
+    sheet.addEventListener('touchmove', function (e) {
+      if (!tracking) return;
+      var d = e.touches[0].clientY - startY;
+      // тягнемо лист лише вниз і лише коли вміст прокручено до верху
+      if (d > 0 && sheet.scrollTop <= 0) {
+        dragging = true;
+        dy = d;
+        sheet.style.transition = 'none';
+        sheet.style.transform = 'translateY(' + dy + 'px)';
+        e.preventDefault();
+      } else if (!dragging && sheet.scrollHeight <= sheet.clientHeight) {
+        e.preventDefault();   // коротке меню: жест не має гортати сторінку
+      }
+    }, { passive: false });
+    function finish() {
+      if (!tracking) return;
+      tracking = false;
+      if (!dragging) return;
+      dragging = false;
+      var calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      sheet.style.transition = calm ? 'none' : 'transform 0.18s ease';
+      if (dy > 80) {
+        sheet.style.transform = 'translateY(100%)';
+        setTimeout(function () { if (menuEl === sheet) closeMenu(true); }, calm ? 0 : 180);
+      } else {
+        sheet.style.transform = '';
+      }
+    }
+    sheet.addEventListener('touchend', finish);
+    sheet.addEventListener('touchcancel', finish);
   }
 
   function anchorPoint(node) {
