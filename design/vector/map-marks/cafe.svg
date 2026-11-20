@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="badge" cx="240" cy="180" r="130" fill="#FB923C"/>
+    <circle id="disc" cx="240" cy="180" r="92" fill="#FFFFFF" stroke-width="5"/>
+    <g id="symbol" stroke-width="5" transform="translate(240 180) scale(1.6) translate(-238 -152)">
+      <path d="M256 150 A10 10 0 0 1 256 168" fill="none"/>
+      <path d="M220 146 H256 V162 A18 18 0 0 1 220 162 Z" fill="#D6A57A"/>
+      <path d="M230 138 q-5 -7 0 -14 M244 138 q-5 -7 0 -14" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,73 @@
+---
+layout: lesson
+title: "Анімація: ідеї та приклад"
+heading: "Анімація: ідеї та приклад по кадрах"
+lesson: vector-animation
+description: "З яких кадрів складається анімація, приклад моргання смайлика покроково та ідеї, як оживити свої малюнки."
+---
+<link rel="stylesheet" href="{{ '/assets/css/vector.css' | relative_url }}">
+{%- capture strip_url %}{{ '/assets/img/vector/animation/blink-strip.png' | relative_url }}{% endcapture %}
+
+<section class="card vhub-section">
+  <h2>З чого складається анімація</h2>
+  <p>Анімація — це кілька малюнків-кадрів, які швидко змінюють один одного. Від кадру до кадру змінюється лише частина малюнка, а решта лишається на місці. Якщо кадри змінюються швидко, здається, що малюнок рухається.</p>
+</section>
+
+<section class="card vhub-section" aria-labelledby="vanim-example">
+  <h2 id="vanim-example">Приклад: моргання смайлика</h2>
+  <p>Так виглядає готова анімація. Якщо в налаштуваннях пристрою вимкнено анімації, ти побачиш лише перший кадр.</p>
+  <div class="vplay" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Смайлик, що час від часу кліпає очима"></div>
+</section>
+
+<section class="card vhub-section" aria-labelledby="vanim-frames">
+  <h2 id="vanim-frames">Із яких кадрів вона складається</h2>
+  <p>Усього п'ять кадрів, але намальовано лише три: кадр 4 повторює кадр 2, а кадр 5 повторює кадр 1. Повторювані кадри можна просто скопіювати.</p>
+  <ol class="vframes">
+    <li>
+      <div class="vframe vframe--1" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Кадр 1: очі відкриті"></div>
+      <span class="vframes__cap"><span class="vframes__num">Кадр 1</span>Очі відкриті</span>
+    </li>
+    <li>
+      <div class="vframe vframe--2" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Кадр 2: очі напівзакриті"></div>
+      <span class="vframes__cap"><span class="vframes__num">Кадр 2</span>Очі стали вужчими</span>
+    </li>
+    <li>
+      <div class="vframe vframe--3" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Кадр 3: очі закриті"></div>
+      <span class="vframes__cap"><span class="vframes__num">Кадр 3</span>Очі закриті</span>
+    </li>
+    <li>
+      <div class="vframe vframe--2" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Кадр 4: очі напівзакриті, як у кадрі 2"></div>
+      <span class="vframes__cap"><span class="vframes__num">Кадр 4</span>Копія кадру 2</span>
+    </li>
+    <li>
+      <div class="vframe vframe--1" style="--strip: url('{{ strip_url }}');" role="img" aria-label="Кадр 5: очі відкриті, як у кадрі 1"></div>
+      <span class="vframes__cap"><span class="vframes__num">Кадр 5</span>Копія кадру 1</span>
+    </li>
+  </ol>
+  <p>Зверни увагу: змінюються лише очі, а обличчя й усмішка в усіх кадрах однакові.</p>
+</section>
+
+<section class="card vhub-section" aria-labelledby="vanim-how">
+  <h2 id="vanim-how">Як підготувати такі кадри в Inkscape</h2>
+  <ol>
+    <li>Намалюй смайлик із відкритими очима. Це кадр 1.</li>
+    <li>Скопіюй його (<a href="{{ '/vector/inkscape.html' | relative_url }}#duplicate-group">Дублювання й групування</a>) і поклади копію поруч.</li>
+    <li>У копії зміни очі за допомогою <a href="{{ '/vector/inkscape.html' | relative_url }}#nodes">вузлів</a> або розтягни їх по висоті. Це кадр 2.</li>
+    <li>Зроби так само кадр 3, а потім скопіюй кадри 2 і 1 для кадрів 4 і 5.</li>
+    <li>Вирівняй кадри в один ряд (<a href="{{ '/vector/inkscape.html' | relative_url }}#align-grid">Вирівнювання, сітка й прив'язка</a>) і збережи роботу.</li>
+  </ol>
+</section>
+
+<section class="card vhub-section" aria-labelledby="vanim-ideas">
+  <h2 id="vanim-ideas">Ідеї для твоїх малюнків</h2>
+  <p>Обери малюнок з одного з наборів і подумай, що в ньому можна змінювати від кадру до кадру.</p>
+  {%- for track in site.data.vector.tracks %}
+  <h3>{{ track.title }}</h3>
+  <ul class="vanim-ideas">
+    {%- for card in track.cards %}{% if card.anim %}
+    <li><a href="{{ track.page | relative_url }}#{{ card.id }}">{{ card.title }}</a>: {{ card.anim }}</li>
+    {%- endif %}{% endfor %}
+  </ul>
+  {%- endfor %}
+  <p class="callout">Збережи свій малюнок — він знадобиться на уроках анімації.</p>
+</section>

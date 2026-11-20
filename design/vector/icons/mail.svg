@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect id="envelope" x="120" y="110" width="240" height="160" rx="16" fill="#FDE68A"/>
+    <path id="flap" d="M128 113 L240 205 L352 113" fill="#FFFFFF"/>
+    <g id="folds" fill="none" stroke-width="5">
+      <line x1="128" y1="262" x2="206" y2="188"/>
+      <line x1="352" y1="262" x2="274" y2="188"/>
+    </g>
+  </g>
+</svg>

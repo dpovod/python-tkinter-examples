@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="ear-left" d="M135 165 L128 55 L212 112 Z" fill="#FB923C"/>
+    <path id="ear-right" d="M345 165 L352 55 L268 112 Z" fill="#FB923C"/>
+    <path d="M148 130 L146 88 L184 115 Z" fill="#F9A8D4" stroke="none"/>
+    <path d="M332 130 L334 88 L296 115 Z" fill="#F9A8D4" stroke="none"/>
+    <ellipse id="head" cx="240" cy="205" rx="135" ry="108" fill="#FB923C"/>
+    <g id="stripes" fill="none">
+      <line x1="240" y1="112" x2="240" y2="140"/>
+      <line x1="210" y1="118" x2="214" y2="142"/>
+      <line x1="270" y1="118" x2="266" y2="142"/>
+    </g>
+    <ellipse cx="190" cy="190" rx="20" ry="24" fill="#86EFAC"/>
+    <ellipse cx="290" cy="190" rx="20" ry="24" fill="#86EFAC"/>
+    <ellipse cx="190" cy="190" rx="5" ry="18" fill="#23222B" stroke="none"/>
+    <ellipse cx="290" cy="190" rx="5" ry="18" fill="#23222B" stroke="none"/>
+    <path d="M224 226 L256 226 L240 246 Z" fill="#F472B6"/>
+    <g id="mouth" fill="none">
+      <path d="M240 246 L240 258"/>
+      <path d="M240 258 Q226 274 208 264"/>
+      <path d="M240 258 Q254 274 272 264"/>
+    </g>
+    <g id="whiskers" fill="none" stroke-width="5">
+      <line x1="150" y1="240" x2="85" y2="228"/>
+      <line x1="150" y1="258" x2="88" y2="268"/>
+      <line x1="330" y1="240" x2="395" y2="228"/>
+      <line x1="330" y1="258" x2="392" y2="268"/>
+    </g>
+  </g>
+</svg>

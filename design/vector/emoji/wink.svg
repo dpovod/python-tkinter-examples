@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="240" cy="180" r="130" fill="#FFC93C"/>
+    <path d="M172 155 Q195 130 218 155" fill="none"/>
+    <ellipse cx="285" cy="150" rx="13" ry="20" fill="#23222B"/>
+    <path id="mouth" d="M170 208 Q240 318 310 208 Z" fill="#23222B"/>
+    <path id="tongue" d="M212 262 Q240 296 268 262 Q240 246 212 262 Z" fill="#F472B6" stroke-width="4"/>
+  </g>
+</svg>

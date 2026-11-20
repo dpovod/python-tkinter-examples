@@ -114,6 +114,14 @@
   note: "Готова база даних, нічого не треба встановлювати"
   grades: [9, 10, 11]
 
+- id: inkscape
+  title: "Inkscape: безкоштовний векторний редактор"
+  type: link
+  group: practice
+  url: "https://inkscape.org/uk/"
+  note: "Завантаження програми для малювання векторної графіки"
+  grades: [7, 11]
+
 # ---------- Файли вчителя ----------
 - id: word-structure-pdf
   title: "Структура документа Word"

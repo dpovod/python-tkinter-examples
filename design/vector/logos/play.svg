@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Google Play: трикутник із чотирьох кольорових граней. Вершини: A(150,60), B(150,300), C(350,180);
+       внутрішня точка M(215,180), точки P1(250,120) на AC і P2(250,240) на BC. -->
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="blue" fill="#00A0FF" d="M150 60 L150 300 L215 180 Z"/>
+    <path id="green" fill="#00E070" d="M150 60 L250 120 L215 180 Z"/>
+    <path id="red" fill="#FF3A44" d="M150 300 L215 180 L250 240 Z"/>
+    <path id="yellow" fill="#FFD500" d="M215 180 L250 120 L350 180 L250 240 Z"/>
+  </g>
+</svg>

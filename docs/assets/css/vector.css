@@ -1,0 +1,498 @@
+/* Розділ «Векторна графіка»: набори, картки, пам'ятка, випадкова картка. */
+
+.vtrack-intro {
+  margin-bottom: 24px;
+}
+
+.vtrack-intro p {
+  font-size: 16px;
+  color: var(--text-2);
+}
+
+.vtrack-tips {
+  margin: 0 0 8px;
+  padding-left: 20px;
+  color: var(--text-2);
+}
+
+.vtrack-tips li {
+  margin-bottom: 4px;
+}
+
+.vtrack-back {
+  margin: 8px 0 24px;
+  font-weight: 700;
+}
+
+.vcard {
+  scroll-margin-top: 16px;
+}
+
+.vcard:target {
+  box-shadow: 0 0 0 3px var(--hero), var(--shadow);
+}
+
+.vcard .card__header {
+  flex-wrap: wrap;
+}
+
+.vcard__level {
+  margin-left: auto;
+  color: var(--level-extra-fg);
+  font-size: 18px;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+/* Картки набору йдуть сіткою: кілька в ряд */
+.vtrack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.vtrack-grid .card {
+  margin-bottom: 0;
+  padding: 20px;
+  gap: 14px;
+}
+
+.vtrack-grid .card__header h3 {
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.vtrack-grid .card__header {
+  flex-wrap: nowrap;
+}
+
+.vtrack-grid .vcard__level {
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+/* Зразок «що малювати» — головне в картці */
+.vcard__sample {
+  position: relative;
+  margin: 0;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.vcard__sample img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+}
+
+/* Кнопка збільшення (з'являється лише з JS) */
+.vcard__zoom {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 30px;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.vcard__zoom-hint {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--text);
+  color: var(--bg);
+  font-size: 12px;
+  font-weight: 700;
+  opacity: 0.85;
+}
+
+.vcard__zoom:hover .vcard__zoom-hint,
+.vcard__zoom:focus-visible .vcard__zoom-hint {
+  opacity: 1;
+}
+
+/* Вікно зі збільшеним зразком */
+.vlightbox {
+  max-width: min(92vw, 820px);
+  padding: 16px;
+  border: 0;
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  box-shadow: 0 10px 40px rgba(35, 34, 43, 0.35);
+}
+
+.vlightbox::backdrop {
+  background: rgba(35, 34, 43, 0.6);
+}
+
+.vlightbox__img {
+  display: block;
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.vlightbox__close {
+  display: block;
+  margin: 12px auto 0;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: var(--radius-nav-btn);
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.vcard__sample figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+/* Підказка за замовчуванням закрита (стиль як у «Показати відповідь») */
+.vcard__hint summary {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: var(--radius-row);
+  border: 2px solid var(--border);
+  color: var(--text-2);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.vcard__hint summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Підказка розкривається панеллю поверх сусідніх карток, тому сітка не зсувається */
+.vcard__hint {
+  position: relative;
+}
+
+.vcard__hint[open] {
+  z-index: 20;
+}
+
+.vcard__hint .vcard__facts {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(35, 34, 43, 0.18);
+}
+
+.vcard__facts {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+
+.vcard__facts dt {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vcard__facts dd {
+  margin: 2px 0 0;
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.55;
+}
+
+.vcard__facts a {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Хаб */
+.vhub-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vhub-list .lesson-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.vhub-list .lesson-row > *:last-child {
+  margin-left: 0;
+}
+
+.vhub-list__desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.vhub-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* Випадкова картка: без JS не показується */
+.no-js .vector-random {
+  display: none;
+}
+
+.vector-random__btn {
+  align-self: flex-start;
+  padding: 14px 22px;
+  border: none;
+  border-radius: var(--radius-nav-btn);
+  background: var(--text);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.vector-random__btn:hover {
+  background: var(--text-2);
+}
+
+.vector-random__result {
+  min-height: 1.6em;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Пам'ятка */
+.vmemo section {
+  scroll-margin-top: 16px;
+}
+
+.vmemo h2 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.vmemo ol {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text-2);
+  font-size: 15px;
+}
+
+.vmemo li {
+  margin-bottom: 6px;
+}
+
+.vmemo kbd {
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  background: var(--surface);
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+/* Сторінка анімації: кадри з однієї смуги (3 кадри, послідовність 1-2-3-2-1) */
+.vframes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vframes li {
+  margin: 0;
+  text-align: center;
+}
+
+.vframe {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  background-color: var(--surface);
+  background-image: var(--strip);
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.vframes figcaption,
+.vframes .vframes__cap {
+  margin-top: 6px;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.vframes__num {
+  display: block;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.vframe--1 { background-position: 0% 0; }
+.vframe--2 { background-position: 50% 0; }
+.vframe--3 { background-position: 100% 0; }
+
+/* Жива демонстрація: та сама смуга, кадри міняються кроками. Без руху, якщо користувач вимкнув анімації. */
+.vplay {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  max-width: 320px;
+  background-color: var(--surface);
+  background-image: var(--strip);
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  animation: vblink 3s step-end infinite;
+}
+
+@keyframes vblink {
+  0%, 82% { background-position: 0% 0; }
+  84% { background-position: 50% 0; }
+  87% { background-position: 100% 0; }
+  91% { background-position: 50% 0; }
+  95%, 100% { background-position: 0% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vplay {
+    animation: none;
+  }
+}
+
+.vanim-ideas {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text-2);
+}
+
+.vanim-ideas li {
+  margin-bottom: 6px;
+}
+
+/* Значки інструментів Inkscape в пам'ятці */
+.vtools {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.vtools li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  padding: 8px 12px;
+  background: var(--row);
+  border-radius: var(--radius-row);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.vtool__icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  padding: 3px;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.vtool__icon--inline {
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+}
+
+.vfig {
+  margin: 0;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* SVG з туторіалів мають малий власний розмір (300 px), тому розтягуємо
+   їх на ширину блока: підписи на малюнках мають бути не дрібнішими за текст. */
+.vfig img {
+  display: block;
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 0;
+}
+
+.vfig figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--text-2);
+  text-align: center;
+}
+
+.vmemo-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 24px;
+  padding: 0;
+  list-style: none;
+}
+
+.vmemo-toc a {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.vmemo-toc a:hover {
+  background: var(--row-hover);
+}
+
+.vmemo section:target {
+  box-shadow: 0 0 0 3px var(--hero), var(--shadow);
+}

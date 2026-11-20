@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Шаблон зразка: полотно 480x360, одна палітра на всі зразки.
+     Палітра: темний #23222B, жовтий #FFC93C, блакитний #3B82F6, червоний #EF4444,
+     зелений #22C55E, фіолетовий #8B5CF6, сірий #CBD5E1. Товщина контуру 6, закруглені кінці.
+     Копіюй у design/vector/<набір>/<картка>.svg і малюй у шарі «art». -->
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" fill="none" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  </g>
+</svg>

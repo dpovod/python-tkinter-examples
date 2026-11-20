@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke-linecap="round" stroke-linejoin="round">
+    <g id="arcs" fill="none" stroke="#23222B" stroke-width="24">
+      <path d="M197.6 227.6 A60 60 0 0 1 282.4 227.6"/>
+      <path d="M162.2 192.2 A110 110 0 0 1 317.8 192.2"/>
+      <path d="M126.9 156.9 A160 160 0 0 1 353.1 156.9"/>
+    </g>
+    <circle id="dot" cx="240" cy="276" r="18" fill="#23222B" stroke="none"/>
+  </g>
+</svg>

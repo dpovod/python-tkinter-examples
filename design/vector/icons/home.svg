@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect id="chimney" x="282" y="108" width="26" height="60" fill="#94A3B8"/>
+    <rect id="walls" x="175" y="180" width="130" height="125" fill="#FDE68A"/>
+    <path id="roof" d="M150 190 L240 100 L330 190 Z" fill="#EF4444"/>
+    <rect id="door" x="222" y="238" width="36" height="67" rx="4" fill="#3B82F6"/>
+    <rect id="window" x="190" y="205" width="24" height="24" rx="3" fill="#FFFFFF"/>
+    <rect x="266" y="205" width="24" height="24" rx="3" fill="#FFFFFF"/>
+  </g>
+</svg>

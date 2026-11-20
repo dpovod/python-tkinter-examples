@@ -1,0 +1,54 @@
+---
+layout: lesson
+title: "Векторна графіка"
+heading: "Векторна графіка в Inkscape"
+lesson: vector
+description: "Малюємо в Inkscape: обираємо картку з ідеєю й одразу беремося до роботи. Власна ідея теж підходить."
+---
+<link rel="stylesheet" href="{{ '/assets/css/vector.css' | relative_url }}">
+
+<section class="card vhub-section">
+  <h2>Що таке векторна графіка</h2>
+  <p>Векторне зображення складається з фігур і ліній, які комп'ютер зберігає як формули. Тому його можна збільшувати чи зменшувати без втрати якості. Растрове зображення, наприклад фото, складається з маленьких кольорових точок, і при збільшенні вони стають помітними.</p>
+  <p>Вектор добре підходить для значків, схем і логотипів. Усі завдання тут виконуються в Inkscape. Якщо ти вперше бачиш цю програму, почни з <a href="{{ '/vector/inkscape.html' | relative_url }}">пам'ятки «Прийоми в Inkscape»</a>.</p>
+</section>
+
+<section class="card vhub-section" aria-labelledby="vhub-tracks">
+  <h2 id="vhub-tracks">Набори</h2>
+  <p>Обери один набір і візьми з нього будь-яку картку. Кожен набір розрахований приблизно на один урок роботи.</p>
+  <ul class="vhub-list">
+    {%- for track in site.data.vector.tracks %}
+    <li>
+      <a class="lesson-row" href="{{ track.page | relative_url }}">
+        <span class="lesson-row__title">{{ track.title }}</span>
+        <span class="vhub-list__desc">{{ track.short }}</span>
+      </a>
+    </li>
+    {%- endfor %}
+  </ul>
+  <p><a href="{{ '/vector/inkscape.html' | relative_url }}">Пам'ятка «Прийоми в Inkscape»</a></p>
+</section>
+
+<section class="card vhub-section vector-random" aria-labelledby="vhub-random">
+  <h2 id="vhub-random">Не знаєш, що малювати?</h2>
+  <p>Натисни кнопку, і ми запропонуємо випадкову картку з будь-якого набору.</p>
+  <button type="button" class="vector-random__btn" id="vector-random-btn">Випадкова картка</button>
+  <p class="vector-random__result" id="vector-random-result" role="status" aria-live="polite"></p>
+</section>
+
+<ul id="vector-card-list" hidden>
+  {%- for track in site.data.vector.tracks -%}
+    {%- for card in track.cards %}
+  <li><a href="{{ track.page | relative_url }}#{{ card.id }}" data-title="{{ card.title | escape }}" data-track="{{ track.title | escape }}">{{ card.title }}</a></li>
+    {%- endfor -%}
+  {%- endfor %}
+</ul>
+
+<section class="card vhub-section" aria-labelledby="vhub-anim">
+  <h2 id="vhub-anim">Далі: анімація</h2>
+  <!-- TODO: додати посилання на уроки з анімації, коли вони з'являться -->
+  <p>Намальоване тут знадобиться далі, на уроках анімації. Збережіть свої малюнки.</p>
+  <p><a href="{{ '/vector/animation.html' | relative_url }}">Анімація: ідеї та приклад по кадрах</a></p>
+</section>
+
+<script src="{{ '/assets/js/vector.js' | relative_url }}" defer></script>

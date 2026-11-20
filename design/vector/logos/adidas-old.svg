@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Adidas Originals (трилисник): три загострені листки з однієї точки внизу, три білі горизонтальні розрізи -->
+  <defs>
+    <path id="petal" d="M240 60 C300 112 306 224 240 300 C174 224 180 112 240 60 Z"/>
+  </defs>
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" fill="#23222B" stroke="none">
+    <g id="leaves">
+      <use xlink:href="#petal" xmlns:xlink="http://www.w3.org/1999/xlink"/>
+      <use xlink:href="#petal" xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(-42.5 240 300)"/>
+      <use xlink:href="#petal" xmlns:xlink="http://www.w3.org/1999/xlink" transform="rotate(42.5 240 300)"/>
+    </g>
+    <g id="cuts" fill="#FFFFFF">
+      <rect x="40" y="190" width="400" height="12"/>
+      <rect x="40" y="219" width="400" height="14"/>
+      <rect x="40" y="249" width="400" height="13"/>
+    </g>
+  </g>
+</svg>

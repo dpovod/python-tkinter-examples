@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect id="top" x="186" y="86" width="84" height="56" rx="12" fill="#CBD5E1"/>
+    <rect id="body" x="110" y="120" width="260" height="170" rx="26" fill="#CBD5E1"/>
+    <circle id="lens-outer" cx="240" cy="208" r="62" fill="#3B82F6"/>
+    <circle id="lens-inner" cx="240" cy="208" r="34" fill="#1E3A8A"/>
+    <circle id="shine" cx="224" cy="192" r="8" fill="#FFFFFF" stroke="none"/>
+    <rect id="flash" x="318" y="140" width="32" height="20" rx="5" fill="#FFC93C"/>
+  </g>
+</svg>

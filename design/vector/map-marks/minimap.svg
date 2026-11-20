@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Міні-карта мікрорайону: нерівні квартали, проспект навскіс, вулиці, парк і річка.
+       Позначки: школа, парк, кафе, магазин, лікарня, бібліотека та червона мітка місця призначення. -->
+  <defs>
+    <path id="dest" d="M0 0 C-14 -20 -24 -34 -24 -48 A24 24 0 0 1 24 -48 C24 -34 14 -20 0 0 Z"/>
+    <clipPath id="map-clip"><rect x="30" y="25" width="420" height="310" rx="22"/></clipPath>
+  </defs>
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art">
+  <g clip-path="url(#map-clip)">
+    <rect id="ground" x="30" y="25" width="420" height="310" fill="#F8FAFC"/>
+    <path id="river" d="M20 305 C130 262 200 316 300 288 S420 252 460 258" fill="none" stroke="#93C5FD" stroke-width="30" stroke-linecap="round"/>
+    <g id="roads" fill="none" stroke="#CBD5E1" stroke-linecap="round">
+      <path d="M20 178 C150 168 300 150 460 118" stroke-width="30"/>
+      <path d="M255 20 C250 100 268 200 302 340" stroke-width="22"/>
+      <path d="M20 228 L256 208" stroke-width="14"/>
+    </g>
+  </g>
+  <g id="map-drawing" stroke="#23222B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="30" y="25" width="420" height="310" rx="22" fill="none"/>
+    <path id="park" d="M50 52 L186 48 Q208 92 182 132 L60 140 Q40 96 50 52 Z" fill="#86EFAC"/>
+    <g id="blocks" fill="#FEF3C7">
+      <path d="M312 46 L424 52 L422 98 L316 100 Z"/>
+      <path d="M306 186 L426 172 L432 236 L312 252 Z"/>
+      <path d="M62 240 L226 224 L230 254 L68 262 Z"/>
+    </g>
+
+    <g id="marker-park" transform="translate(120 92)">
+      <circle r="22" fill="#22C55E"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <g transform="scale(0.36) translate(-240 -150)" stroke-width="10">
+        <rect x="235" y="158" width="10" height="24" fill="#B7791F"/>
+        <circle cx="240" cy="141" r="22" fill="#86EFAC"/>
+      </g>
+    </g>
+    <g id="marker-school" transform="translate(212 70)">
+      <circle r="22" fill="#3B82F6"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <g transform="scale(0.36) translate(-240 -150)" stroke-width="10">
+        <rect x="216" y="146" width="48" height="34" fill="#FDE68A"/>
+        <path d="M208 148 L240 120 L272 148 Z" fill="#EF4444"/>
+        <rect x="233" y="160" width="14" height="20" fill="#3B82F6"/>
+      </g>
+    </g>
+    <g id="marker-cafe" transform="translate(366 72)">
+      <circle r="22" fill="#FB923C"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <g transform="scale(0.36) translate(-238 -152)" stroke-width="10">
+        <path d="M256 150 A10 10 0 0 1 256 168" fill="none"/>
+        <path d="M220 146 H256 V162 A18 18 0 0 1 220 162 Z" fill="#D6A57A"/>
+        <path d="M230 138 q-5 -7 0 -14 M244 138 q-5 -7 0 -14" fill="none"/>
+      </g>
+    </g>
+    <g id="marker-shop" transform="translate(396 212)">
+      <circle r="22" fill="#EC4899"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <g transform="scale(0.36) translate(-240 -154)" stroke-width="10">
+        <rect x="216" y="152" width="48" height="28" fill="#FDE68A"/>
+        <path d="M210 152 L216 128 H264 L270 152 Z" fill="#EF4444"/>
+        <rect x="233" y="162" width="14" height="18" fill="#3B82F6"/>
+      </g>
+    </g>
+    <g id="marker-hospital" transform="translate(120 208)">
+      <circle r="22" fill="#EF4444"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <path transform="scale(0.36) translate(-240 -155)" stroke-width="10" fill="#EF4444" d="M230 126 H250 V145 H269 V165 H250 V184 H230 V165 H211 V145 H230 Z"/>
+    </g>
+    <g id="marker-library" transform="translate(200 246)">
+      <circle r="22" fill="#0EA5E9"/><circle r="16" fill="#FFFFFF" stroke-width="3"/>
+      <g transform="scale(0.36) translate(-240 -155)" stroke-width="10">
+        <path d="M240 134 Q224 126 208 130 V176 Q224 172 240 180 Z" fill="#FDE68A"/>
+        <path d="M240 134 Q256 126 272 130 V176 Q256 172 240 180 Z" fill="#FDE68A"/>
+      </g>
+    </g>
+    <use id="destination" xlink:href="#dest" transform="translate(262 156)" fill="#EF4444"/>
+    <circle id="destination-dot" cx="262" cy="108" r="9" fill="#23222B" stroke="none"/>
+  </g>
+  </g>
+</svg>

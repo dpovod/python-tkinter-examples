@@ -1,0 +1,51 @@
+---
+layout: default
+---
+{%- comment -%}
+  Сторінка набору карток «Векторна графіка». Front matter: lesson (id із lessons.yml),
+  track (id із _data/vector.yml). Усі картки беруться з даних.
+{%- endcomment -%}
+{%- assign track = site.data.vector.tracks | where: "id", page.track | first -%}
+{%- assign lesson = site.data.lessons | where: "id", page.lesson | first -%}
+{%- assign subject = site.data.subjects | where: "id", lesson.subject | first -%}
+<link rel="stylesheet" href="{{ '/assets/css/vector.css' | relative_url }}">
+<article>
+  {% include breadcrumbs.html %}
+
+  <div class="page-header">
+    <div class="page-header__text">
+      <h1>{{ page.title }}</h1>
+      <p class="page-header__description">{{ track.short }}</p>
+    </div>
+    <div class="page-header__badges">
+      {%- include subject-badge.html subject=subject -%}
+      {%- include lesson-level-badges.html lesson=lesson -%}
+    </div>
+  </div>
+
+  <div class="vtrack-intro">
+    <p>{{ track.intro }}</p>
+    {%- if track.example_anchor %}
+    <p><a href="{{ '/vector/inkscape.html' | relative_url }}#{{ track.example_anchor }}">Подивитися приклад мітки в пам'ятці</a></p>
+    {%- endif %}
+    <p>Обирай будь-яку картку. Власна ідея теж підходить. Прийоми шукай у <a href="{{ '/vector/inkscape.html' | relative_url }}">пам'ятці «Прийоми в Inkscape»</a>. Складність: ★ — легко, ★★ — середньо, ★★★ — складно.</p>
+    {%- if track.tips %}
+    <ul class="vtrack-tips">
+      {%- for tip in track.tips -%}<li>{{ tip }}</li>{%- endfor -%}
+    </ul>
+    {%- endif %}
+  </div>
+
+  <div class="vtrack-grid">
+  {%- for card in track.cards -%}
+    {%- include vector-card.html card=card track=track.id n=forloop.index -%}
+  {%- endfor -%}
+  </div>
+
+  <p class="callout">Збережи свій малюнок — він знадобиться на уроках анімації. <a href="{{ '/vector/animation.html' | relative_url }}">Ідеї для анімації</a></p>
+
+  <p class="vtrack-back"><a href="{{ '/vector.html' | relative_url }}">До розділу «Векторна графіка»</a></p>
+
+  {% include lesson-nav.html %}
+</article>
+<script src="{{ '/assets/js/vector.js' | relative_url }}" defer></script>

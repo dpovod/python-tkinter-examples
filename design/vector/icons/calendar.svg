@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect id="page" x="120" y="90" width="240" height="220" rx="24" fill="#FFFFFF"/>
+    <path id="header" d="M120 162 L120 114 A24 24 0 0 1 144 90 L336 90 A24 24 0 0 1 360 114 L360 162 Z" fill="#EF4444"/>
+    <g id="rings" fill="none" stroke-width="14">
+      <line x1="184" y1="64" x2="184" y2="108"/>
+      <line x1="296" y1="64" x2="296" y2="108"/>
+    </g>
+    <g id="days" stroke-width="5">
+      <rect x="152" y="190" width="38" height="34" rx="7" fill="#BFDBFE"/>
+      <rect x="221" y="190" width="38" height="34" rx="7" fill="#BFDBFE"/>
+      <rect x="290" y="190" width="38" height="34" rx="7" fill="#FFC93C"/>
+      <rect x="152" y="246" width="38" height="34" rx="7" fill="#BFDBFE"/>
+      <rect x="221" y="246" width="38" height="34" rx="7" fill="#BFDBFE"/>
+      <rect x="290" y="246" width="38" height="34" rx="7" fill="#BFDBFE"/>
+    </g>
+  </g>
+</svg>

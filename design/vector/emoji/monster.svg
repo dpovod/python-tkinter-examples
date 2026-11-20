@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path id="horn-left" d="M170 92 L152 28 L212 66 Z" fill="#FDE68A"/>
+    <path id="horn-right" d="M310 92 L328 28 L268 66 Z" fill="#FDE68A"/>
+    <circle id="body" cx="240" cy="190" r="140" fill="#A78BFA"/>
+    <circle cx="240" cy="150" r="52" fill="#FFFFFF"/>
+    <circle cx="240" cy="154" r="26" fill="#86EFAC"/>
+    <circle cx="240" cy="154" r="11" fill="#23222B" stroke="none"/>
+    <path id="mouth" d="M158 236 Q240 335 322 236 Z" fill="#23222B"/>
+    <g id="teeth" fill="#FFFFFF" stroke-width="4">
+      <path d="M176 238 L202 238 L190 266 Z"/>
+      <path d="M214 238 L240 238 L226 274 Z"/>
+      <path d="M244 238 L270 238 L256 274 Z"/>
+      <path d="M278 238 L304 238 L290 266 Z"/>
+    </g>
+  </g>
+</svg>

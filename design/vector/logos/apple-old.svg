@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <!-- Старий кольоровий знак: те саме яблуко, розрізане на шість кольорових смуг -->
+  <defs>
+    <clipPath id="apple-clip">
+      <path d="M175 360 C160 358 135 340 105 346 C55 355 18 400 18 462 C18 530 62 596 90 618 C108 632 128 626 148 618 C160 612 172 610 185 612 C200 614 215 626 235 626 C255 626 275 610 295 575 C305 558 315 540 321 525 A76 76 0 0 1 312 380 C290 352 260 340 235 345 C215 348 195 358 175 360 Z"/>
+    </clipPath>
+  </defs>
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" transform="translate(240 190) scale(0.7) translate(-170 -444)">
+    <g clip-path="url(#apple-clip)">
+      <rect id="band-1" x="0" y="330" width="340" height="62" fill="#61BB46"/>
+      <rect id="band-2" x="0" y="392" width="340" height="50" fill="#FDB827"/>
+      <rect id="band-3" x="0" y="442" width="340" height="50" fill="#F5821F"/>
+      <rect id="band-4" x="0" y="492" width="340" height="50" fill="#E03A3E"/>
+      <rect id="band-5" x="0" y="542" width="340" height="50" fill="#963D97"/>
+      <rect id="band-6" x="0" y="592" width="340" height="60" fill="#009DDC"/>
+    </g>
+    <path id="leaf" fill="#61BB46" d="M168 338 C165 300 195 262 243 256 C245 296 215 332 168 338 Z"/>
+  </g>
+</svg>

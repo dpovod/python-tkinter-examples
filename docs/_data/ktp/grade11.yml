@@ -22,5 +22,5 @@ groups:
   - title: "Тема 4. Векторна графіка"
     semester: 2
     topics: ["Векторний графічний редактор", "Шари", "Робота з текстом, макетування"]
-    lessons: []
-    resources: []
+    lessons: [vector, vector-inkscape, vector-marks, vector-emoji, vector-logos, vector-weather, vector-icons, vector-animation]
+    resources: [inkscape]

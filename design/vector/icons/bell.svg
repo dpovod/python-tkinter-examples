@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#FFFFFF"/>
+  <g id="art" stroke="#23222B" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle id="knob" cx="240" cy="78" r="13" fill="#FFC93C"/>
+    <path id="body" fill="#FFC93C" d="M240 92 C198 92 180 134 180 186 C180 226 170 248 148 266 L332 266 C310 248 300 226 300 186 C300 134 282 92 240 92 Z"/>
+    <path id="shine" fill="none" stroke="#FFFFFF" stroke-width="9" d="M206 140 C198 160 197 184 199 208"/>
+    <rect id="lip" x="136" y="262" width="208" height="22" rx="11" fill="#F59E0B"/>
+    <path id="clapper" fill="#FB923C" d="M221 288 A19 19 0 0 0 259 288 Z"/>
+  </g>
+</svg>
