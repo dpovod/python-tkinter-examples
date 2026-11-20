@@ -662,7 +662,7 @@ html.sbx-scroll-lock, html.sbx-scroll-lock body { overflow: hidden; overscroll-b
 
   /* таблиці — чипи */
   .sbx-tables { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 12px 12px; }
-  .sbx-table { background: var(--surface); border: 2px solid var(--text); border-radius: var(--radius-row); }
+  .sbx-table { background: var(--surface); border: 2px solid var(--text); border-radius: var(--radius-row); overflow: hidden; }   /* підсвітка «⋯» не виходить за заокруглення */
   .sbx-table.is-sel { flex: 1 1 100%; background: var(--level-extra-bg); }
   .sbx-table.is-sel > .sbx-trow { background: none; }
   .sbx-table:not(.is-sel) .sbx-fields { display: none; }
