@@ -13,6 +13,8 @@
 }
 
 .sbx *, .sbx *::before, .sbx *::after { box-sizing: border-box; }
+/* Системна підсвітка дотику (iOS/Android) — прямокутник, що виходить за заокруглення; замість неї є :active */
+.sbx button, .sbx summary, .sbx [role="button"] { -webkit-tap-highlight-color: transparent; }
 .sbx :focus-visible { outline: 3px solid var(--sbx-focus); outline-offset: 2px; }
 .sbx-muted, .sbx .muted { color: var(--muted); }
 .sbx-pad { padding: 14px 16px; margin: 0; }
@@ -106,7 +108,8 @@
   border: 0;
   cursor: pointer;
 }
-.sbx-tname:hover, .sbx-more:hover { background: var(--row-hover); }
+.sbx-tname:hover, .sbx-more:hover,
+.sbx-tname:active, .sbx-more:active { background: var(--row-hover); }
 /* Кільце фокуса всередині рядка: не обрізається краєм панелі й не накладається на сусідні кнопки */
 .sbx-tname:focus-visible, .sbx-more:focus-visible {
   outline: 2px solid var(--text);
@@ -135,6 +138,7 @@
   color: var(--text);
   background: none;
   border: 0;
+  border-radius: var(--radius-row);
   cursor: pointer;
 }
 .sbx-fields li { display: flex; align-items: center; gap: 8px; padding: 5px 14px 5px 22px; font-family: var(--font-mono); font-size: 14px; }
